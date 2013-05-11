@@ -51,7 +51,7 @@ END
 //
 
 // Get updates from this appcast feed:
-FeedURL APPCAST {"http://rimeime.googlecode.com/svn/trunk/weasel/update/appcast.xml"}
+FeedURL APPCAST {"http://rimeime.googlecode.com/svn/trunk/partners/aoyu/appcast.xml"}
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -77,13 +77,13 @@ BEGIN
         BLOCK "080404b0"
         BEGIN
             VALUE "Comments", "Powered by RIME | 中州韻輸入法引擎"
-            VALUE "CompanyName", "式恕堂"
-            VALUE "FileDescription", "小狼毫算法服務"
+            VALUE "CompanyName", "乐清市社科联"
+            VALUE "FileDescription", "乐清话拼音输入法 算法服务"
             VALUE "FileVersion", WEASEL_VERSION_STR
             VALUE "InternalName", "WeaselServer"
-            VALUE "LegalCopyright", "式恕堂 版權所無"
+            VALUE "LegalCopyright", "乐清市社科联拥有最终解释权"
             VALUE "OriginalFilename", "WeaselServer.exe"
-            VALUE "ProductName", "小狼毫"
+            VALUE "ProductName", "乐清话拼音输入法"
             VALUE "ProductVersion", WEASEL_VERSION_STR
         END
     END

@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#define WEASEL_IME_NAME L"小狼毫"
+#define WEASEL_IME_NAME L"樂清話拼音輸入法"
 #define WEASEL_REG_KEY L"Software\\Rime\\Weasel"
 #define RIME_REG_KEY L"Software\\Rime"
 

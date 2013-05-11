@@ -25,11 +25,11 @@ if %build_all% == 1 (
   copy %work%\LICENSE.txt output\
   copy %work%\README.txt output\
   copy %work%\brise\essay.kct output\data\
-  copy %work%\brise\default.yaml output\data\
-  copy %work%\brise\symbols.yaml output\data\
-  copy %work%\brise\preset\*.yaml output\data\
-  copy %work%\brise\supplement\*.yaml output\data\
-  copy %work%\brise\extra\*.yaml output\expansion\
+  rem copy %work%\brise\default.yaml output\data\
+  rem copy %work%\brise\symbols.yaml output\data\
+  rem copy %work%\brise\preset\*.yaml output\data\
+  rem copy %work%\brise\supplement\*.yaml output\data\
+  rem copy %work%\brise\extra\*.yaml output\expansion\
 )
 
 if %build_all% == 1 (

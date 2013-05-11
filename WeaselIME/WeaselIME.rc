@@ -70,24 +70,24 @@ BEGIN
     BEGIN
         BLOCK "040404b0"
         BEGIN
-            VALUE "CompanyName", "式恕堂"
-            VALUE "FileDescription", "小狼毫輸入法"
+            VALUE "CompanyName", "樂清市社科聯"
+            VALUE "FileDescription", "樂清話拼音輸入法"
             VALUE "FileVersion", WEASEL_VERSION_STR
-            VALUE "InternalName", "Weasel"
-            VALUE "LegalCopyright", "式恕堂 版權所無"
+            VALUE "InternalName", "Aoyu"
+            VALUE "LegalCopyright", "樂清市社科聯擁有最終解釋權"
             VALUE "OriginalFilename", "weasel.ime"
-            VALUE "ProductName", "小狼毫"
+            VALUE "ProductName", "樂清話拼音輸入法"
             VALUE "ProductVersion", WEASEL_VERSION_STR
         END
         BLOCK "080404b0"
         BEGIN
-            VALUE "CompanyName", "式恕堂"
-            VALUE "FileDescription", "小狼毫輸入法"
+            VALUE "CompanyName", "乐清市社科联"
+            VALUE "FileDescription", "乐清话拼音输入法"
             VALUE "FileVersion", WEASEL_VERSION_STR
-            VALUE "InternalName", "Weasel"
-            VALUE "LegalCopyright", "式恕堂 版權所無"
+            VALUE "InternalName", "Aoyu"
+            VALUE "LegalCopyright", "乐清市社科联拥有最终解释权"
             VALUE "OriginalFilename", "weasel.ime"
-            VALUE "ProductName", "小狼毫"
+            VALUE "ProductName", "乐清话拼音输入法"
             VALUE "ProductVersion", WEASEL_VERSION_STR
         END
     END

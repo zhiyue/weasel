@@ -99,7 +99,7 @@ LRESULT SwitcherSettingsDialog::OnOK(WORD, WORD code, HWND, BOOL&) {
 			}
 		}
 		if (selection.empty()) {
-			MessageBox(L"至少要選用一項吧。", L"小狼毫不是這般用法", MB_OK | MB_ICONEXCLAMATION);
+			MessageBox(L"至少要選用一項吧。", L"", MB_OK | MB_ICONEXCLAMATION);
 			return 0;
 		}
 		settings_->Select(selection);

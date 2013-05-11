@@ -420,7 +420,7 @@ int install(bool hant, bool silent)
 	if (retval)
 		return 1;
 
-	if (!silent) MessageBox(NULL, L"可以使【小狼毫】寫字了 :)", L"安裝完成", MB_ICONINFORMATION | MB_OK);
+	if (!silent) MessageBox(NULL, L"可以用樂清話拼音輸入法寫字了 :)", L"安裝完成", MB_ICONINFORMATION | MB_OK);
 	return 0;
 }
 
@@ -438,7 +438,7 @@ int uninstall(bool silent)
 	if (retval)
 		return 1;
 
-	if (!silent) MessageBox(NULL, L"小狼毫 :)", L"卸載完成", MB_ICONINFORMATION | MB_OK);
+	if (!silent) MessageBox(NULL, L"樂清話拼音輸入法", L"卸載完成", MB_ICONINFORMATION | MB_OK);
 	return 0;
 }
 
