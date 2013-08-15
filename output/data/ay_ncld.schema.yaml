@@ -4,15 +4,15 @@
 schema:
   schema_id: ay_ncld
   name: 樂清柳東口音
-  version: "0.13"
+  version: "0.13.1"
   author:
-    - 寒逸 <babieouyu@gmail.com>
+    - 寒逸 <hanyilfg@gmail.com>
   description: |
     適用於樂清柳東地區
     製作人：
       * 字音表:寒逸
       * 詞彙表:寒逸
-      *
+
   dependencies:
     - luna_pinyin
 
@@ -70,7 +70,9 @@ speller:
 translator:
   dictionary: ay_ncld
   preedit_format:
-    - xform/([nljqxy])v/$1ü/
+    - xform/v/$1ü/
+    - xform/\<([jqxy]r?)u\>/$1ü/
+    - xform/\Br/$1'/
 
 reverse_lookup:
   dictionary: luna_pinyin
@@ -79,7 +81,6 @@ reverse_lookup:
   preedit_format:
     - xform/([nljqxy])v/$1ü/
   comment_format:
-    - xform/([nl])v/$1ü/
 
 punctuator:
   import_preset: default
