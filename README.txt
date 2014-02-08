@@ -11,7 +11,7 @@ RIME 項目主頁：http://code.google.com/p/rimeime/
 ----------------------------------------------------------
 樂清話拼音輸入法製作人
 
-* 柳東口音字音表及詞庫: 寒逸
+* 字音表及詞庫: 寒逸
 * 輸入法程序製作人: 佛振
 * 輸入法推廣方: 樂清市社科聯&樂清維科網  周健
 * 相關合作事項請聯繫: 周健
@@ -40,17 +40,14 @@ RIME 項目主頁：http://code.google.com/p/rimeime/
 http://code.google.com/p/rimeime/w/list
 
 ----------------------------------------------------------
-更新日誌
-
-樂清話拼音輸入法 1.0 <2013-05-11>
-  基於【小狼毫】0.9.22.1 製作
-
-----------------------------------------------------------
 致謝
 
 輸入方案設計：
   * 【倉頡五代】發明人 朱邦復先生
   * 【五笔86】發明人 王永民先生
+  * 【朙月拼音】及【八股文】詞典
+    數據來源於 CC-CEDICT、Android 拼音、新酷音、opencc 等開源項目
+    維護者 佛振 瑾昀
 
 程序設計：
   * 佛振 <chen.sst@gmail.com>
@@ -58,16 +55,19 @@ http://code.google.com/p/rimeime/w/list
   * BYVoid <byvoid.kcp@gmail.com>
   * wishstudio <wishstudio@gmail.com>
 
-本軟件引用了以下開源項目：
-  * Boost C++ Libraries
-  * darts-clone
-  * google-glog
-  * Google Test
-  * Kyoto Cabinet
-  * opencc / 開放中文轉換
-  * UTF8-CPP
-  * Windows Template Library
-  * WinSparkle
-  * yaml-cpp
+美術：
+  * 圖標設計 Patricivs
+  * 配色方案 Aben、P1461、Patricivs、skoj、佛振、五磅兔
+
+本品引用了以下開源軟件：
+  * Boost C++ Libraries  (Boost Software License)
+  * darts-clone  (New BSD License)
+  * google-glog  (New BSD License)
+  * Google Test  (New BSD License)
+  * Kyoto Cabinet  (GNU Public License)
+  * opencc / 開放中文轉換  (Apache License 2.0)
+  * UTF8-CPP  (Boost Software License)
+  * WinSparkle  (MIT License)
+  * yaml-cpp  (MIT License)
 
 ----------------------------------------------------------

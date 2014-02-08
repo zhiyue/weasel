@@ -22,7 +22,7 @@ VIAddVersionKey /LANG=2052 "LegalCopyright" "樂清市社科聯擁有最終解�
 VIAddVersionKey /LANG=2052 "FileDescription" "樂清話拼音輸入法"
 VIAddVersionKey /LANG=2052 "FileVersion" "${WEASEL_VERSION}"
 
-Icon zhung.ico
+Icon ..\resource\weasel.ico
 SetCompressor /SOLID lzma
 
 ; The default installation directory
@@ -56,6 +56,7 @@ Function .onInit
   "UninstallString"
   StrCmp $R0 "" done
 
+  IfSilent uninst 0
   MessageBox MB_OKCANCEL|MB_ICONINFORMATION \
   "安裝前，需要卸載舊版本。$\n$\n按下「確定」移除舊版本，按下「取消」放棄本次安裝。" \
   IDOK uninst
@@ -116,6 +117,7 @@ program_files:
   File "WeaselSetupx64.exe"
   File "libglog.dll"
   File "opencc.dll"
+  File "rime.dll"
   File "WinSparkle.dll"
   File "zlib1.dll"
   ; shared data files
@@ -138,9 +140,12 @@ program_files:
   SetOutPath $INSTDIR
 
   ; test /T flag for zh_TW locale
-  StrCpy $R2  "/s"
+  StrCpy $R2  "/i"
   ${GetParameters} $R0
   ClearErrors
+  ${GetOptions} $R0 "/S" $R1
+  IfErrors +2 0
+  StrCpy $R2 "/s"
   ${GetOptions} $R0 "/T" $R1
   IfErrors +2 0
   StrCpy $R2 "/t"
@@ -166,6 +171,7 @@ SectionEnd
 ; Optional section (can be disabled by the user)
 Section "Start Menu Shortcuts"
 
+  SetShellVarContext all
   CreateDirectory "$SMPROGRAMS\樂清話拼音輸入法"
   CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\說明書.lnk" "$INSTDIR\README.txt"
   CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\輸入法設定.lnk" "$INSTDIR\WeaselDeployer.exe" "" "$SYSDIR\shell32.dll" 21
@@ -175,6 +181,12 @@ Section "Start Menu Shortcuts"
   CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\啓動算法服務.lnk" "$INSTDIR\WeaselServer.exe" "" "$INSTDIR\WeaselServer.exe" 0
   CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\用戶文件夾.lnk" "$INSTDIR\WeaselServer.exe" "/userdir" "$SYSDIR\shell32.dll" 126
   CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\程序文件夾.lnk" "$INSTDIR\WeaselServer.exe" "/weaseldir" "$SYSDIR\shell32.dll" 19
+  CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\檢查新版本.lnk" "$INSTDIR\WeaselServer.exe" "/update" "$SYSDIR\shell32.dll" 13
+  ${If} ${RunningX64}
+    CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\安裝選項.lnk" "$INSTDIR\WeaselSetupx64.exe" "" "$SYSDIR\shell32.dll" 162
+  ${Else}
+    CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\安裝選項.lnk" "$INSTDIR\WeaselSetup.exe" "" "$SYSDIR\shell32.dll" 162
+  ${EndIf}
   CreateShortCut "$SMPROGRAMS\樂清話拼音輸入法\卸載樂清話拼音輸入法.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
 
 SectionEnd
@@ -207,6 +219,7 @@ Section "Uninstall"
   RMDir /REBOOTOK "$INSTDIR\data\preview"
   RMDir /REBOOTOK "$INSTDIR\data"
   RMDir /REBOOTOK "$INSTDIR"
+  SetShellVarContext all
   Delete /REBOOTOK "$SMPROGRAMS\樂清話拼音輸入法\*.*"
   RMDir /REBOOTOK "$SMPROGRAMS\樂清話拼音輸入法"
 

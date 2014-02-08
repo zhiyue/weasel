@@ -12,7 +12,6 @@
 #include <boost/lambda/bind.hpp>
 #include <boost/lambda/lambda.hpp>
 #include <boost/scoped_ptr.hpp>
-#include <rime_api.h>
 
 CAppModule _Module;
 
@@ -36,6 +35,12 @@ public:
 
 	static bool check_update()
 	{
+		// when checked manually, show testing versions too
+		std::string feed_url = GetCustomResource("ManualUpdateFeedURL", "APPCAST");
+		if (!feed_url.empty())
+		{
+			win_sparkle_set_appcast_url(feed_url.c_str());
+		}
 		win_sparkle_check_update_with_ui();
 		return true;
 	}
@@ -115,6 +120,16 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 	// 防止服务进程开启输入法
 	ImmDisableIME(-1);
 
+	{
+		WCHAR user_name[20] = {0};
+		DWORD size = _countof(user_name);
+		GetUserName(user_name, &size);
+		if (!_wcsicmp(user_name, L"SYSTEM"))
+		{
+			return 1;
+		}
+	}
+
 	HRESULT hRes = ::CoInitialize(NULL);
 	// If you are running on NT 4.0 or higher you can use the following call instead to 
 	// make the EXE free threaded. This means that calls come in on a random RPC thread.
@@ -141,8 +156,6 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 		return 0;
 	}
 
-	RimeSetupLogging("rime.weasel");
-
 	// command line option /q stops the running server
 	bool quit = !wcscmp(L"/q", lpstrCmdLine) || !wcscmp(L"/quit", lpstrCmdLine);
 	// restart if already running
@@ -154,6 +167,12 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 		}
 		if (quit)
 			return 0;
+	}
+
+	bool check_updates = !wcscmp(L"/update", lpstrCmdLine);
+	if (check_updates)
+	{
+		WeaselServerApp::check_update();
 	}
 
 	CreateDirectory(WeaselUserDataPath().c_str(), NULL);

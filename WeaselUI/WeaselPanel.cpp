@@ -5,8 +5,9 @@
 
 #include "VerticalLayout.h"
 #include "HorizontalLayout.h"
+#include "FullScreenLayout.h"
 
-// for IDI_ENABLED, IDI_ALPHA
+// for IDI_ZH, IDI_EN
 #include "../WeaselServer/resource.h"
 
 using namespace weasel;
@@ -69,9 +70,9 @@ WeaselPanel::WeaselPanel(weasel::UI &ui)
 	m_style.hilited_label_text_color = HIGHLIGHTED_CAND_TEXT_COLOR;
 	m_style.hilited_comment_text_color = HIGHLIGHTED_CAND_TEXT_COLOR;
 
-	m_iconDisabled.LoadIconW(IDI_DISABLED, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
-	m_iconEnabled.LoadIconW(IDI_ENABLED, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
-	m_iconAlpha.LoadIconW(IDI_ALPHA, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
+	m_iconDisabled.LoadIconW(IDI_RELOAD, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
+	m_iconEnabled.LoadIconW(IDI_ZH, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
+	m_iconAlpha.LoadIconW(IDI_EN, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
 }
 
 WeaselPanel::~WeaselPanel()
@@ -93,15 +94,35 @@ void WeaselPanel::_ResizeWindow()
 	ReleaseDC(dc);
 }
 
-//更新界面
-void WeaselPanel::Refresh()
+void WeaselPanel::_CreateLayout()
 {
 	if (m_layout != NULL)
 		delete m_layout;
-	if (m_style.layout_type == LAYOUT_VERTICAL)
-		m_layout = new VerticalLayout(m_style, m_ctx, m_status);
-	else if (m_style.layout_type == LAYOUT_HORIZONTAL)
-		m_layout = new HorizontalLayout(m_style, m_ctx, m_status);
+
+	Layout* layout = NULL;
+	if (m_style.layout_type == LAYOUT_VERTICAL ||
+		m_style.layout_type == LAYOUT_VERTICAL_FULLSCREEN)
+	{
+		layout = new VerticalLayout(m_style, m_ctx, m_status);
+	}
+	else if (m_style.layout_type == LAYOUT_HORIZONTAL ||
+		m_style.layout_type == LAYOUT_HORIZONTAL_FULLSCREEN)
+	{
+		layout = new HorizontalLayout(m_style, m_ctx, m_status);
+	}
+	if (m_style.layout_type == LAYOUT_VERTICAL_FULLSCREEN ||
+		m_style.layout_type == LAYOUT_HORIZONTAL_FULLSCREEN)
+	{
+		layout = new FullScreenLayout(m_style, m_ctx, m_status, m_inputPos, layout);
+	}
+	m_layout = layout;
+}
+
+//更新界面
+void WeaselPanel::Refresh()
+{
+	_CreateLayout();
+
 	CDCHandle dc = GetDC();
 	long fontHeight = -MulDiv(m_style.font_point, dc.GetDeviceCaps(LOGPIXELSY), 72);
 	CFont font;
