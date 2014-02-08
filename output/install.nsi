@@ -3,7 +3,7 @@
 !include LogicLib.nsh
 !include x64.nsh
 
-!define WEASEL_VERSION 1.1.0
+!define WEASEL_VERSION 1.2.0
 !define WEASEL_BUILD ${WEASEL_VERSION}.0
 
 !define WEASEL_ROOT $INSTDIR\aoyu-${WEASEL_VERSION}
