@@ -1,13 +1,13 @@
 # Rime dictionary
 # encoding: utf-8
 #
-# Aoyu N'ouceng Liudong- 甌語樂清柳東
+# Aoyu N'ouceng Liusi- 甌語樂清柳西
 #
 
 
 
 ---
-name: ay_ncld
+name: ay_ncls
 version: "2014.01.20"
 sort: by_weight
 use_preset_vocabulary: true
@@ -28,7 +28,7 @@ use_preset_vocabulary: true
 鉅	ju
 唃	gou
 苒	jie
-剎	sea
+剎	sa
 啥	sie
 沃	wu	8000
 脹	jye	8000
@@ -43,12 +43,6 @@ use_preset_vocabulary: true
 干	goa	7800
 達	dra	8000
 悲	bai	8800
-蜇	zro	8300
-臧	zro	7500
-葬	zro	8300
-閶	qye
-氅	qye
-菊	crou	8300
 阿	a	8000
 啊	a	9000
 錒	a	
@@ -97,7 +91,8 @@ use_preset_vocabulary: true
 鷗	ao	8000
 嘔	ao	8000
 耦	ao	9000
-耦	nrao	9000
+耦	nrao	8800
+耦	nrou	9000
 藕	ao	9000
 慪	ao	7000
 隅	ao	8000
@@ -118,7 +113,7 @@ use_preset_vocabulary: true
 候	aor	8500
 鮜	aor	5000
 啊	ar	8500
-行	ar	8700
+行	ear	8700
 盒	ar	9000
 恆	ar	8500
 衡	ar	8500
@@ -126,8 +121,7 @@ use_preset_vocabulary: true
 狹	ar	8500
 瑕	ar	
 轄	ar	8700
-挾	ar	8500
-哘	ar	8500
+挾	ear	8500
 荇	ar	
 窄	ar	9000
 巴	ba	7000
@@ -193,7 +187,7 @@ use_preset_vocabulary: true
 𠶓	be	8000	
 掰	bea	8000
 百	bea	9000
-百	be	8500
+百	be	8000
 佰	bea	6000
 柏	bea	8000
 擺	bea	9000
@@ -318,7 +312,7 @@ use_preset_vocabulary: true
 閟	bi	4000
 嗶	bi	8000
 腷	bi	
-痹	bi	8600
+痹	bi	8800
 煏	bi	
 碧	bi	7000
 蔽	bi	7000
@@ -424,17 +418,25 @@ use_preset_vocabulary: true
 缽	bou	
 泊	bou	7000
 勃	bou	7000
+勃	bru	7000
 亳	bou	
+亳	bru
 舶	bou	5000
+舶	bru	5000
 脖	bou	6000
+脖	bru	6000
 博	bou	8000
+博	bru	8000
 葧	bou	
 渤	bou	7000
+渤	bru	7000
 搏	bou	8000
 鈸	bou	
 鉑	bou	7000
+鉑	brea	7000
 駁	bou	6000
 箔	bou	5000
+箔	bru	5000
 膊	bou	
 馞	bou	
 鎛	bou	
@@ -592,6 +594,7 @@ use_preset_vocabulary: true
 灞	broo	4000
 般	broo	6000
 搬	broo	8000
+搬	broa	8500
 傍	broo	6000
 蒡	broo	4000
 箯	broo	
@@ -643,6 +646,7 @@ use_preset_vocabulary: true
 菠	bu	8000
 播	bu	8000
 撥	bu	6000
+撥	bou	7000
 卜	bu	6000
 啵	bu	8000
 逋	bu	4000
@@ -782,12 +786,12 @@ use_preset_vocabulary: true
 鈔	ce	
 參	cea	7500
 慘	cea	8300
-餐	cea	8500
+餐	ca	8500
 驂	cea	
 黲	cea	
-粲	cea	
-璨	cea	7000
-燦	cea	8000
+粲	ca	
+璨	ca	7000
+燦	ca	8000
 冊	cea	7000
 側	cea	7500
 策	cea	7000
@@ -796,21 +800,26 @@ use_preset_vocabulary: true
 拆	cea	9000
 釵	cea	7500
 蠆	cea	
-摻	cea	8000
+摻	ca	8000
 攙	cea	8500
-巉	cea	
-產	cea	7000
+巉	ca	
+產	ca	7000
 滻	cea	
 鏟	cea	
 闡	cea	7800
 剗	cea	8500
 懺	cea	8500
-顫	cea	6500
-償	cea	8000
+懺	qye	8500
+懺	qie	8500
+顫	ca	6500
+償	cea	8300
+償	zrye	8300
 撤	cea	6500
 澈	cea	6500
+澈	ci	7000
 鍘	cea	
 岑	ceng	6000
+岑	zrang	6000
 蹭	ceng	7500
 趁	ceng	8000
 齔	ceng	
@@ -818,6 +827,7 @@ use_preset_vocabulary: true
 偁	ceng	
 稱	ceng	8000
 撐	ceng	8000
+撐	cea	8000
 懲	ceng	7000
 逞	ceng	8000
 秤	ceng	9000
@@ -826,9 +836,11 @@ use_preset_vocabulary: true
 摛	ceng	
 菁	ceng	8000
 婧	ceng	7000
+婧	zeng	7000
 綮	ceng	
 嶔	ceng	
 駸	ceng	6000
+駸	cang	6000
 捦	ceng	
 琹	ceng	
 懃	ceng	
@@ -839,10 +851,12 @@ use_preset_vocabulary: true
 圊	ceng	
 清	ceng	8500
 蜻	ceng	8000
+蜻	cang	8000
 勍	ceng	
 啨	ceng	8000
 廎	ceng	
 請	ceng	9000
+請	cang	9000
 凊	ceng	
 箐	ceng	8000
 慶	ceng	8000
@@ -850,6 +864,7 @@ use_preset_vocabulary: true
 罄	ceng	6000
 常	ceng	8300
 欽	ceng	7500
+欽	cang	7500
 礃	ceng	
 礤	ci	5000
 猜	ci	9000
@@ -869,6 +884,26 @@ use_preset_vocabulary: true
 惻	ci	6000
 齰	ci	
 鰂	ci	5000
+差	ci	8000
+礤	cea	5000
+猜	cea	9000
+采	cea	8000
+採	cea	9000
+啋	cea	7800
+彩	cea	8000
+寀	cea	
+睬	cea	5000
+綵	cea	4000
+踩	cea	7500
+菜	cea	9000
+蔡	cea	8000
+側	cea	6000
+廁	cea	8000
+測	cea	7000
+惻	cea	6000
+齰	cea	
+鰂	cea	5000
+差	cea	8000
 倉	co	7000
 凔	co	
 蒼	co	8000
@@ -1036,6 +1071,7 @@ use_preset_vocabulary: true
 裙	crang	9000
 群	crang	8000
 晟	crang	5500
+晟	creng	5500
 湛	crang	6500
 掙	crang	8000
 賺	crang	8000
@@ -1061,33 +1097,41 @@ use_preset_vocabulary: true
 巰	crao	
 賕	crao	
 僽	crao	5000
-殘	crea	7000
+殘	cra	7000
 慚	crea	8000
+慚	cra	8000
 垞	crea	4000
 侘	crea	4000
 豺	crea	6000
+豺	cra	6000
 孱	crea	5000
 廛	crea	
 潺	crea	5000
+潺	cra	5000
 嬋	crea	7000
+嬋	cra	7000
 澶	crea	4000
 禪	crea	7000
 蟬	crea	7000
+蟬	cra	7000
 纏	crea	7000
 躔	crea	4500
 讒	crea	6000
+讒	cra	6000
 蕆	crea	
 羼	crea	
 蠶	crea	8000
 韂	crea	5000
-錯	crea	9000
-凙	crea	5500
+錯	cra	9000
+凙	cra	5500
 絕	crea	8000
 鐔	crea	4000
 暫	crea	8000
-擇	crea	8000
-澤	crea	8000
+暫	cra	8000
+擇	cra	8000
+澤	cra	8000
 站	crea	8000
+站	cra	8000
 驏	crea	4000
 晢	crea	8500
 㘁	crea	8000
@@ -1102,6 +1146,7 @@ use_preset_vocabulary: true
 宬	creng	5000
 酲	creng	5000
 澄	creng	7000
+澄	crang	7000
 橙	creng	9000
 溱	creng	5500
 螓	creng	5000
@@ -1127,6 +1172,7 @@ use_preset_vocabulary: true
 藏	croa	
 蟲	crong	9000
 叢	crong	9000
+叢	zong	9000
 藑	crong	
 螽	crong	
 從	crong	
@@ -1136,6 +1182,7 @@ use_preset_vocabulary: true
 嵖	crou	5000
 猹	crou	6000
 惆	crou	7000
+惆	crao	7000
 絀	crou	7000
 搿	crou	
 局	crou	8000
@@ -1151,6 +1198,7 @@ use_preset_vocabulary: true
 踹	cwe	
 窗	cwe	
 咑	da	7500
+咑	dea	7500
 耷	da	6500
 搭	da	8000
 褡	da	7000
@@ -1163,6 +1211,7 @@ use_preset_vocabulary: true
 薘	da	
 鐽	da	
 打	da	9000
+打	dea	9000
 汏	da	6000
 丹	da	
 堆	dai	8000
@@ -1193,6 +1242,7 @@ use_preset_vocabulary: true
 噸	dang	7000
 燉	dang	9000
 礅	dang	7500
+礅	doa	7500
 蹾	dang	6000
 蹲	dang	8000
 鐓	dang	5000
@@ -1202,12 +1252,14 @@ use_preset_vocabulary: true
 砘	dang	5000
 遁	dang	7500
 鈍	dang	7500
+鈍	doa	7500
 楯	dang	6000
 頓	dang	8000
 潡	dang	9000
 沆	dang	7000
 屯	dang	6500
 魨	dang	6500
+魨	doa	6500
 坉	dang	7000
 兜	dao	9000
 蔸	dao	
@@ -1242,10 +1294,10 @@ use_preset_vocabulary: true
 燾	de	
 韜	de	6000
 譸	de	6000
-奲	dea	
+奲	da	
 呆	dea	7500
-歹	dea	8000
-逮	dea	8000
+歹	dei	8000
+逮	dei	8000
 傣	dea	8000
 甙	dea	5000
 岱	dea	7000
@@ -1255,30 +1307,32 @@ use_preset_vocabulary: true
 戴	dea	8000
 黛	dea	7500
 黱	dea	5000
-丹	dea	8000
-眈	dea	5000
-耽	dea	7500
-聃	dea	7500
-單	dea	8000
-鄲	dea	7500
-儋	dea	7000
-殫	dea	7500
-癉	dea	7500
-簞	dea	
-亶	dea	
-撣	dea	9000
-擔	dea	8500
+丹	da	8000
+眈	da	5000
+耽	da	7500
+聃	da	7500
+單	da	8000
+鄲	da	7500
+儋	da	7000
+殫	da	7500
+癉	da	7500
+簞	da	
+亶	da	
+撣	da	9000
+擔	da	8500
 黕	dea	
-膽	dea	9000
-但	dea	7500
-萏	dea	
+膽	da	9000
+但	da	7500
+萏	da	
 蛋	dea	7000
-氮	dea	7500
-誕	dea	8000
-憚	dea	8000
-讜	dea	
+氮	da	7500
+氮	dra	7500
+誕	da	8000
+憚	da	8000
+讜	da	
 坍	dea	8000
-嘽	dea	8500
+坍	ta	8000
+嘽	da	8500
 丁	deng	9000
 仃	deng	7000
 叮	deng	9000
@@ -1298,43 +1352,52 @@ use_preset_vocabulary: true
 錠	deng	7500
 汀	deng	7000
 得	di	9000
+得	dei	8800
 嘚	di	7000
 德	di	8500
+德	dei	8500
 鍀	di	
-的	di	8500
-低	di	8500
-啲	di	7000
-羝	di	7200
-堤	di	8000
-嘀	di	8500
-滴	di	8500
-狄	di	8500
-迪	di	8000
-嫡	di	8200
-鏑	di	7000
-氐	di	7000
-邸	di	8200
-坻	di	8500
-抵	di	9000
-底	di	9000
-柢	di	7000
-砥	di	8200
-詆	di	8200
-骶	di	7000
-俤	di	6000
-帝	di	8200
-菂	di	6000
-敵	di	8200
-蒂	di	7500
-禘	di	7500
-諦	di	8200
-哋	di	7000
-騠	di	7500
-鶗	di	
-樀	di	6000
-謫	di	8000
-蹢	di	6000
-擿	di	7500
+的	dei	8500
+低	dei	8500
+啲	dei	7000
+羝	dei	7200
+堤	dei	8000
+嘀	dei	8500
+滴	dei	8500
+狄	dei	8500
+狄	drei	8500
+迪	dei	8000
+嫡	dei	8200
+嫡	drei	8200
+鏑	dei	7000
+氐	dei	7000
+邸	dei	8200
+坻	dei	8500
+抵	dei	9000
+底	dei	9000
+柢	dei	7000
+砥	dei	8200
+詆	dei	8200
+骶	dei	7000
+俤	dei	6000
+帝	dei	8200
+菂	dei	6000
+敵	dei	8200
+蒂	dei	7500
+禘	dei	7500
+諦	dei	8200
+哋	dei	7000
+騠	dei	7500
+鶗	dei	
+樀	dei	6000
+樀	drei	6000
+謫	dei	8000
+謫	drei	8000
+蹢	dei	6000
+蹢	drei	6000
+擿	dei	7500
+擿	drei	7500
+呧	dei	8700
 滇	die	8000
 蹎	die	7000
 顛	die	8500
@@ -1350,6 +1413,7 @@ use_preset_vocabulary: true
 店	die	9000
 玷	die	7000
 淀	die	8200
+淀	dreng	8200
 惦	die	8000
 殿	die	8000
 澱	die	7000
@@ -1399,12 +1463,14 @@ use_preset_vocabulary: true
 答	doa	8000
 㗳	doa	8000
 掂	doa	8000
+掂	die	8000
 端	doa	9000
 短	doa	9000
 段	doa	8000
 鍛	doa	8000
 煆	doa	
 鱒	doa	8000
+鱒	zoa	8000
 𢯫	doa	8000
 𡁴	doa	8000
 艟	dong	6000
@@ -1422,11 +1488,14 @@ use_preset_vocabulary: true
 峂	dong	6000
 柊	dong	6000
 幢	dong	7000
+幢	drong	7000
 都	dou	8000
 多	dou	9000
 咄	dou	7000
 哆	dou	8000
+哆	drou	8000
 奪	dou	8000
+奪	drou	8000
 朵	dou	8100
 垛	dou	7500
 挆	dou	8100
@@ -1452,13 +1521,17 @@ use_preset_vocabulary: true
 蛋	dra	
 撻	dra	
 踏	dra	9000
+踏	ta	9000
 蹋	dra	9000
+蹋	ta	9000
 闥	dra	
 隊	drai	8000
 乨	drai	9000
 囼	drai	
 頹	drai	8000
+頹	tai	8000
 穨	drai	
+穨	tai
 𠾕	drai	8000
 扽	drang	9000
 鄧	drang	8000
@@ -1468,6 +1541,7 @@ use_preset_vocabulary: true
 籪	drang	8000
 躉	drang	
 盾	drang	8000
+盾	dang	8000
 頓	drang	8000
 滕	drang	7000
 螣	drang	7000
@@ -1479,6 +1553,7 @@ use_preset_vocabulary: true
 屯	drang	8000
 囤	drang	8000
 豚	drang	7800
+豚	droa	7800
 飩	drang	8000
 迍	drang	7000
 痘	drao	8000
@@ -1487,67 +1562,83 @@ use_preset_vocabulary: true
 逗	drao	7000
 𠲴	drao	8000
 氘	dre	4000
+氘	de	4000
 悼	dre	7000
 道	dre	9000
 盜	dre	7500
 稻	dre	9000
 邰	dre	5000
+邰	tei	5000
 絛	dre	4500
+絛	te	4500
 搯	dre	7000
 咷	dre	4500
+咷	te	4500
 逃	dre	9000
 洮	dre	4000
 桃	dre	9000
 陶	dre	8500
 萄	dre	8000
 啕	dre	8500
+啕	te	8500
 淘	dre	8000
 鞀	dre	
+鞀	te
 綯	dre	6000
+綯	te	6000
 醄	dre	4500
+醄	te	4500
 祧	dre	
+祧	tye
 髫	dre	
+髫	tye
 糶	dre	5000
-怛	drea	6500
-笪	drea	6000
+怛	dra	6500
+笪	dra	6000
 大	drea	7900
+大	drou	9000
 殆	drea	6500
-疸	drea	7000
+殆	di	6500
+殆	dri	6500
+疸	dra	7000
 旦	drea	8000
-但	drea	8000
-疍	drea	
-啖	drea	6000
-淡	drea	9000
+旦	da	8000
+但	dra	8000
+疍	dra	
+啖	dra	6000
+淡	dra	9000
 蛋	drea	8000
 嘾	drea	8000
-彈	drea	8000
-澹	drea	8000
-禫	drea	6000
-贉	drea	6000
+彈	dra	8000
+澹	dra	8000
+禫	dra	6000
+贉	dra	6000
 宕	drea	7900
-菪	drea	7000
-磹	drea	6000
+宕	drea	7900
+宕	dra	7900
+菪	dra	7000
+磹	dra	6000
 爹	drea	9000
-圪	drea	
+圪	dra	
 嬗	drea	6000
 倓	drea	7500
-郯	drea	7500
-埮	drea	7500
-覃	drea	8100
-榃	drea	
-痰	drea	8000
-談	drea	8000
-潭	drea	8500
-壇	drea	7900
-曇	drea	
-檀	drea	8000
-罈	drea	7900
-醰	drea	6000
+郯	dra	7500
+埮	dra	7500
+覃	dra	8100
+榃	dra	
+痰	dra	8000
+談	dra	8000
+潭	dra	8500
+壇	dra	7900
+曇	dra	
+檀	dra	8000
+罈	dra	7900
+醰	dra	6000
 坦	drea	8000
-賧	drea	
-鐔	drea	6000
-燂	drea	6500
-掞	drea	7500
+賧	dra	
+鐔	dra	6000
+燂	dra	6500
+掞	dra	7500
 梴	dreng	
 鋋	dreng	
 定	dreng	8500
@@ -1571,60 +1662,63 @@ use_preset_vocabulary: true
 脡	dreng	6000
 頲	dreng	
 掟	dreng	8500
-代	dri	8000
-玳	dri	6000
-待	dri	8000
-軑	dri	
-埭	dri	7500
-袋	dri	9000
-紿	dri	6000
-貸	dri	8000
-襶	dri	
-靆	dri	
+代	drei	8000
+玳	drei	6000
+待	drei	8000
+軑	drei	
+埭	drei	7500
+袋	drei	9000
+紿	drei	6000
+貸	drei	8000
+襶	drei	
+靆	drei	
 荻	dri	8000
-笛	dri	8000
+笛	drei	8000
 滌	dri	7000
-敵	dri	8000
-糴	dri	
-地	dri	8000
-弟	dri	8500
-娣	dri	7000
-第	dri	8000
-棣	dri	6000
-遞	dri	8500
-碲	dri	6000
-締	dri	7100
-踶	dri	7100
-諦	dri	8000
-嵽	dri	6000
-哋	dri	
-咍	dri	8000
-台	dri	8000
-抬	dri	9000
-苔	dri	7000
-炱	dri	5000
-跆	dri	7000
-臺	dri	8000
-颱	dri	7100
-駘	dri	5000
-儓	dri	6000
-鮐	dri	6000
-薹	dri	
-特	dri	8000
+敵	drei	8000
+糴	drei	
+地	drei	8000
+地	dri	8800
+弟	drei	8500
+娣	drei	7000
+第	drei	8000
+棣	drei	6000
+遞	drei	8500
+碲	drei	6000
+締	drei	7100
+踶	drei	7100
+諦	drei	8000
+嵽	drei	6000
+哋	drei	
+咍	drei	8000
+台	drei	8000
+抬	drei	9000
+苔	drei	7000
+炱	drei	5000
+跆	drei	7000
+臺	drei	8000
+颱	drei	7100
+駘	drei	5000
+儓	drei	6000
+鮐	drei	6000
+薹	drei	
+特	drei	8000
+提	drei	8500
 提	dri	8500
-啼	dri	8000
-遆	dri	6000
-緹	dri	6000
-醍	dri	7000
-蹄	dri	8000
-題	dri	9000
-鵜	dri	6000
-逖	dri	6000
-悌	dri	7000
+啼	drei	8000
+遆	drei	6000
+緹	drei	6000
+醍	drei	7000
+蹄	drei	8000
+題	drei	9000
+鵜	drei	6000
+逖	drei	6000
+悌	drei	7000
 替	dri	9000
 替	drei	9000
 翟	dri	6000
-檯	dri	7500
+翟	di	6000
+檯	drei	7500
 佃	drie	7000
 甸	drie	8000
 奠	drie	8000
@@ -1648,6 +1742,14 @@ use_preset_vocabulary: true
 媠	driu	8000
 頭	driu	9000
 哣	driu	8000
+銩	drou	
+剅	drou	
+豆	drou	9000
+脰	drou	
+餖	drou	
+媠	drou	8000
+頭	drou	9000
+哣	drou	8000
 當	dro	7000
 蕩	dro	8000
 瞊	dro	7000
@@ -1740,17 +1842,21 @@ use_preset_vocabulary: true
 大	dru	9000
 杕	dru	6000
 毒	dru	8500
+毒	drou	8500
 獨	dru	8500
+獨	drou	8500
 瀆	dru	8000
 櫝	dru	7000
 牘	dru	7000
 讀	dru	9000
+途	dru	8600
+途	drv	8600
+讀	drao	8800
+讀	drou	9000
 黷	dru	7000
 杜	dru	8500
 荼	dru	7000
 釷	dru	6000
-途	dru	8600
-途	drv	8600
 犢	drv	7500
 篤	drv	7500
 杜	drv	8500
@@ -1777,12 +1883,25 @@ use_preset_vocabulary: true
 窕	drye	7000
 銚	drye	7000
 𠺧	drye	8000
+鯛	dye	7500
+調	drwe	9000
+迢	drwe	8000
+條	drwe	8500
+笤	drwe	7000
+蓨	drwe	7000
+齠	drwe	7000
+鰷	drwe	7500
+窕	drwe	7000
+銚	drwe	7000
+𠺧	drwe	8000
 督	du	8500
+督	dv	8500
 嘟	du	8000
 髑	du	7000
 讟	du	6000
 蠹	du	6000
 都	dv	8500
+都	dao	8500
 闍	dv	
 堵	dv	9000
 睹	dv	8000
@@ -1808,9 +1927,11 @@ use_preset_vocabulary: true
 釣	dye	9000
 銱	dye	
 堞	dye	6000
+堞	drye	6000
 喋	dye	7000
 喋	drye	7000
 惵	dye	6000
+惵	drye
 蝶	dye	7200
 蝶	drye	7200
 蜩	dye	6000
@@ -1826,6 +1947,8 @@ use_preset_vocabulary: true
 謷	e	
 鼇	e	
 奧	e	7000
+奧	hre	7000
+奧	er	7000
 慠	e	8500
 澳	e	8000
 懊	e	8500
@@ -1863,6 +1986,8 @@ use_preset_vocabulary: true
 挨	ea	8500
 捱	ea	8500
 癌	ea	8000
+癌	nrea	8000
+癌	ear	8000
 矮	ea	9000
 藹	ea	8000
 靄	ea	7000
@@ -1879,14 +2004,14 @@ use_preset_vocabulary: true
 暍	ea	7000
 欸	ear	
 嚡	ear	8000
-劾	ear	6000
-閡	ear	
-鹹	ear	
+劾	oar	6000
+閡	oar	
+鹹	ar	
 貉	ear	6000
-咸	ear	9000
-閒	ear	9000
-啣	ear	
-鷳	ear	
+咸	ar	9000
+閒	ar	9000
+啣	ar	
+鷳	ar	
 鞋	ear	9000
 諧	ear	8000
 懈	ear	6000
@@ -1945,54 +2070,59 @@ use_preset_vocabulary: true
 奮	fang	8000
 糞	fang	7500
 瀵	fang	6000
-帆	fea	8500
+帆	fa	8500
 番	fea	8500
-蕃	fea	8200
+番	fa	8500
+蕃	fa	8200
 噃	fea	8500
-幡	fea	8000
-藩	fea	8200
-翻	fea	8500
-璠	fea	8000
+噃	fa	8500
+幡	fa	8000
+藩	fa	8200
+翻	fa	8500
+璠	fa	8000
 膰	fea	9000
 蹯	fea	8000
 鐇	fea	6000
-反	fea	8500
-返	fea	8500
-范	fea	8500
-犯	fea	8500
-梵	fea	8000
-販	fea	8200
-廢	fi	8500
-飜	fi	
-妃	fi	8000
-非	fi	8500
-飛	fi	9000
-菲	fi	8000
-啡	fi	8500
-扉	fi	8000
-蜚	fi	8000
-緋	fi	8000
-霏	fi	8000
-騑	fi	
-鯡	fi	8000
-腓	fi	8000
-匪	fi	8500
-悱	fi	
-棐	fi	8000
-斐	fi	8000
-榧	fi	
-翡	fi	8000
-誹	fi	7000
-篚	fi	
-芾	fi	
-吠	fi	8000
-肺	fi	8500
-狒	fi	8000
-沸	fi	8000
-剕	fi	8000
-費	fi	8000
-痱	fi	8500
-鐨	fi	
+膰	fa	9000
+蹯	fa	8000
+鐇	fa	6000
+反	fa	8500
+返	fa	8500
+范	fa	8500
+犯	fa	8500
+梵	fa	8000
+販	fa	8200
+廢	fei	8500
+飜	fei	
+妃	fei	8000
+非	fei	8500
+飛	fei	9000
+菲	fei	8000
+啡	fei	8500
+扉	fei	8000
+蜚	fei	8000
+緋	fei	8000
+霏	fei	8000
+騑	fei	
+鯡	fei	8000
+腓	fei	8000
+匪	fei	8500
+悱	fei	
+棐	fei	8000
+斐	fei	8000
+榧	fei	
+翡	fei	8000
+誹	fei	7000
+篚	fei	
+芾	fei	
+吠	fei	8000
+肺	fei	8500
+狒	fei	8000
+沸	fei	8000
+剕	fei	8000
+費	fei	8000
+痱	fei	8500
+鐨	fei	
 方	fo	8000
 㕫	fo	8000
 邡	fo	7500
@@ -2014,12 +2144,15 @@ use_preset_vocabulary: true
 芬	fo	8000
 否	fo	8500
 彷	fo	7500
+芬	fong	8000
+芬	fang	8000
 菶	fong	6500
 琫	fong	
 颿	fong	
 紛	fong	8000
 酚	fong	7000
 汾	fong	7500
+汾	fang	7500
 棼	fong	
 忿	fong	8000
 僨	fong	
@@ -2041,21 +2174,27 @@ use_preset_vocabulary: true
 逢	fong	7500
 浲	fong	
 馮	fong	8500
+馮	wong	8500
 渢	fong	7500
-縫	fong	7500
+縫	fong	8000
+縫	wong	8000
 唪	fong	8500
 諷	fong	8500
 奉	fong	9000
 俸	fong	8000
 鳳	fong	8000
+鳳	feng	8000
 歡	foo	8500
+歡	xue	8500
 讙	foo	
-昏	foo	8500
+讙	xue
+昏	xue	8500
+昏	fang	8500
 㖧	foo	8500
-惛	foo	7000
-婚	foo	8500
-棔	foo	
-閽	foo	
+惛	xue	7000
+婚	xue	8500
+棔	xue	
+閽	xue	
 否	fou	
 虣	fu	
 芾	fu	
@@ -2137,6 +2276,7 @@ use_preset_vocabulary: true
 富	fu	8700
 腹	fu	8300
 複	fu	8600
+複	wu	8600
 駙	fu	8000
 賦	fu	8500
 蝮	fu	8000
@@ -2225,6 +2365,7 @@ use_preset_vocabulary: true
 耿	gang	8000
 哽	gang	8000
 梗	gang	8000
+梗	gea	8000
 綆	gang	
 鯁	gang	7000
 更	gang	8500
@@ -2284,11 +2425,10 @@ use_preset_vocabulary: true
 鄗	ge	7000
 滈	ge	7000
 嗃	ge	8000
-尬	gea	7500
+尬	ga	7500
 賅	gea	
-敢	gea	8500
-澉	gea	
-疙	gea	7500
+澉	goa	
+疙	goa	7500
 胳	gea	7500
 袼	gea	7500
 擱	gea	8000
@@ -2297,7 +2437,8 @@ use_preset_vocabulary: true
 格	gea	8500
 鬲	gea	7000
 隔	gea	8500
-嗝	gea	8500
+隔	ga	8500
+嗝	ga	8500
 滆	gea	7000
 槅	gea	7000
 閤	gea	
@@ -2308,38 +2449,47 @@ use_preset_vocabulary: true
 轕	gea	
 葛	gea	8500
 蛤	gea	7000
+蛤	hoa	7000
 盍	gea	7000
 頜	gea	7000
 鞨	gea	7000
 鶡	gea	
-奸	gea	8000
-姦	gea	8000
+奸	ga	8000
+姦	ga	8000
 間	gea	9000
-監	gea	8500
-艱	gea	8500
-揀	gea	9000
-減	gea	8500
-撿	gea	9000
+間	ga	9000
+間	jie	9000
+監	ga	8500
+艱	ga	8500
+揀	ga	9000
+減	ga	8500
+撿	ga	9000
 襇	gea	7000
 繭	gea	
 簡	gea	8500
+簡	ga	8500
 譾	gea	
 鹼	gea	8500
 鑒	gea	8000
 鑑	gea	8000
+鑒	jie	8000
+鑑	jie	8000
 皆	gea	7500
+皆	jie	7500
 階	gea	8000
 揭	gea	8000
 喈	gea	7000
 街	gea	9000
 湝	gea	7000
 解	gea	9000
+解	jie	9000
 檞	gea	7000
 介	gea	8500
 戒	gea	8500
 玠	gea	
 屆	gea	8500
 界	gea	8500
+界	ga	8500
 蚧	gea	
 骱	gea	
 誡	gea	8200
@@ -2350,28 +2500,29 @@ use_preset_vocabulary: true
 猲	gea	
 齘	gea	
 仡	gea	
-改	gi	9000
+改	gei	9000
 丐	gi	8000
-鈣	gi	8500
-溉	gi	7500
+鈣	gei	8500
+溉	gei	7500
 蓋	gi	8500
 概	gi	8500
-戤	gi	
+戤	gei	
 甘	gi	8000
-苷	gi	7000
+苷	goa	7000
 敢	gi	8500
-感	gi	8500
-橄	gi	8500
-鱤	gi	7000
-鴿	gi	8500
-格	gi	8000
-塥	gi	7500
-葛	gi	8000
+感	goa	8500
+橄	goa	8500
+鱤	goa	7000
+鴿	goa	8500
+格	gea	8000
+塥	gei	7500
+葛	gea	8000
 硌	gi	7000
+硌	gou	7000
 鉻	gi	7000
 根	gi	9000
 嘰	gi	8500
-幾	gi	9000
+幾	gei	9000
 冮	go	7000
 肛	go	8000
 矼	go	7000
@@ -2445,6 +2596,7 @@ use_preset_vocabulary: true
 根	goa	8500
 咁	goa	8500
 瞰	goa	8000
+瞰	hoa	8000
 工	gong	8500
 弓	gong	9000
 公	gong	8500
@@ -2474,14 +2626,22 @@ use_preset_vocabulary: true
 矸	goo	6000
 疳	goo	6500
 漧	goo	6000
-杆	goo	8000
-桿	goo	8000
+玕	goa	6000
+矸	goa	6000
+疳	goa	6500
+漧	goa	6000
+杆	goa	8000
+桿	goa	8000
 趕	goo	8500
 擀	goo	7500
 淦	goo	6500
 紺	goo	6000
+擀	goa	7500
+淦	goa	6500
+紺	goa	6000
 幹	goo	8500
 割	goo	9000
+割	goa	9000
 韝	goo	
 骨	goo	8500
 官	goo	8500
@@ -2491,20 +2651,37 @@ use_preset_vocabulary: true
 關	goo	8000
 觀	goo	8000
 莞	goo	8000
+莞	woo	8000
 痯	goo	6000
+官	goa	8500
+𠴨	goa	8500
+倌	goa	6500
+棺	goa	8500
+關	goa	8000
+觀	goa	8000
+莞	goa	8000
+痯	goa	6000
 管	goo	9000
 輨	goo	6000
 館	goo	9000
 鳤	goo	6500
 冠	goo	8000
+輨	goa	6000
+館	goa	9000
+鳤	goa	6500
+冠	goa	8000
 貫	goo	8000
 摜	goo	7500
 罐	goo	8500
 鸛	goo	7500
+鸛	goa	7500
 虢	goo	6000
 逭	goo	6000
 髖	goo	6500
 乾	goo	9000
+逭	goa	6000
+髖	goa	6500
+乾	goa	9000
 呷	gou	8000
 哥	gou	8500
 歌	gou	8500
@@ -2525,6 +2702,7 @@ use_preset_vocabulary: true
 甲	gou	9000
 假	gou	9000
 賈	gou	8500
+賈	ga	8500
 瘕	gou	
 檟	gou	
 架	gou	9000
@@ -2584,12 +2762,12 @@ use_preset_vocabulary: true
 羖	gu	
 詁	gu	7000
 鼓	gu	9000
-榾	gu	6000
+榾	goo	6000
 鈷	gu	6000
 榖	gu	5000
 嘏	gu	
 穀	gu	8500
-餶	gu	
+餶	goo
 臌	gu	
 瞽	gu	
 盬	gu	
@@ -2624,6 +2802,7 @@ use_preset_vocabulary: true
 鷇	gu	
 絝	gu	7500
 廓	gu	7500
+廓	ku	7500
 腡	gu	8000
 咼	gu	
 堝	gu	
@@ -2635,6 +2814,7 @@ use_preset_vocabulary: true
 緺	gua	7000
 鴰	gua	7000
 剮	gua	8000
+剮	we	8000
 寡	gua	8000
 絓	gua	7000
 褂	gua	7500
@@ -2642,6 +2822,7 @@ use_preset_vocabulary: true
 颳	gua	8500
 括	gua	8500
 栝	gua	7000
+栝	gwe	7000
 皈	guai	7000
 規	guai	8500
 瑰	guai	7500
@@ -2667,24 +2848,29 @@ use_preset_vocabulary: true
 誑	guang	7000
 𠽓	guang	8000
 䜇	guang	9000
-罡	guea	7000
+罡	go	7000
 乖	guea	8000
-拐	guea	8000
+拐	goa	8000
 怪	guea	8500
 𠶔	guea	8500
 關	guea	9000
+關	ga	9000
 鰥	guea	
 毌	guea	6000
+毌	wu	6000
 丱	guea	
-冠	guea	8500
-涫	guea	7000
-慣	guea	8500
+冠	goo	8500
+涫	goa	7000
+慣	gua	8500
 盥	guea	7000
+盥	wa	7000
 灌	guea	8500
+灌	goa	8500
 瓘	guea	7000
-琯	guea	8000
+瓘	goa	7000
+琯	goo	8000
 蟈	guea	7500
-摑	guea	8500
+摑	gua	8500
 餜	guea	
 獾	guea	7500
 驩	guea	
@@ -2720,7 +2906,11 @@ use_preset_vocabulary: true
 哼	hang	8500
 恆	hang	8000
 姮	hang	
-洹	hang	
+洹	hang
+姮	hrang	
+洹	hrang	
+姮	angr	
+洹	angr
 躬	gong	8000
 喉	hao	
 堠	hao	
@@ -2757,9 +2947,12 @@ use_preset_vocabulary: true
 胲	hea	
 喊	hea	8500
 哼	heng	
-荄	hi	
-海	hi	9000
+荄	hi
+荄	ei	
+海	hi	8700
+海	hei	9000
 亥	hi	7000
+亥	ei	7000
 黑	hi	9000
 嘿	hi	8500
 荒	ho	8000
@@ -2781,8 +2974,12 @@ use_preset_vocabulary: true
 鼾	hoa	9000
 邗	hoa	6000
 浛	hoa	
+浛	hroa
+浛	oar
 琀	hoa	6000
 罕	hoa	8500
+罕	hroa	8500
+罕	oar	8500
 喊	hoa	8000
 蔊	hoa	
 旱	hoa	8500
@@ -2792,6 +2989,7 @@ use_preset_vocabulary: true
 泔	hoa	8300
 撖	hoa	
 漢	hoa	8500
+漢	oar	8500
 暵	hoa	6000
 熯	hoa	6000
 憾	hoa	8000
@@ -2825,6 +3023,11 @@ use_preset_vocabulary: true
 惛	hoo	7000
 棔	hoo	
 閽	hoo	
+肓	foo	
+昏	foo	8000
+惛	foo	7000
+棔	foo	
+閽	foo	
 赫	hou	7500
 吼	hou	8000
 犼	hou	
@@ -2832,7 +3035,7 @@ use_preset_vocabulary: true
 蝦	hou	9000
 嚇	hou	9000
 啊	hra	8500
-行	hra	8700
+行	hrea	8700
 盒	hra	9000
 恆	hra	8500
 衡	hra	8500
@@ -2840,8 +3043,9 @@ use_preset_vocabulary: true
 狹	hra	8500
 瑕	hra	
 轄	hra	8700
-挾	hra	8500
-哘	hra	8500
+挾	hrea	8500
+哘	hrea	8500
+哘	ear	8500
 荇	hra	
 窄	hra	9000
 縆	hrang	6000
@@ -2858,6 +3062,7 @@ use_preset_vocabulary: true
 貆	hrang	6500
 烜	hrang	6000
 垣	hrang	7000
+垣	yue	7000
 緱	hrao	5000
 喉	hrao	8500
 猴	hrao	9000
@@ -2893,18 +3098,21 @@ use_preset_vocabulary: true
 鴞	hre	7800
 欸	hrea	
 嚡	hrea	8000
-劾	hrea	6000
-閡	hrea	
-鹹	hrea	
+劾	hroa	6000
+閡	hroa	
+鹹	hra	
 貉	hrea	6000
-咸	hrea	9000
-閒	hrea	9000
-啣	hrea	
-鷳	hrea	
+咸	hra	9000
+閒	hra	9000
+啣	hra	
+鷳	hra	
 鞋	hrea	9000
 諧	hrea	8000
 懈	hrea	6000
+懈	hea	6000
 槜	hrea	6000
+防	wo	8000
+肪	wo	7000
 防	hro	8000
 肪	hro	7000
 房	hro	7500
@@ -2937,12 +3145,14 @@ use_preset_vocabulary: true
 藿	hro	7000
 亡	hro	7000
 枉	hro	7000
+枉	wo	7000
 魍	hro	6000
 妄	hro	8000
 望	hro	8000
 孝	hro	8000
 校	hro	7000
 哮	hro	7000
+哮	ho	7000
 效	hro	8000
 蚶	hroa	7000
 邯	hroa	7500
@@ -2957,28 +3167,34 @@ use_preset_vocabulary: true
 闞	hroa	
 汗	hroa	9000
 捍	hroa	8000
+捍	hoa	8000
 菡	hroa	6000
 閈	hroa	
 焊	hroa	8000
 撼	hroa	8000
+撼	hoa	8000
 翰	hroa	8000
 頷	hroa	6500
 瀚	hroa	8000
+瀚	hoa	8000
 禾	hroa	8000
 合	hroa	8500
 和	hroa	8500
 核	hroa	7500
+核	yue	7500
 盒	hroa	8000
 訸	hroa	
 龢	hroa	
 孩	hroa	
 漢	hroa	
+逢	wong	8000
 逢	hrong	8000
 馮	hrong	8000
 縫	hrong	8000
 奉	hrong	8000
 烘	hrong	8500
 薨	hrong	
+薨	hong
 弘	hrong	8000
 宏	hrong	8000
 泓	hrong	7000
@@ -3001,6 +3217,8 @@ use_preset_vocabulary: true
 盉	hrou	
 菏	hrou	
 賀	hrou	8000
+賀	hroa	8000
+賀	oar	8000
 鶴	hrou	8500
 霍	hrou	8000
 榎	hrou	
@@ -3012,33 +3230,33 @@ use_preset_vocabulary: true
 夏	hrou	8500
 學	hrou	9000
 呼	hu	8500
-忽	hu	9000
-淴	hu	
-惚	hu	7000
-嘝	hu	
-槲	hu	8000
+忽	fu	9000
+淴	fu	
+惚	fu	7000
+嘝	wu	
+槲	wu	8000
 觳	hu	
-鵠	hu	6000
-琥	hu	8000
+鵠	wu	6000
+琥	fu	8000
 岵	hu	
 瓠	hu	
 鄠	hu	
 謔	hu	6000
 罭	hu	
-唿	hu	8000
+唿	fu	8000
 恢	huai	8500
 毀	huai	9000
-晦	huai	8000
+晦	wai	8000
 穢	huai	7500
-繪	huai	8500
-諢	huai	7500
-鹮	huea	8000
-奐	huea	
-喚	huea	9000
-渙	huea	9000
-煥	huea	
-瘓	huea	
-郇	huea	
+繪	wai	8500
+諢	wai	7500
+鹮	wa	8000
+奐	wa	
+喚	wa	9000
+渙	wa	9000
+煥	wa	
+瘓	wa	
+郇	wa	
 覘	je	
 閶	je	
 氅	je	
@@ -3096,6 +3314,7 @@ use_preset_vocabulary: true
 賬	je	9000
 瘴	je	7500
 蜇	je	7500
+蜇	zro	8000
 轍	je	7000
 者	je	8500
 這	je	8500
@@ -3136,14 +3355,18 @@ use_preset_vocabulary: true
 羈	ji	7000
 伋	ji	5000
 汲	ji	7000
+汲	zai	7000
 忣	ji	5000
 即	ji	8700
+即	zai	8700
 佶	ji	5000
 姞	ji	5000
 棘	ji	7000
+棘	zai	7000
 戢	ji	4000
 楫	ji	6000
 嫉	ji	7500
+嫉	zai	7500
 耤	ji	
 蕺	ji	
 踖	ji	
@@ -3151,6 +3374,7 @@ use_preset_vocabulary: true
 藉	ji	8500
 蹐	ji	
 籍	ji	8500
+籍	zai	8500
 鶺	ji	6000
 几	ji	8000
 己	ji	8500
@@ -3168,6 +3392,7 @@ use_preset_vocabulary: true
 計	ji	8700
 洎	ji	
 既	ji	8500
+既	jri	8500
 紀	ji	8500
 記	ji	8700
 偈	ji	
@@ -3202,6 +3427,7 @@ use_preset_vocabulary: true
 繫	ji	9000
 鱀	ji	
 繼	ji	8500
+繼	jri	8500
 鰶	ji	
 驥	ji	5000
 借	ji	9000
@@ -3218,9 +3444,12 @@ use_preset_vocabulary: true
 煮	jv	7800
 㸄	ji	9000
 最	ji	9000
+最	zai	9000
 蕞	ji	
 嘬	ji	7500
+嘬	zai	7500
 駕	jia	
+駕	ga	8500
 忖	jiang	
 皺	jiao	
 椉	jie	
@@ -3247,6 +3476,7 @@ use_preset_vocabulary: true
 艱	jie	8700
 櫼	jie	6000
 殲	jie	8500
+殲	ga	8500
 鰹	jie	6000
 韉	jie	
 柬	jie	7000
@@ -3324,6 +3554,7 @@ use_preset_vocabulary: true
 岕	jie	
 疥	jie	8000
 殮	jie	8000
+殮	lie	8000
 覼	jie	
 鶼	jie	
 掮	jie	7000
@@ -3352,6 +3583,8 @@ use_preset_vocabulary: true
 這	jie	8000
 浙	jie	8000
 杰	jie	7500
+站	jie	8000
+怊	co	8000
 怊	jio	8000
 弨	jio	
 焯	jio	6000
@@ -3364,40 +3597,57 @@ use_preset_vocabulary: true
 焦	jio	9000
 跤	jio	7500
 僬	jio	
+僬	jue
 蕉	jio	8500
 膠	jio	8000
 澆	jio	8500
 嬌	jio	8500
+嬌	jue	8300
 礁	jio	8500
+礁	jue	8500
 鮫	jio	7500
 轇	jio	
 驕	jio	8500
 鷦	jio	
+嚼	jue	7500
 嚼	jio	7500
 交	jio	8000
 佼	jio	8000
+佼	jue	8000
 狡	jio	8500
 皎	jio	8000
 絞	jio	8500
 敫	jio	
+敫	jue
 剿	jio	8500
+剿	jue	8500
 僥	jio	7500
 鉸	jio	
 餃	jio	9000
+餃	jue	9000
 徼	jio	8000
+徼	jue	8000
 矯	jio	8500
+矯	jue	8500
 繳	jio	8500
+繳	jue	8500
 叫	jio	9000
+叫	jue	8800
 珓	jio	7000
+珓	jue	7000
 窖	jio	8500
 噭	jio	7000
+噭	jue	7000
 藠	jio	
+藠	jue
 轎	jio	8000
+轎	jue	8000
 坰	jio	6000
 駉	jio	6000
 泂	jio	6000
 煚	jio	
 幧	jio	
+幧	ko
 嶠	jio	
 樵	jio	8500
 撽	jio	6000
@@ -3418,6 +3668,7 @@ use_preset_vocabulary: true
 噪	jio	8500
 躁	jio	8500
 譟	jio	6000
+譟	zre	6000
 招	jio	8700
 昭	jio	8500
 釗	jio	8000
@@ -3433,6 +3684,9 @@ use_preset_vocabulary: true
 曌	jio	
 鮡	jio	6000
 着	jio	8000
+嶠	jue	7500
+撽	jue	7700
+躈	jue	7500
 瞅	jiu	8500
 究	jiu	8000
 糾	jiu	9000
@@ -3461,6 +3715,7 @@ use_preset_vocabulary: true
 輈	jiu	
 鵃	jiu	
 謅	jiu	8000
+謅	zao	8000
 肘	jiu	8000
 宙	jiu	8500
 昼	jiu	9000
@@ -3468,7 +3723,10 @@ use_preset_vocabulary: true
 皺	jiu	8500
 縐	jiu	7500
 驟	jiu	8000
+驟	zao	8000
 鄒	jiu	8000
+朝	jv	8300
+朝	ju	8300
 怊	jo	8000
 弨	jo	
 焯	jo	6000
@@ -3482,6 +3740,7 @@ use_preset_vocabulary: true
 跤	jo	7500
 僬	jo	
 蕉	jo	8500
+蕉	jue	8500
 膠	jo	8000
 澆	jo	8500
 嬌	jo	8500
@@ -3489,7 +3748,9 @@ use_preset_vocabulary: true
 鮫	jo	7500
 轇	jo	
 驕	jo	8500
+驕	jue	8500
 鷦	jo	
+鷦	jue
 嚼	jo	7500
 交	jo	8000
 佼	jo	8000
@@ -3507,6 +3768,7 @@ use_preset_vocabulary: true
 叫	jo	9000
 珓	jo	7000
 窖	jo	8500
+窖	jue	8500
 噭	jo	7000
 藠	jo	
 轎	jo	8000
@@ -3514,6 +3776,10 @@ use_preset_vocabulary: true
 駉	jo	6000
 泂	jo	6000
 煚	jo	
+坰	jong	6000
+駉	jong	6000
+泂	jong	6000
+煚	jong	
 幧	jo	
 嶠	jo	
 樵	jo	8500
@@ -3536,7 +3802,6 @@ use_preset_vocabulary: true
 噪	zre	8500
 躁	jo	8500
 譟	jo	6000
-譟	zre	6000
 招	jo	8700
 昭	jo	8500
 釗	jo	8000
@@ -3620,6 +3885,8 @@ use_preset_vocabulary: true
 長	jre	9000
 萇	jre	
 常	jre	8500
+常	ye	8500
+常	yre	8500
 場	jre	8500
 腸	jre	8500
 嘗	jre	9000
@@ -3628,6 +3895,7 @@ use_preset_vocabulary: true
 鋹	jre	
 韔	jre	
 扯	jre	7500
+扯	cea	7500
 犟	jre	8000
 嶠	jre	
 瑒	jre	
@@ -3702,6 +3970,7 @@ use_preset_vocabulary: true
 竭	jrie	8000
 搴	jrie	
 虔	jrie	8500
+虔	ye	8500
 㗔	jrie	8500
 鉗	jrie	8500
 錢	jrie	8500
@@ -3798,9 +4067,13 @@ use_preset_vocabulary: true
 跪	jru	9000
 櫃	jru	9000
 巨	jru	8500
+巨	ju	8500
+巨	jv	8500
 𠰠	jru	8500
 具	jru	8000
 距	jru	8700
+距	ju	8700
+距	jv	8700
 筇	jru	
 瞿	jru	8500
 拄	jru	8500
@@ -3853,6 +4126,8 @@ use_preset_vocabulary: true
 砫	jrv	8000
 疰	jrv	
 蛀	jrv	8500
+蛀	jv	8500
+蛀	ju	8500
 倀	jrye	
 長	jrye	9000
 萇	jrye	
@@ -3870,6 +4145,7 @@ use_preset_vocabulary: true
 瑒	jrye	
 丈	jrye	8000
 斜	jrye	
+鶵	zou	6000
 車	ju	8500
 鶵	ju	6000
 褚	ju	7500
@@ -3887,9 +4163,12 @@ use_preset_vocabulary: true
 軌	ju	7500
 鬼	ju	9000
 晷	ju	7000
+晷	guai	7000
 詭	ju	7500
 炅	ju	7000
+炅	guai	7000
 桂	ju	7500
+桂	guai	7500
 貴	ju	9000
 筀	ju	
 鱖	ju	7000
@@ -3914,7 +4193,9 @@ use_preset_vocabulary: true
 鞠	ju	8000
 鞫	ju	
 侷	ju	8000
+侷	zou	8000
 菊	ju	8000
+菊	crou	8000
 焗	ju	7500
 鋦	ju	7000
 咀	ju	6000
@@ -3954,6 +4235,8 @@ use_preset_vocabulary: true
 蕢	ju	
 趄	ju	
 蛆	ju	7500
+蛆	qu	7500
+蛆	qv	7500
 麹	ju	
 麴	ju	
 佢	ju	7000
@@ -4077,6 +4360,8 @@ use_preset_vocabulary: true
 囀	jue	8500
 鑽	jue	8500
 朘	jue	
+黜	zou	6500
+輟	cou	6500
 車	jv	8500
 鶵	jv	6000
 褚	jv	7500
@@ -4090,16 +4375,19 @@ use_preset_vocabulary: true
 珪	jv	
 龜	jv	8700
 鮭	jv	7000
+鮭	guai	7000
 氿	jv	
 佹	jv	
 軌	jv	7500
 鬼	jv	9000
 晷	jv	7000
 詭	jv	7500
+詭	guai	7500
 炅	jv	7000
 桂	jv	7500
 貴	jv	9000
 筀	jv	
+筀	guaa
 鱖	jv	7000
 闠	jv	
 拘	jv	8700
@@ -4222,13 +4510,16 @@ use_preset_vocabulary: true
 醉	jv	9000
 覘	jye	
 閶	jye	
+閶	qye
 氅	jye	
+氅	qye
 長	jye	8300
 悵	jye	5000
 穿	jye	9000
 醢	jye	
 架	jye	8500
 姜	jye	8500
+姜	qye	8500
 將	jye	8500
 僵	jye	7500
 漿	jye	8500
@@ -4246,8 +4537,10 @@ use_preset_vocabulary: true
 醬	jye	9000
 爿	jye	
 臧	jye	8500
+臧	zro	8000
 贓	jye	7000
 葬	jye	7500
+葬	zro	8000
 啫	jye	7000
 詹	jye	8500
 瞻	jye	7500
@@ -4288,6 +4581,7 @@ use_preset_vocabulary: true
 佧	ka	
 胩	ka	
 坑	ka	8500
+坑	kea	8500
 掐	ka	9000
 拤	ka	
 肯	kang	9000
@@ -4300,6 +4594,7 @@ use_preset_vocabulary: true
 吭	kang	8500
 硜	kang	
 鏗	kang	8000
+銬	ke	8500
 銬	kao	8500
 摳	kao	8500
 彄	kao	
@@ -4324,23 +4619,33 @@ use_preset_vocabulary: true
 喀	kea	8500
 楷	kea	7500
 戡	kea	7000
+戡	koa	7000
 冚	kea	6000
+冚	gang	6000
 莰	kea	7000
+莰	koa	7000
 檻	kea	8000
+苛	kou	8000
 苛	kea	8000
-匼	kea	
-珂	kea	7500
+匼	ki
+珂	kou	7500
+珂	ki	7500
 牁	kea	6000
+牁	ki	6000
+牁	kou	6000
 軻	kea	7500
+軻	ki	7500
+軻	kou	7500
 搕	kea	8000
+搕	ko	8000
 嗑	kea	8500
 稞	kea	8000
 榼	kea	7500
 蝌	kea	8000
-頦	kea	6000
+頦	koa	6000
 髁	kea	
 咳	kea	8000
-咳	kou	8000
+咳	koa	8000
 揢	kea	7000
 坷	kea	7000
 岢	kea	6000
@@ -4354,6 +4659,7 @@ use_preset_vocabulary: true
 砢	kea	6000
 髂	kea	7000
 忑	kea	8000
+忑	dri	8000
 吭	keng	
 皚	ki	7000
 皚	ea	7000
@@ -4364,13 +4670,19 @@ use_preset_vocabulary: true
 蒈	ki	
 剴	ki	7000
 凱	ki	8500
+剴	koa	7000
+凱	koa	8500
 慨	ki	7500
 塏	ki	
+塏	koa
 楷	ki	8500
-愷	ki	
+愷	ki
+愷	koa	
 鍇	ki	
 闓	ki	
+闓	koa
 鎧	ki	
+鎧	koa
 欬	ki	
 砍	ki	9000
 克	ki	8500
@@ -4381,7 +4693,8 @@ use_preset_vocabulary: true
 偕	hrea	8000
 偕	ear	8000
 獷	ko	7500
-愾	ko	
+愾	ko
+愾	koa	
 康	ko	8500
 慷	ko	7500
 槺	ko	6000
@@ -4394,6 +4707,7 @@ use_preset_vocabulary: true
 閌	ko	
 鈧	ko	6000
 瞘	ko	
+瞘	kao
 匡	ko	7000
 劻	ko	
 哐	ko	8500
@@ -4402,6 +4716,7 @@ use_preset_vocabulary: true
 筐	ko	9000
 誆	ko	8000
 鵟	ko	
+鵟	gro	8000
 夼	ko	6000
 況	ko	8500
 框	ko	9000
@@ -4412,10 +4727,13 @@ use_preset_vocabulary: true
 礦	ko	9000
 纊	ko	6000
 蛞	ko	7000
+蛞	kuea	7000
 擴	ko	8500
+擴	ku	8500
 敲	ko	9000
 巧	ko	8200
 冗	ko	8200
+冗	yong	8200
 楷	koa	8500
 刊	koa	8000
 勘	koa	8000
@@ -4432,6 +4750,7 @@ use_preset_vocabulary: true
 磡	koa	
 嗑	koa	8000
 磕	koa	8000
+磕	kea	8000
 空	kong	8500
 倥	kong	
 崆	kong	
@@ -4442,15 +4761,19 @@ use_preset_vocabulary: true
 控	kong	8500
 鞚	kong	
 啌	kong	8000
+髖	kua	8500
 蓇	koo	
 渴	koo	9000
 髖	koo	9000
 款	koo	9000
 鄺	koo	
+鄺	ko
 睏	koo	9000
 屙	kou	
+屙	lea
 笴	kou	7500
 舸	kou	7500
+舸	goa	7500
 柯	kou	7500
 科	kou	8500
 蝌	kou	8000
@@ -4466,8 +4789,10 @@ use_preset_vocabulary: true
 喖	ku	8500
 科	ku	8700
 棵	ku	8500
+棵	kou	8500
 蝌	ku	8000
 顆	ku	8500
+顆	kou	8500
 課	ku	8700
 矻	ku	
 刳	ku	7000
@@ -4495,13 +4820,16 @@ use_preset_vocabulary: true
 挎	kua	8000
 胯	kua	8000
 跨	kua	8000
+胯	kwe	8000
+跨	kwe	8000
 括	kua	8500
+括	ku	8500
 栝	kua	7000
 廓	kua	7500
 擴	kua	8500
-擴	ku	8500
 闊	kua	9000
 拓	kua	8000
+拓	ku	8000
 洿	kua	
 癸	kuai	7500
 檜	kuai	7000
@@ -4516,12 +4844,15 @@ use_preset_vocabulary: true
 逵	kuai	8000
 馗	kuai	6000
 葵	kuai	7500
+葵	koa	7500
 魁	kuai	7000
 戣	kuai	
+戣	koa
 睽	kuai	7500
 蝰	kuai	
 櫆	kuai	
 騤	kuai	
+騤	koa
 傀	kuai	7500
 磈	kuai	6000
 愧	kuai	8500
@@ -4532,6 +4863,7 @@ use_preset_vocabulary: true
 饋	kuai	8000
 隗	kuai	6000
 輥	kuang	6000
+輥	guang	6000
 筐	kuang	7500
 坤	kuang	8000
 坤	koo	8000
@@ -4558,20 +4890,19 @@ use_preset_vocabulary: true
 快	kuea	9000
 塊	kuea	8000
 筷	kuea	8000
-筷	kea	8000
+筷	kea
 儈	kuea	
 鄶	kuea	
 獪	kuea	
 膾	kuea	
 鱠	kuea	
-寬	kuea	9000
 寬	kua	9000
 𡂷	kuea	8300
-窾	kuea	
-窺	kuea	8000
-揆	kuea	
+窾	koa	
+窺	koa	8000
+揆	kuai	
 喹	kuea	
-暌	kuea	7000
+暌	kuai	7000
 簣	kuea	
 炔	kuea	7500
 貳	la	8000
@@ -4582,6 +4913,7 @@ use_preset_vocabulary: true
 旯	la	
 剌	la	
 揦	la	
+揦	lai	7500
 喇	la	6000
 腊	la	7500
 蜡	la	7500
@@ -4625,6 +4957,7 @@ use_preset_vocabulary: true
 肋	lai	8500
 累	lai	8000
 淚	lai	8500
+淚	lei	8500
 擂	lai	8500
 礌	lai	7000
 類	lai	8500
@@ -4634,8 +4967,11 @@ use_preset_vocabulary: true
 餒	lai	8500
 塄	lang	
 楞	lang	
+塄	nri	
+楞	nri	
 愣	lang	8500
 卵	lang	9000
+卵	loa	8900
 掄	lang	8500
 㖮	lang	8500
 侖	lang	8500
@@ -4649,7 +4985,7 @@ use_preset_vocabulary: true
 論	lang	8600
 窶	lao	
 撈	lao	9000
-烙	lao	8000
+烙	lao	8300
 婁	lao	8000
 蔞	lao	
 樓	lao	9000
@@ -4687,38 +5023,45 @@ use_preset_vocabulary: true
 勒	le	8000
 犖	le	
 賴	lea	8500
+賴	lai	8500
+賴	lei	8500
 攋	lea	7500
 瀨	lea	8500
 癩	lea	8200
-籟	lea	8000
-婪	lea	8500
-嵐	lea	8000
-藍	lea	9000
-闌	lea	8200
-襤	lea	8200
-攔	lea	9000
-蘭	lea	8500
-籃	lea	8500
-瀾	lea	8000
-欄	lea	8500
-斕	lea	8000
-襴	lea	7500
-囒	lea	8500
-籣	lea	7500
-讕	lea	7500
+攋	lai	7500
+瀨	lai	8500
+癩	lai	8200
+籟	la	8000
+婪	la	8500
+嵐	la	8000
+藍	la	9000
+闌	la	8200
+襤	la	8200
+攔	la	9000
+蘭	la	8500
+籃	la	8500
+瀾	la	8000
+欄	la	8500
+斕	la	8000
+襴	la	7500
+囒	la	8500
+籣	la	7500
+讕	la	7500
 兩	lea	8300
-鑭	lea	
-懶	lea	9000
-覽	lea	8000
-攬	lea	8500
-欖	lea	7500
-纜	lea	8500
-濫	lea	8500
-爛	lea	9000
-鰳	lea	7000
-㳕	lea	8500
+鑭	la	
+懶	la	9000
+覽	la	8000
+攬	la	8500
+欖	la	7500
+纜	la	8500
+濫	la	8500
+爛	la	9000
+鰳	la	7000
+㳕	la	8500
 酹	lea	
 嘞	lea	
+酹	lai	
+嘞	lai	
 綝	leng	7800
 瘝	leng	6500
 棱	leng	6000
@@ -4726,6 +5069,7 @@ use_preset_vocabulary: true
 堎	leng	6500
 睖	leng	6000
 蒞	leng	7500
+蒞	li	7500
 拎	leng	8500
 林	leng	8500
 啉	leng	9000
@@ -4790,127 +5134,129 @@ use_preset_vocabulary: true
 冧	leng	
 酩	leng	7000
 吟	leng	
-箣	li	
-瀍	li	6000
-鬲	li	
+箣	lei	
+瀍	lei	6000
+鬲	lei	
 悝	li	7000
-來	li	9000
+悝	lei	7000
+來	lei	9000
 萊	li	7000
-唻	li	7000
-崍	li	7100
-徠	li	7100
-淶	li	7000
-棶	li	7000
-錸	li	
-鶆	li	
-睞	li	
-賚	li	
-仂	li	7000
-艻	li	7000
-叻	li	8600
-玏	li	7000
-簕	li	
-淚	li	8500
-類	li	9000
-厘	li	8600
-狸	li	8000
-梨	li	9000
-犁	li	8000
-喱	li	8500
-剺	li	7100
-蜊	li	8000
-漓	li	7000
-璃	li	7500
-嫠	li	7100
-犛	li	7100
-蔾	li	
-黎	li	8500
-罹	li	7000
-縭	li	6000
-醨	li	7300
-釐	li	
-藜	li	7300
-嚟	li	7300
-離	li	8600
-鵹	li	7000
-黧	li	7000
-蘺	li	7000
-灕	li	6000
-蠡	li	
-劙	li	
-籬	li	8000
-纚	li	7500
-驪	li	7500
-鸝	li	7500
-鱺	li	7100
-李	li	8500
-里	li	8500
-峛	li	
-俚	li	7000
-哩	li	8000
-浬	li	7000
-娌	li	7000
-理	li	9000
-裡	li	8600
-鋰	li	8500
-澧	li	7000
-禮	li	9000
-鯉	li	8500
-醴	li	7100
-邐	li	7500
-欐	li	
-鱧	li	7500
-力	li	8500
-立	li	8000
-吏	li	7500
-利	li	8500
-例	li	8500
-沴	li	
-戾	li	7000
-荔	li	8500
-俐	li	8500
-莉	li	8500
-栗	li	8000
-猁	li	8000
-唳	li	7000
-笠	li	7000
-粒	li	8500
-詈	li	
-傈	li	
-凓	li	
-痢	li	7000
-溧	li	
-慄	li	8000
-厲	li	8000
-綟	li	7000
-勵	li	8000
-歷	li	8500
-曆	li	8500
-篥	li	
-鬁	li	
-隸	li	8000
-癘	li	7000
-瓅	li	7300
-壢	li	7500
-藶	li	
-櫟	li	
-麗	li	8000
-礪	li	6000
-嚦	li	7000
-瀝	li	7100
-櫪	li	7000
-礫	li	8500
-蠣	li	8000
-糲	li	7000
-盭	li	
-酈	li	8000
-儷	li	7500
-轢	li	
-靂	li	
-浰	li	7000
-捩	li	7500
-梩	li	7000
-躒	li	
+萊	lei	7000
+唻	lei	7000
+崍	lei	7100
+徠	lei	7100
+淶	lei	7000
+棶	lei	7000
+錸	lei	
+鶆	lei	
+睞	lei	
+賚	lei	
+仂	lei	7000
+艻	lei	7000
+叻	lei	8600
+玏	lei	7000
+簕	lei	
+淚	lei	8500
+類	lei	9000
+厘	lei	8600
+狸	lei	8000
+梨	lei	9000
+犁	lei	8000
+喱	lei	8500
+剺	lei	7100
+蜊	lei	8000
+漓	lei	7000
+璃	lei	7500
+嫠	lei	7100
+犛	lei	7100
+蔾	lei	
+黎	lei	8500
+罹	lei	7000
+縭	lei	6000
+醨	lei	7300
+釐	lei	
+藜	lei	7300
+嚟	lei	7300
+離	lei	8600
+鵹	lei	7000
+黧	lei	7000
+蘺	lei	7000
+灕	lei	6000
+蠡	lei	
+劙	lei	
+籬	lei	8000
+纚	lei	7500
+驪	lei	7500
+鸝	lei	7500
+鱺	lei	7100
+李	lei	8500
+里	lei	8500
+峛	lei	
+俚	lei	7000
+哩	lei	8000
+浬	lei	7000
+娌	lei	7000
+理	lei	9000
+裡	lei	8600
+鋰	lei	8500
+澧	lei	7000
+禮	lei	9000
+鯉	lei	8500
+醴	lei	7100
+邐	lei	7500
+欐	lei	
+鱧	lei	7500
+力	lei	8500
+立	lei	8000
+吏	lei	7500
+利	lei	8500
+例	lei	8500
+沴	lei	
+戾	lei	7000
+荔	lei	8500
+俐	lei	8500
+莉	lei	8500
+栗	lei	8000
+猁	lei	8000
+唳	lei	7000
+笠	lei	7000
+粒	lei	8500
+詈	lei	
+傈	lei	
+凓	lei	
+痢	lei	7000
+溧	lei	
+慄	lei	8000
+厲	lei	8000
+綟	lei	7000
+勵	lei	8000
+歷	lei	8500
+曆	lei	8500
+篥	lei	
+鬁	lei	
+隸	lei	8000
+癘	lei	7000
+瓅	lei	7300
+壢	lei	7500
+藶	lei	
+櫟	lei	
+麗	lei	8000
+礪	lei	6000
+嚦	lei	7000
+瀝	lei	7100
+櫪	lei	7000
+礫	lei	8500
+蠣	lei	8000
+糲	lei	7000
+盭	lei	
+酈	lei	8000
+儷	lei	7500
+轢	lei	
+靂	lei	
+浰	lei	7000
+捩	lei	7500
+梩	lei	7000
+躒	lei	
 淚	lie	8000
 厲	lie	8700
 連	lie	8500
@@ -5029,13 +5375,16 @@ use_preset_vocabulary: true
 攏	long	8500
 壟	long	8000
 咯	lou	7000
+咯	gea	7000
 祼	lou	
 嚛	lou	8500
 駱	lou	7000
-烙	lou	7500
+烙	lou	8300
+烙	le	8300
 僂	lao	7500
 嘍	lou	8500
 鱸	lou	6500
+鱸	lu	6500
 菉	lou	
 淥	lou	
 若	lou	8300
@@ -5097,17 +5446,21 @@ use_preset_vocabulary: true
 魎	lra	6000
 鱲	lra	6000
 六	lu	9000
+六	lou	9000
 櫨	lu	
 鸕	lu	
 陸	lu	8500
+陸	lou	8500
 戮	lu	8000
 錄	lu	8000
 麓	lu	7500
 圞	lue	
-掠	lue	
-略	lue	
+掠	lue	8500
+略	lue	8500
+略	lv	8500
 巒	luea	
 孿	luea	
+孿	loa
 鑾	luea	
 鸞	luea	
 爊	lv	
@@ -5119,6 +5472,7 @@ use_preset_vocabulary: true
 蓼	lv	
 擼	lv	8000
 嚕	lv	8500
+嚕	lou	8500
 盧	lv	7700
 壚	lv	7000
 蘆	lv	7700
@@ -5195,6 +5549,7 @@ use_preset_vocabulary: true
 醪	lye	5000
 嫪	lye	5000
 了	lye	8700
+了	lwe	8700
 良	lye	8700
 莨	lye	
 涼	lye	9000
@@ -5215,6 +5570,7 @@ use_preset_vocabulary: true
 諒	lye	8500
 蹽	lye	5000
 聊	lye	9000
+聊	lwe	9000
 僚	lye	7800
 漻	lye	
 寥	lye	8500
@@ -5229,6 +5585,7 @@ use_preset_vocabulary: true
 暸	lye	5000
 燎	lye	7800
 療	lye	8200
+療	lwe	8200
 簝	lye	5000
 繚	lye	
 髎	lye	
@@ -5238,6 +5595,7 @@ use_preset_vocabulary: true
 料	lye	9000
 撂	lye	8500
 廖	lye	8500
+廖	lwe	8500
 瞭	lye	8500
 鐐	lye	5000
 繆	lye	
@@ -5247,6 +5605,7 @@ use_preset_vocabulary: true
 罵	ma	8000
 嘛	ma	9000
 猛	ma	9000
+猛	mea	9000
 蜢	ma	8500
 孖	ma	
 霡	mai	6000
@@ -5271,6 +5630,8 @@ use_preset_vocabulary: true
 鋂	mai	6000
 鶥	mai	7000
 末	mai	8300
+末	mu	8300
+末	me	8300
 黴	mai	
 每	mai	8500
 鎂	mai	7500
@@ -5359,7 +5720,9 @@ use_preset_vocabulary: true
 牡	me	7000
 卬	me	6000
 埋	mea	8500
+埋	mai	8500
 霾	mea	8000
+霾	mai	8000
 買	mea	9000
 蕒	mea	
 嘪	mea	9000
@@ -5371,28 +5734,28 @@ use_preset_vocabulary: true
 邁	mea	8000
 瞞	mea	8300
 顢	mea	
-鬘	mea	
-鰻	mea	8000
+鬘	ma	
+鰻	ma	8000
 蠻	mea	8000
-蟎	mea	8000
-曼	mea	8200
-墁	mea	8000
+蟎	ma	8000
+曼	ma	8200
+墁	ma	8000
 蔄	mea	
-蔓	mea	8700
-幔	mea	8000
-漫	mea	8200
-慢	mea	9000
-嫚	mea	8000
-熳	mea	8000
-澫	mea	
-縵	mea	8000
-謾	mea	8000
-鏝	mea	7500
-卐	mea	
-卍	mea	
-萬	mea	9000
-蝥	meng	6000
-掹	meng	7000
+蔓	ma	8700
+幔	ma	8000
+漫	ma	8200
+慢	ma	9000
+嫚	ma	8000
+熳	ma	8000
+澫	ma	
+縵	ma	8000
+謾	ma	8000
+鏝	ma	7500
+卐	ma	
+卍	ma	
+萬	ma	9000
+蝥	me	6000
+掹	ma	7000
 幎	meng	6000
 民	meng	9000
 苠	meng	6000
@@ -5444,19 +5807,23 @@ use_preset_vocabulary: true
 蘑	mg	8700
 魔	mg	8500
 末	mg	8500
+末	moo	8800
 茉	mg	8500
+茉	mou	8500
 沫	mg	8300
 陌	mg	8500
 莫	mg	8500
 秣	mg	
 漠	mg	8500
 寞	mg	8500
+寞	mu	8500
 墨	mg	8500
 默	mg	8500
 驀	mg	8000
 礳	mg	7700
 謀	mg	8500
 某	mg	8200
+某	mu	8200
 呣	mg	9000
 母	mg	8500
 坶	mg	8200
@@ -5484,7 +5851,7 @@ use_preset_vocabulary: true
 寐	mi	8000
 魅	mi	8500
 咪	mi	8700
-眯	mi	9000
+瞇	mi	9000
 迷	mi	9000
 醚	mi	8000
 謎	mi	8500
@@ -5520,6 +5887,50 @@ use_preset_vocabulary: true
 尾	mi	8500
 未	mi	9000
 味	mi	8700
+美	mei	9000
+渼	mei	6000
+媄	mei	7500
+沬	mei	7500
+昧	mei	8500
+寐	mei	8000
+魅	mei	8500
+咪	mei	8700
+瞇	mei	9000
+迷	mei	9000
+醚	mei	8000
+謎	mei	8500
+糜	mei	8000
+縻	mei	7000
+麋	mei	7000
+彌	mei	8500
+禰	mei	6000
+靡	mei	7000
+獼	mei	6000
+劘	mei	7500
+蘼	mei	7000
+醾	mei	7000
+米	mei	9000
+羋	mei	
+洣	mei	7000
+弭	mei	7500
+脒	mei	7500
+敉	mei	
+濔	mei	7000
+瀰	mei	6000
+糸	mei	
+汨	mei	6500
+泌	mei	8200
+宓	mei	
+秘	mei	8500
+覓	mei	8000
+密	mei	8500
+嘧	mei	7500
+蜜	mei	9000
+冪	mei	8000
+謐	mei	8200
+尾	mei	8500
+未	mei	9000
+味	mei	8700
 咩	mia	
 喵	miao	
 牤	mo	7800
@@ -5576,52 +5987,63 @@ use_preset_vocabulary: true
 痳	moo	
 鞔	moo	
 瞞	moo	8500
+瞞	moa	8500
 饅	moo	8500
+饅	moa	8500
 鰻	moo	8200
 蠻	moo	8000
+蠻	moa	8000
 滿	moo	9000
+滿	moa	9000
 蟎	moo	8000
 浼	moo	6000
 璊	moo	
+璊	moa
 懣	moo	
-眠	moo	8200
-棉	moo	8500
-綿	moo	8200
-丏	moo	
-免	moo	8500
-沔	moo	
-眄	moo	
-俛	moo	6000
-勉	moo	8500
-娩	moo	8000
-勔	moo	
-冕	moo	8000
-偭	moo	6000
-喕	moo	8700
-湎	moo	6000
-愐	moo	8200
-緬	moo	8000
-面	moo	8700
-麵	moo	9000
-滅	moo	8700
-蔑	moo	8000
-篾	moo	6000
-蠛	moo	
-衊	moo	6000
-黽	moo	
-奤	moo	
-澠	moo	
-靦	moo	6000
+懣	moa
+眠	mie	8200
+棉	mie	8500
+綿	mie	8200
+丏	mie	
+免	mie	8500
+沔	mie	
+眄	mie	
+俛	mie	6000
+勉	mie	8500
+娩	mie	8000
+勔	mie	
+冕	mie	8000
+偭	mie	6000
+喕	mie	8700
+湎	mie	6000
+愐	mie	8200
+緬	mie	8000
+面	mie	8700
+麵	mie	9000
+滅	mie	8700
+蔑	mie	8000
+篾	mie	6000
+蠛	mie	
+衊	mie	6000
+黽	mie	
+奤	mie	
+澠	mie	
+靦	mie	6000
 鄚	mou	7100
 麼	mou	8600
+麼	mu	8600
 禖	mou	6000
 摸	mou	8700
+摸	me	8700
 嫫	mou	8000
+嫫	mu	8000
 膜	mou	8500
 末	mou	8500
-末	moo	8800
 歿	mou	8000
 莫	mou	8500
+莫	mu	8500
+眜	mu	7000
+眜	me	7000
 眜	mou	7000
 眽	mou	
 貊	mou	
@@ -5638,8 +6060,11 @@ use_preset_vocabulary: true
 麰	mou	
 某	mou	8500
 摹	mu	8500
+摹	mou	8500
 模	mu	9000
+模	mou	9000
 摩	mu	8500
+摩	mou	8500
 沫	mu	8000
 陌	mu	8500
 漠	mu	8500
@@ -5659,6 +6084,7 @@ use_preset_vocabulary: true
 驫	mwe	
 麻	mwe	9000
 嗎	mwe	8700
+嗎	ma	8700
 痲	mwe	
 蟆	mwe	7500
 馬	mwe	9000
@@ -5674,6 +6100,7 @@ use_preset_vocabulary: true
 襪	mwe	9000
 拿	na	8000
 那	na	8700
+那	noa	8700
 吶	na	9000
 肭	na	
 衲	na	7500
@@ -5693,6 +6120,7 @@ use_preset_vocabulary: true
 𠹌	nang	8000
 恁	nang	9000
 暖	nang	9000
+暖	noa	9000
 人	nang	9000
 崟	nang	
 冇	nao	
@@ -5728,10 +6156,14 @@ use_preset_vocabulary: true
 囡	nea	9000
 難	nea	9000
 赧	nea	
+儺	na	8200
+儺	noa	8200
 儺	nea	8200
+俄	e	8500
 俄	ng	8500
 蒽	ng	7500
 摁	ng	8000
+摁	na	8000
 嗯	ng	9000
 而	ng	8200
 兒	ng	9000
@@ -5797,7 +6229,6 @@ use_preset_vocabulary: true
 膩	ni	8700
 日	ni	9000
 疑	ni	8500
-疑	yi	8500
 義	ni	8200
 儗	ni	7000
 議	ni	8300
@@ -5815,11 +6246,15 @@ use_preset_vocabulary: true
 禳	nia	
 穰	nia	
 壤	nia	8200
+壤	nie	8200
 攘	nia	9000
+攘	nie	9000
 嚷	nia	9000
 讓	nia	8700
+讓	nie	8700
 儴	nia	
 仰	nia	8700
+仰	ye	8700
 業	nia	8700
 輾	nian	
 哏	niang	
@@ -5837,6 +6272,7 @@ use_preset_vocabulary: true
 濘	niang	8300
 忍	niang	9000
 刃	niang	8500
+刃	zheng	8500
 妊	niang	8000
 衽	niang	8000
 紉	niang	8300
@@ -5864,12 +6300,16 @@ use_preset_vocabulary: true
 黏	nie	9000
 鯰	nie	7700
 捻	nie	8300
+捻	nia	8300
 輦	nie	8000
 攆	nie	8500
 廿	nie	9000
 念	nie	8700
+念	nia	8700
 唸	nie	8700
+唸	nia	8700
 捏	nie	8000
+捏	ni	8000
 苶	nie	
 乜	nie	6000
 涅	nie	7700
@@ -5924,6 +6364,7 @@ use_preset_vocabulary: true
 哪	no	9000
 囔	no	8500
 囊	no	8500
+囊	noa	8500
 攮	no	
 齉	no	
 鬧	no	9000
@@ -5948,7 +6389,6 @@ use_preset_vocabulary: true
 筭	nong	
 饢	noo	
 耨	nou	
-奴	nou	8500
 挪	nou	9000
 喏	nou	8700
 搦	nou	
@@ -5960,6 +6400,7 @@ use_preset_vocabulary: true
 帑	nou	
 尕	nra	9000
 硬	nra	9000
+硬	nrea	9000
 汭	nrai	
 蚋	nrai	
 能	nrang	
@@ -5974,10 +6415,13 @@ use_preset_vocabulary: true
 額	nrea	8700
 碾	nrea	9000
 岩	nrea	8500
+岩	nra	8500
 啱	nrea	8500
-顏	nrea	8700
-簷	nrea	
-眼	nrea	9000
+顏	nra	8700
+簷	nra	
+眼	nra	9000
+眼	nrea	8700
+雁	nra	8500
 雁	nrea	8500
 尕	nri	9000
 愣	nri	9000
@@ -6003,18 +6447,24 @@ use_preset_vocabulary: true
 訝	nrou	7800
 猰	nrou	
 隅	nrou	8000
+隅	yu	8000
+隅	yv	8000
 刖	nrou	
 樂	nrou	8700
-呶	nu	9000
-奴	nu	9000
-孥	nu	
-砮	nu	
-駑	nu	
+呶	nou	9000
+奴	nou	9000
+呶	nu
+奴	nu
+孥	nou	
+砮	nou	
+駑	nou	
+努	nou	8700
 努	nu	8700
-弩	nu	8500
-胬	nu	
-怒	nu	8700
+弩	nou	8500
+胬	nou	
+怒	nou	8700
 兌	nue	8300
+兌	dv	8300
 垝	nue	7900
 姽	nue	7700
 虐	nue	8400
@@ -6058,6 +6508,7 @@ use_preset_vocabulary: true
 乜	nye	9000
 燃	nye	
 昂	o	8500
+昂	oa	8500
 盎	o	
 獒	o	
 嚄	o	
@@ -6065,6 +6516,7 @@ use_preset_vocabulary: true
 哦	o	8500
 汪	o	8700
 旺	o	9000
+旺	wang	8600
 望	o	8500
 喔	o	9000
 粵	o	8500
@@ -6134,6 +6586,7 @@ use_preset_vocabulary: true
 龢	oar	
 孩	oar	
 翁	ong	
+翁	woo	8500
 嗡	ong	
 滃	ong	7000
 鶲	ong	7500
@@ -6187,12 +6640,14 @@ use_preset_vocabulary: true
 鰉	or	6500
 皝	or	
 藿	or	7000
+藿	fu	7000
 亡	or	7000
 枉	or	7000
 魍	or	6000
 妄	or	8000
 望	or	8000
 孝	or	8000
+孝	ho	8000
 校	or	7000
 哮	or	7000
 效	or	8000
@@ -6226,6 +6681,8 @@ use_preset_vocabulary: true
 貉	our	8000
 廈	our	8000
 峽	our	8000
+峽	hra	8000
+峽	ar	8000
 轄	our	8000
 下	our	9000
 夏	our	8500
@@ -6274,6 +6731,7 @@ use_preset_vocabulary: true
 攀	pea	8500
 蟠	pea	8300
 判	pea	8500
+判	poa	8500
 泮	pea	
 盼	pea	8700
 畔	pea	8000
@@ -6312,6 +6770,7 @@ use_preset_vocabulary: true
 裨	pi	7500
 薜	pi	7000
 胚	pi	8500
+胚	pai	8500
 帔	pi	
 淠	pi	
 丕	pi	8300
@@ -6320,16 +6779,21 @@ use_preset_vocabulary: true
 伾	pi	7500
 坯	pi	7700
 披	pi	8700
+披	bri	8700
 狉	pi	7700
 狓	pi	7700
 砒	pi	8000
 紕	pi	7500
+砒	bri	7500
+紕	bri	7500
 劈	pi	8700
 霹	pi	8300
 枇	pi	7900
+枇	bri	7900
 毗	pi	7900
 蚍	pi	7800
 郫	pi	8000
+郫	bri	8000
 疲	pi	8000
 陴	pi	7800
 埤	pi	7800
@@ -6374,29 +6838,38 @@ use_preset_vocabulary: true
 鞶	poo	
 判	poo	8700
 叛	poo	8500
-偏	poo	8700
+叛	poa	8500
+偏	pie	8700
 犏	poo	
-篇	poo	8500
-翩	poo	8300
+篇	pye	8300
+篇	pie	8500
+翩	pie	8300
+翩	pye	8000
 胼	poo	
 蹁	poo	8500
 諞	poo	
-𠯯	poo	8300
-片	poo	9000
-騙	poo	9000
+𠯯	pie	8300
+𠯯	pye	8300
+片	pie	9000
+片	pye	8500
+騙	pie	9000
+騙	pye	8700
 氕	poo	
-瞥	poo	8000
+瞥	pye	8000
+瞥	pie	8000
 撇	poo	8500
 鄱	poo	8500
 醱	pou	
 笸	pou	
 裒	pou	
 爆	pu	8300
+爆	po	8300
 峬	pu	7500
 庯	pu	
 鵏	pu	7500
 餔	pu	8300
 甫	pu	8300
+甫	fu	8300
 鬴	pu	
 赴	pu	8700
 訃	pu	7700
@@ -6409,6 +6882,7 @@ use_preset_vocabulary: true
 魄	pu	8500
 頗	pu	8500
 剖	pu	7700
+剖	pou	7700
 痡	pu	
 撲	pu	9000
 噗	pu	9000
@@ -6763,6 +7237,7 @@ use_preset_vocabulary: true
 蠼	qu	7500
 鸜	qu	7500
 曲	qu	8300
+曲	cou	8300
 取	qu	8700
 娶	qu	8500
 齲	qu	7000
@@ -6803,6 +7278,7 @@ use_preset_vocabulary: true
 鵲	que	8500
 囷	que	7500
 穿	que	7000
+穿	za	8500
 樗	qv	6000
 躇	qv	8000
 雛	qv	8500
@@ -6871,7 +7347,6 @@ use_preset_vocabulary: true
 蠼	qv	7500
 鸜	qv	7500
 曲	qv	8300
-曲	cou	8300
 取	qv	8700
 娶	qv	8500
 齲	qv	7000
@@ -6895,7 +7370,7 @@ use_preset_vocabulary: true
 場	qye	8500
 昶	qye	7000
 敞	qye	8400
-敞	jrye	8500
+敞	jrye	8400
 廠	qye	9000
 倡	qye	8400
 唱	qye	9000
@@ -7000,7 +7475,7 @@ use_preset_vocabulary: true
 脎	sa	6000
 颯	sa	8300
 薩	sa	8000
-叁	sa	8300
+叁	sea	8300
 殺	sa	9000
 痧	sa	8300
 鎩	sa	7000
@@ -7011,14 +7486,19 @@ use_preset_vocabulary: true
 衫	sa	8500
 甡	sa	7500
 生	sa	9000
+生	sea	9000
 狌	sa	7500
 牲	sa	8500
+牲	sea	8500
 甥	sa	8700
+甥	sea	8700
 鼪	sa	
 省	sa	9000
+省	sea	9000
 㗂	sa	8400
 抶	sai	6000
 失	sai	8700
+失	sea	8500
 虱	sai	9000
 蝕	sai	8500
 室	sai	8700
@@ -7026,9 +7506,11 @@ use_preset_vocabulary: true
 縗	sai	6000
 碎	sai	8700
 骰	sai	8700
+骰	s	8500
 小	sai	9000
 昳	sai	6000
 瑟	sai	
+使	sai	8000
 參	sang	8000
 諶	sang	8000
 森	sang	8300
@@ -7063,9 +7545,11 @@ use_preset_vocabulary: true
 忻	sang	7500
 昕	sang	7800
 欣	sang	8500
+欣	xiang	8500
 新	sang	9000
 鋅	sang	8500
 薪	sang	8300
+薪	xiang	8300
 馨	sang	8000
 鑫	sang	8300
 伈	sang	7500
@@ -7081,19 +7565,6 @@ use_preset_vocabulary: true
 迅	sang	8000
 蕈	sang	6000
 梓	sang	8000
-郊	go	8500
-峧	go	8000
-澆	go	8600
-姣	go	8300
-膠	go	8500
-蛟	go	8000
-跤	go	8000
-鮫	go	8000
-轇	go	7500
-狡	go	8400
-絞	go	8400
-鉸	go	8300
-皎	go	8500
 騷	sao	8500
 搜	sao	9000
 嗖	sao	8500
@@ -7153,53 +7624,59 @@ use_preset_vocabulary: true
 單	sea	8300
 撣	sea	8700
 莞	sea	7000
-仨	sea	8000
+莞	wa	7000
+仨	sa	8000
 薩	sea	8500
 揌	sea	7000
 嗮	sea	8700
-三	sea	9000
-弎	sea	8000
-叁	sea	8000
+三	sa	9000
+弎	sa	8000
+叁	sa	8000
+傘	sa	9000
 傘	sea	9000
 糝	sea	7500
 饊	sea	7000
-散	sea	9000
+散	sa	9000
 穡	sea	6000
 篩	sea	8500
 釃	sea	7500
 曬	sea	9000
-山	sea	9000
+山	sa	9000
 芟	sea	6000
-杉	sea	8300
-刪	sea	8700
+杉	sa	8300
+刪	sa	8700
 苫	sea	6000
 衫	sea	8700
-姍	sea	8500
-珊	sea	8500
+姍	sa	8500
+珊	sa	8500
 釤	sea	7800
-跚	sea	8000
-煽	sea	8300
+跚	sa	8000
+煽	sa	8300
 潸	sea	7000
-膻	sea	8000
+膻	sa	8000
 陝	sea	8500
+陝	sa	8500
 汕	sea	8300
+汕	sa	8300
 疝	sea	7500
 赸	sea	7000
 訕	sea	8300
 善	sea	8700
+善	sye	8700
 鄯	sea	7500
 墠	sea	7000
 墡	sea	7500
 擅	sea	8500
 膳	sea	8300
+膳	sye	8300
 蟮	sea	8300
 繕	sea	8000
 騸	sea	7500
 贍	sea	8300
 熵	sea	7800
 猞	sea	7500
-舍	si	8300
 舍	sea	8300
+舍	si	8300
 灄	sea	7800
 哂	sea	8000
 帥	sea	9000
@@ -7207,7 +7684,7 @@ use_preset_vocabulary: true
 帨	sea	6000
 霰	sea	7800
 絏	sea	6000
-柵	sea	8000
+柵	sa	8000
 斟	sea	8700
 磣	seng	7800
 檉	seng	7800
@@ -7222,10 +7699,13 @@ use_preset_vocabulary: true
 燊	seng	7000
 鯵	seng	8000
 沈	seng	9000
+沈	sang	9000
 諗	seng	7000
 審	seng	8300
+審	sang	8300
 瞫	seng	7000
 瀋	seng	8500
+瀋	sang	8500
 甚	seng	8500
 胂	seng	7500
 葚	seng	7500
@@ -7234,6 +7714,7 @@ use_preset_vocabulary: true
 慎	seng	8500
 滲	seng	8500
 升	seng	8700
+升	sang	8700
 呏	seng	8700
 昇	seng	8000
 湦	seng	7500
@@ -7253,10 +7734,15 @@ use_preset_vocabulary: true
 炘	seng	7500
 焮	seng	7800
 星	seng	9000
+星	sang	9000
 猩	seng	8500
+猩	sang	8500
 腥	seng	8500
+腥	sang	8500
 醒	seng	9000
+醒	sang	9000
 性	seng	8500
+性	sang	8500
 姓	seng	9000
 漦	si	7000
 瘄	si	7500
@@ -7329,8 +7815,9 @@ use_preset_vocabulary: true
 隙	si	8500
 鶱	si	8000
 寫	si	9000
+設	si	8000
+扇	xye	8800
 扇	sie	9000
-扇	sea	8500
 善	sie	8700
 𠾺	sie	8700
 奢	sie	8000
@@ -7346,8 +7833,10 @@ use_preset_vocabulary: true
 嶮	sie	7500
 莧	sie	7000
 線	sie	9000
+線	xye	8800
 些	sie	8300
 屑	sie	8500
+屑	xie	8500
 榍	sie	7500
 褻	sie	8300
 畬	sie	8000
@@ -7362,6 +7851,7 @@ use_preset_vocabulary: true
 狩	siu	8300
 售	siu	8300
 修	siu	9000
+修	xiao	8800
 脩	siu	7500
 饈	siu	7500
 秀	siu	8500
@@ -7442,6 +7932,7 @@ use_preset_vocabulary: true
 螋	sou	7500
 鎪	sou	7500
 餿	sou	9000
+餿	sao	8800
 瞍	sou	7800
 謏	sou	7800
 藪	sou	7000
@@ -7457,6 +7948,7 @@ use_preset_vocabulary: true
 嗦	sou	8700
 羧	sou	7800
 縮	sou	8700
+𦂨	su	8700
 所	sou	9000
 索	sou	8500
 嗩	sou	7500
@@ -7479,6 +7971,8 @@ use_preset_vocabulary: true
 夙	su	8300
 素	su	8700
 速	su	8500
+速	xu	8500
+速	xv	8500
 粟	su	7800
 嗉	su	8700
 溯	su	8300
@@ -7510,26 +8004,43 @@ use_preset_vocabulary: true
 𠼙	swe	8300
 塽	swe	7800
 閃	sye	8500
+閃	xye	8500
 商	sye	8500
+商	xye	8500
 傷	sye	8700
+傷	xye	8700
 墒	sye	7500
+墒	xye	7500
 殤	sye	8000
+殤	xye	8000
 觴	sye	8000
+觴	xue	8000
 賞	sye	8700
+賞	xye	8700
 緔	sye	7000
+緔	xye	7000
 使	sye	8000
 駛	sye	8300
 向	sye	8000
 相	sye	8500
+相	xye	8500
 𠷹	sye	8500
+𠷹	xye	8500
 葙	sye	7100
+葙	xye	7100
 湘	sye	8300
+湘	xye	8300
 箱	sye	9000
+箱	xye	9000
 緗	sye	7000
+緗	xye	7000
 蘘	sye	7100
 想	sye	9000
+想	xye	9000
 項	sye	8500
 廂	sye	
+項	xye	8500
+廂	xye	8000
 嗒	ta	8800
 溚	ta	8000
 趿	ta	8000
@@ -7587,21 +8098,27 @@ use_preset_vocabulary: true
 鈦	tea	8000
 態	tea	8500
 坍	tea	8000
-攤	tea	9000
-灘	tea	8500
+攤	ta	9000
+灘	ta	8500
+癱	ta	7500
+癱	toa	7500
 癱	tea	7500
 譚	tea	8700
-忐	tea	8300
+譚	dra	8700
+忐	ta	8300
+忐	dra	8300
 坦	tea	8500
-袒	tea	8500
-毯	tea	9000
+袒	ta	8500
+袒	dra	8500
+毯	ta	9000
 鉭	tea	7500
-炭	tea	9000
-探	tea	8700
-碳	tea	9000
-嘆	tea	9000
+炭	ta	9000
+探	ta	8700
+碳	ta	9000
+嘆	ta	9000
 嘆	toa	8800
-歎	tea	8700
+歎	ta	8700
+歎	dra	8700
 忒	tea	8000
 鋱	tea	7000
 罎	tea	7500
@@ -7618,6 +8135,7 @@ use_preset_vocabulary: true
 睇	ti	7000
 啑	ti	6000
 胎	ti	8000
+胎	tea	8000
 態	ti	8500
 剔	ti	8000
 梯	ti	8500
@@ -7741,17 +8259,22 @@ use_preset_vocabulary: true
 劃	wa	8500
 猾	wa	8200
 滑	wa	9000
+滑	we	8800
 鏵	wa	7000
 墴	wa	8800
 佸	wa	7000
 活	wa	9000
+活	we	8800
 獲	wa	8000
 穫	wa	7500
 挖	wa	9000
+挖	we	8800
 哇	wa	9000
 畖	wa	7000
+媧	we	7800
 媧	wa	7800
 蛙	wa	8500
+蛙	we	8500
 窪	wa	7500
 娃	wa	8200
 佤	wa	7000
@@ -7829,6 +8352,7 @@ use_preset_vocabulary: true
 呅	wang	8700
 紊	wang	8000
 穩	wang	9000
+穩	woo	8800
 汶	wang	8000
 問	wang	8700
 璺	wang	6000
@@ -7847,26 +8371,32 @@ use_preset_vocabulary: true
 劃	we	8500
 嫿	we	7500
 譁	we	7500
-凡	wea	8500
-釩	wea	7000
-煩	wea	9000
-樊	wea	8500
+凡	wa	8500
+釩	wa	7000
+煩	wa	9000
+樊	wa	8500
 繁	wea	8500
+繁	wa	8500
 蘩	wea	7000
 礬	wea	7000
-犯	wea	8500
+犯	wa	8500
 氾	wea	7500
 泛	wea	8500
+泛	wa	8500
 畈	wea	7500
-飯	wea	9000
-範	wea	8300
+飯	wa	9000
+範	wa	8300
 筦	wea	8000
-還	wea	8700
+還	wa	8700
 徊	wea	8300
+徊	wa	8300
 淮	wea	8300
+淮	wa	8300
 槐	wea	8300
+槐	wa	8300
 踝	wea	8500
-懷	wea	8500
+踝	wa	8500
+懷	wa	8500
 壞	wea	8000
 懁	wea	7500
 荁	wea	6000
@@ -7874,7 +8404,7 @@ use_preset_vocabulary: true
 圜	wea	7000
 澴	wea	7500
 寰	wea	8000
-環	wea	8300
+環	wa	8300
 鍰	wea	7000
 鹮	wea	7500
 繯	wea	7000
@@ -7882,16 +8412,20 @@ use_preset_vocabulary: true
 闤	wea	7000
 鬟	wea	7000
 睆	wea	7500
-緩	wea	8500
-幻	wea	8500
+緩	wa	8500
+幻	wa	8500
 奐	wea	8000
-浣	wea	8000
-患	wea	8500
-換	wea	9000
+浣	wa	8000
+患	wa	8500
+患	fwe	8500
+換	wa	9000
 喚	wea	8500
+喚	wa	8500
 渙	wea	8500
+渙	wa	8500
 豢	wea	7000
 煥	wea	7800
+煥	wa	7800
 瘓	wea	6000
 漶	wea	7500
 擐	wea	7500
@@ -7899,34 +8433,41 @@ use_preset_vocabulary: true
 燴	wea	7800
 蟪	wea	7000
 或	wea	8500
+或	wa	8500
 屲	wea	7000
 歪	wea	9000
+歪	wa	8800
 外	wea	8700
+外	wa	8700
 剜	wea	8500
 帵	wea	7000
 蜿	wea	8000
 箢	wea	7500
 豌	wea	8300
-彎	wea	9000
+彎	wa	9000
 壪	wea	7000
 灣	wea	8700
-丸	wea	8500
+灣	wa	8700
+丸	wa	8500
 刓	wea	6000
 芄	wea	6000
 汍	wea	6000
 抏	wea	7000
 完	wea	8500
-玩	wea	8700
+玩	wa	8700
 紈	wea	8300
+紈	wa	8300
 烷	wea	8000
-頑	wea	8300
+烷	wa	8000
+頑	wa	8300
 宛	wea	8500
-挽	wea	8500
+挽	wa	8500
 菀	wea	7000
 脘	wea	7500
 涴	wea	7500
-惋	wea	8300
+惋	wa	8300
 婉	wea	8300
+婉	wa	8300
 琬	wea	7000
 皖	wea	8000
 畹	wea	7800
@@ -7934,7 +8475,7 @@ use_preset_vocabulary: true
 綰	wea	8000
 忨	wea	7500
 萬	wea	8300
-腕	wea	8300
+腕	wa	8300
 違	wea	8000
 隗	wea	7500
 儇	wea	7500
@@ -7951,6 +8492,8 @@ use_preset_vocabulary: true
 𡀎	wi	7300
 溦	wi	7000
 薇	wi	8700
+薇	yu	8700
+薇	yv	8700
 鰃	wi	7500
 偉	wi	8500
 謂	wi	8500
@@ -7966,28 +8509,37 @@ use_preset_vocabulary: true
 塭	oo	7000
 榅	oo	7500
 溫	oo	8700
+溫	yue	8700
 瘟	oo	8500
 鰮	oo	7500
 揾	oo	7500
 眢	oo	7000
 冤	oo	9000
 淵	oo	8300
+淵	yue	8300
 芫	oo	7000
 沅	oo	7500
 爰	oo	7000
 袁	oo	8700
+袁	yue	8700
 原	oo	8300
 員	oo	8500
+員	yue	8500
 湲	oo	8000
+湲	yue	8000
 園	oo	8500
+園	yue	8500
 圓	oo	9000
+圓	yue	9000
 猿	oo	8500
+猿	yue	8500
 源	oo	8500
 緣	oo	8500
 螈	oo	7500
 黿	oo	6000
 櫞	oo	7800
 遠	oo	9000
+遠	yue	9000
 苑	oo	8000
 院	oo	7800
 垸	oo	7500
@@ -7995,11 +8547,14 @@ use_preset_vocabulary: true
 掾	oo	7500
 瑗	oo	7800
 越	oo	8500
+越	yue	8500
 鉞	oo	6000
+鉞	yue	6000
 轀	oo	7000
 鄖	oo	7500
 蕰	oo	7500
-元	oo	
+元	oo	8500
+元	yue	8500
 魂	woo	8700
 完	woo	8700
 唍	woo	8700
@@ -8044,7 +8599,7 @@ use_preset_vocabulary: true
 轀	woo	7000
 鄖	woo	7500
 蕰	woo	7500
-元	woo	
+元	woo	8500
 乏	wra	8200
 𠰏	wra	8200
 伐	wra	8500
@@ -8052,6 +8607,7 @@ use_preset_vocabulary: true
 閥	wra	8500
 罰	wra	9000
 橫	wra	8800
+橫	wea	8800
 划	wra	8500
 劃	wra	8500
 猾	wra	8200
@@ -8139,7 +8695,7 @@ use_preset_vocabulary: true
 劐	wu	6000
 惑	wu	8000
 雘	wu	6000
-鑊	hrou	8800
+鑊	hrou	6000
 壼	wu	7800
 萵	wu	6000
 窩	wu	8500
@@ -8271,6 +8827,7 @@ use_preset_vocabulary: true
 蟢	xi	7000
 鱚	xi	7000
 系	xi	8500
+系	si	8500
 盻	xi	7000
 舄	xi	6000
 禊	xi	6000
@@ -8283,6 +8840,7 @@ use_preset_vocabulary: true
 衖	xia	6000
 晌	xia	6000
 瞎	xia	8000
+瞎	sye	8000
 鰕	xia	6000
 俠	xia	8000
 遐	xia	7000
@@ -8290,7 +8848,9 @@ use_preset_vocabulary: true
 霞	xia	8300
 黠	xia	7000
 香	xia	9000
+香	sye	8800
 鄉	xia	8700
+鄉	sye	8700
 廂	xia	8000
 薌	xia	6000
 襄	xia	8000
@@ -8300,10 +8860,14 @@ use_preset_vocabulary: true
 庠	xia	7000
 享	xia	8500
 响	xia	8700
+响	sye	8700
 餉	xia	8300
+餉	sye	8300
 響	xia	9000
+響	sye	8800
 向	xia	8700
 巷	xia	8300
+巷	sye	8300
 驍	xia	7500
 淆	xia	7500
 筱	xia	7000
@@ -8339,6 +8903,7 @@ use_preset_vocabulary: true
 汛	xiang	8700
 殉	xiang	8500
 訓	xiang	9000
+訓	xun	8800
 訊	xiang	8500
 巽	xiang	6000
 馴	xiang	7000
@@ -8351,7 +8916,9 @@ use_preset_vocabulary: true
 鵂	xiao	7000
 契	xie	7500
 賒	xie	8000
+賒	si	8000
 設	xie	8500
+設	xye	8500
 兮	xie	9000
 醯	xie	6000
 銑	xie	7800
@@ -8367,6 +8934,7 @@ use_preset_vocabulary: true
 嫌	xie	8500
 銜	xie	6000
 賢	xie	8300
+賢	ye	8300
 筅	xie	7000
 跣	xie	7500
 蜆	xie	7500
@@ -8387,6 +8955,7 @@ use_preset_vocabulary: true
 憲	xie	8500
 獻	xie	8700
 些	xie	8500
+些	sye	8500
 楔	xie	7500
 歇	xie	9000
 蠍	xie	8000
@@ -8397,6 +8966,7 @@ use_preset_vocabulary: true
 泄	xie	8300
 卸	xie	8300
 械	xie	8300
+械	ye	8300
 渫	xie	6000
 屟	xie	6000
 媟	xie	7000
@@ -8414,6 +8984,8 @@ use_preset_vocabulary: true
 蟹	xie	8000
 癬	xie	8700
 怳	xio	7500
+酵	jio	7500	
+酵	jo	7500
 酵	xio	8500
 猇	xio	6000
 翛	xio	6000
@@ -8440,6 +9012,7 @@ use_preset_vocabulary: true
 呪	xiong	8000
 羞	xiu	8700
 朽	xiu	8500
+朽	su	8500
 琇	xiu	7000
 嗅	xiu	8000
 褎	xiu	6000
@@ -8496,6 +9069,8 @@ use_preset_vocabulary: true
 塾	xru	8300
 术	xru	7500
 術	xru	8500
+術	xu	8500
+術	xv	8500
 腧	xru	7000
 墅	xru	8300
 澍	xru	7500
@@ -8512,6 +9087,7 @@ use_preset_vocabulary: true
 茹	xrv	8500
 銣	xrv	7000
 儒	xrv	8300
+儒	zru	8400
 薷	xrv	6000
 嚅	xrv	7800
 孺	xrv	8500
@@ -8531,6 +9107,7 @@ use_preset_vocabulary: true
 縟	xrv	7500
 芮	xrv	8300
 瑞	xrv	8700
+瑞	zrai	8700
 銳	xrv	8500
 若	xrv	8500
 殊	xrv	8300
@@ -8794,7 +9371,6 @@ use_preset_vocabulary: true
 漵	xv	7500
 緒	xv	8300
 杼	xv	7800
-想	xye	
 嘯	xye	
 髢	ya	6000
 疋	ya	6000
@@ -8815,14 +9391,20 @@ use_preset_vocabulary: true
 鞅	ya	8000
 鴦	ya	8000
 羊	ya	9000
+羊	ye	9000
 垟	ya	8500
+垟	ye	8500
 徉	ya	7000
 洋	ya	8500
+洋	ye	8500
 陽	ya	8700
+陽	ye	8700
 揚	ya	9000
+揚	ye	9000
 蛘	ya	7000
 瑒	ya	7000
 楊	ya	8700
+楊	ye	8700
 暘	ya	7000
 煬	ya	7000
 瘍	ya	7000
@@ -8830,12 +9412,14 @@ use_preset_vocabulary: true
 颺	ya	6000
 氧	ya	8500
 養	ya	9000
+養	ye	8800
 癢	ya	9000
 怏	ya	7500
 恙	ya	8000
 烊	ya	8800
 漾	ya	8200
 樣	ya	8500
+樣	ye	8500
 葯	ya	7000
 藥	ya	9000
 也	ya	8500
@@ -9150,15 +9734,18 @@ use_preset_vocabulary: true
 槜	ye	7500
 哀	yi	8500
 艾	yi	8700
+艾	ei	8700
 砹	yi	7500
 隘	yi	8000
 嗌	yi	7500
 愛	yi	9000
+愛	ei	9000
 僾	yi	7500
 薆	yi	7000
 嬡	yi	7000
 璦	yi	7000
 曖	yi	7500
+暖	ei	7500
 礙	yi	7500
 鮨	yi	7500
 禩	yi	7500
@@ -9248,6 +9835,7 @@ use_preset_vocabulary: true
 詣	yi	8000
 裔	yi	8500
 意	yi	9000
+意	ei	9000
 義	yi	9000
 溢	yi	8500
 勩	yi	6000
@@ -9290,6 +9878,7 @@ use_preset_vocabulary: true
 驛	yi	8300
 尹	yi	8500
 嗈	yi	7000
+亦	yi	8700
 嶴	yo	8500
 王	yo	9000
 夭	yo	8500
@@ -9378,9 +9967,16 @@ use_preset_vocabulary: true
 湧	yong	7800
 蹂	you	9000
 浴	you	7500
+浴	niu	7500
 唷	you	8000
 酉	you	7000
 育	you	9000
+育	yu	8800
+育	yv	8800
+害	hrea	9000
+害	ear	9000
+搳	hrea	8300
+搳	ear	8300
 害	yr	9000
 嗐	yr	7500
 㕽	yr	7500
@@ -9606,6 +10202,7 @@ use_preset_vocabulary: true
 痍	yri	8000
 飴	yri	8300
 疑	yri	8500
+疑	yi	8500
 遺	yri	8500
 儀	yri	8500
 彝	yri	8000
@@ -9645,6 +10242,7 @@ use_preset_vocabulary: true
 傭	yro	8500
 鏞	yro	8300
 勇	yro	8700
+勇	yong	8700
 涌	yro	9000
 湧	yro	8000
 踴	yro	8500
@@ -9837,6 +10435,7 @@ use_preset_vocabulary: true
 愈	yru	8000
 煜	yru	7500
 預	yru	8700
+預	yue	8700
 蜮	yru	7000
 毓	yru	8500
 瘉	yru	7000
@@ -10011,6 +10610,7 @@ use_preset_vocabulary: true
 域	yrv	8500
 堉	yrv	7500
 欲	yrv	8500
+欲	niu	8500
 淯	yrv	8000
 馭	yrv	8300
 棫	yrv	7500
@@ -10020,6 +10620,7 @@ use_preset_vocabulary: true
 飫	yrv	7000
 寓	yrv	8500
 裕	yrv	8500
+裕	niu	8500
 矞	yrv	7500
 愈	yrv	8000
 煜	yrv	7500
@@ -10078,6 +10679,7 @@ use_preset_vocabulary: true
 溈	yu	7500
 違	yu	8300
 維	yu	8500
+維	wai	8500
 潿	yu	7000
 闈	yu	7000
 鮠	yu	7000
@@ -10206,6 +10808,7 @@ use_preset_vocabulary: true
 御	yu	8500
 飫	yu	7000
 寓	yu	8500
+寓	niu	8500
 裕	yu	8500
 矞	yu	7500
 愈	yu	8000
@@ -10571,7 +11174,7 @@ use_preset_vocabulary: true
 胔	z	6000
 漬	z	8700
 觜	z	6000
-𠕇	hea	
+蛭	z	8000
 碴	za	8500
 叱	za	7000
 薑	za	8700
@@ -10629,7 +11232,7 @@ use_preset_vocabulary: true
 桔	zai	8300
 橘	zai	8500
 鐍	zai	6000
-日	zai	6000
+日	zrai	6000
 靸	zai	6000
 睟	zai	7000
 質	zai	8500
@@ -10801,6 +11404,7 @@ use_preset_vocabulary: true
 膪	zea	6000
 甔	zea	6000
 凙	zea	8500
+凙	za	8500
 鱣	zea	6500
 臢	zea	7000
 宰	zea	8500
@@ -10808,31 +11412,36 @@ use_preset_vocabulary: true
 糌	zea	6000
 昝	zea	7000
 噆	zea	7000
-攢	zea	8500
-趲	zea	7000
+攢	za	8500
+趲	za	7000
 蹔	zea	6500
 鏨	zea	7000
-贊	zea	8700
-囋	zea	8700
-灒	zea	7000
-瓚	zea	7000
-讚	zea	8700
+贊	za	8700
+囋	za	8700
+灒	za	7000
+瓚	za	7000
+讚	za	8700
 鑿	zea	7000
 則	zea	8700
 責	zea	8700
 擇	zea	8500
+擇	za	8500
 澤	zea	8700
+擇	za	8700
 簀	zea	6500
 賾	zea	6500
 摘	zea	8800
 齋	zea	7000
 宅	zea	8500
+宅	za	8500
 債	zea	8800
 寨	zea	8700
 沾	zea	8500
+沾	za	8500
 栴	zea	6000
 旃	zea	7000
 詹	zea	8700
+詹	za	8700
 霑	zea	7000
 邅	zea	7000
 氈	zea	6000
@@ -10841,23 +11450,29 @@ use_preset_vocabulary: true
 饘	zea	6500
 鸇	zea	6500
 展	zea	8700
+展	zie	8700
 斬	zea	8500
 琖	zea	7000
 搌	zea	8000
-盞	zea	8800
+盞	za	8800
 嶄	zea	8500
 颭	zea	7000
 輾	zea	8500
 黵	zea	6500
 占	zea	8700
+占	za	8700
+占	jie	8700
 佔	zea	8700
+佔	za	8700
+佔	jie	8700
 綻	zea	8500
 戰	zea	8500
 蘸	zea	8800
+蘸	za	8800
 哲	zea	8700
 跩	zea	8000
-劗	zea	7000
-纘	zea	7000
+劗	za	7000
+纘	za	7000
 曾	zeng	8700
 棽	zeng	6000
 嗔	zeng	8000
@@ -10958,6 +11573,7 @@ use_preset_vocabulary: true
 砦	zi	6000
 瘵	zi	6000
 再	zi	7500
+再	zea	7500
 髒	zo	8500
 駔	zo	6000
 奘	zo	8000
@@ -11016,6 +11632,7 @@ use_preset_vocabulary: true
 樽	zong	8000
 撙	zong	7500
 捘	zong	7000
+焯	co	7000
 餷	zou	7000
 焯	zou	7000
 逴	zou	7000
@@ -11090,7 +11707,7 @@ use_preset_vocabulary: true
 做	zou	9000
 酢	zou	7500
 咗	zou	8700
-洨	go	8000
+楂	zou	8500
 詞	zr	8500
 垍	zr	6000
 時	zr	8500
@@ -11126,9 +11743,14 @@ use_preset_vocabulary: true
 自	zr	9000
 字	zr	8700
 剚	zr	7000
+持	zr	8000
+瓷	zr	8000
+恃	zr	8000
 鏘	zra	7000
 歃	zra	8000
 閘	zra	8700
+閘	za	8700
+閘	zre	8700
 遮	zra	9000
 熫	zra	9000
 嗻	zra	8500
@@ -11202,18 +11824,25 @@ use_preset_vocabulary: true
 燥	zre	8500
 輒	zre	7500
 讋	zre	6000
-殘	zrea	8500
+殘	zra	8500
 慚	zrea	8330
+慚	zra	8300
 孱	zrea	8300
 僝	zrea	7500
 襌	zrea	8300
+襌	zra	8300
 蟾	zrea	7800
+蟾	zra	7800
 宅	zrea	8000
+宅	zra	8000
 鑱	zrea	7000
-饞	zrea	9000
+饞	zra	9000
 燀	zrea	7000
 舢	zrea	7500
 擅	zrea	8300
+擅	nie	8000
+擅	sa	8200
+擅	zra	8200
 鱔	zrea	8000
 蠶	zrea	8500
 瘦	zrea	9000
@@ -11275,12 +11904,14 @@ use_preset_vocabulary: true
 揃	zrie	8000
 𠷁	zrie	8300
 前	zrie	9000
+前	ye	8800
 乾	zrie	8300
 錢	zrie	8700
 然	zrie	8500
 弦	zrie	8330
 嫌	zrie	8700
 羨	zrie	8500
+羨	ye	8500
 邪	zrie	8500
 協	zrie	8500
 斜	zrie	8500
@@ -11321,6 +11952,7 @@ use_preset_vocabulary: true
 𠱜	zroa	8300
 斿	zroa	6000
 雜	zroa	8700
+雜	za	8700
 僢	zrong	7000
 唇	zrong	8700
 純	zrong	9000
@@ -11335,6 +11967,7 @@ use_preset_vocabulary: true
 閏	zrong	8500
 潤	zrong	8700
 順	zrong	9000
+順	zroa	8800
 舜	zrong	8500
 瞤	zrong	8500
 瞬	zrong	8500
@@ -11364,8 +11997,11 @@ use_preset_vocabulary: true
 族	zru	8700
 舡	zrue	8000
 船	zrue	9000
+船	yue	8800
 絕	zrue	8500
+絕	yue	8500
 全	zrue	9000
+全	yue	8800
 𠱴	zrue	8300
 荃	zrue	8000
 泉	zrue	8700
@@ -11387,6 +12023,8 @@ use_preset_vocabulary: true
 贅	ju	
 崇	zrwe	8500
 摐	zrwe	7000
+摐	zong	7000
+摐	zou	7000
 㗰	zrwe	8300
 床	zrwe	9000
 蓯	zrwe	7000
@@ -11400,20 +12038,34 @@ use_preset_vocabulary: true
 蹤	zrwe	8500
 疭	zrwe	6000
 隨	zrwe	7800
+共	zrwe	7800
+共	zwe	7800
 常	zrye	8300
 𠮵	zrye	8300
+嚐	ye	8700
+嚐	yre	8700
 嚐	zrye	8700
 薔	zrye	8000
 嬙	zrye	7500
 檣	zrye	7500
 牆	zrye	9000
+牆	ye	8800
+牆	yre	8800
 瓤	zrye	6000
 弱	zrye	8300
+弱	ye	8300
+弱	yre	8300
 蒻	zrye	6000
 濇	zrye	7000
 上	zrye	9000
+上	ye	8800
+上	yre	8800
 尚	zrye	8500
+尚	ye	8500
+尚	yre	8500
 裳	zrye	8500
+裳	ye	8500
+裳	yre	8500
 食	zrye	8700
 飧	zrye	6000
 祥	zrye	8500
@@ -11434,6 +12086,8 @@ use_preset_vocabulary: true
 舳	zu	7000
 瘃	zu	7000
 燭	zu	8000
+燭	jio	8000
+燭	jo	8000
 蠋	zu	8500
 躅	zu	7500
 渚	zu	7500
@@ -11450,6 +12104,21 @@ use_preset_vocabulary: true
 種	zwe	8700
 壯	zwe	8700
 戇	zwe	6000
+郊	go	8500
+峧	go	8000
+澆	go	8600
+姣	go	8300
+膠	go	8500
+蛟	go	8000
+跤	go	8000
+鮫	go	8000
+轇	go	7500
+狡	go	8400
+絞	go	8400
+鉸	go	8300
+皎	go	8500
+洨	go	8000
+𠕇	hea	
 𢯫褲		9000
 𢯫起		9000
 𢯫弗起		9000
@@ -32252,7 +32921,7 @@ use_preset_vocabulary: true
 裂區設計		
 裂紋		
 裂隙		
-裂隙水			
+裂隙水		
 鬣鬃		
 林彪		7000
 林場		
@@ -54374,7 +55043,7 @@ use_preset_vocabulary: true
 治所		
 治校		
 治學		7000
-治汙			
+治汙		
 治治		
 治罪		7000
 致哀		

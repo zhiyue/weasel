@@ -2,17 +2,18 @@
 # encoding: utf-8
 
 schema:
-  schema_id: ay_ncld
-  name: 樂清柳東口音
+  schema_id: ay_ncls
+  name: 樂清柳西口音
   version: "1.00"
   author:
     - 寒逸 <hanyilfg@gmail.com>
   description: |
-    適用於樂清柳東地區
-    製作人：
-      * 字音表:寒逸
-      * 詞彙表:寒逸
-      
+    適用於樂清柳西地區
+    字音提供人：
+      林佳靜
+      吴落杰
+    碼表編輯人:
+      寒逸
   dependencies:
     - luna_pinyin
 
