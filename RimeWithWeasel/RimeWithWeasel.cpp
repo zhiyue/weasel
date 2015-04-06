@@ -32,6 +32,8 @@ RimeWithWeaselHandler::~RimeWithWeaselHandler()
 void _UpdateUIStyle(RimeConfig* config, weasel::UI* ui, bool initialize);
 void _LoadAppOptions(RimeConfig* config, AppOptionsByAppName& app_options);
 
+static RIME_MODULE_LIST(required_modules, "default", "legacy");
+
 void RimeWithWeaselHandler::_Setup()
 {
 	RIME_STRUCT(RimeTraits, weasel_traits);
@@ -45,6 +47,7 @@ void RimeWithWeaselHandler::_Setup()
 	weasel_traits.distribution_code_name = WEASEL_CODE_NAME;
 	weasel_traits.distribution_version = WEASEL_VERSION;
 	weasel_traits.app_name = "rime.weasel";
+  weasel_traits.modules = required_modules;
 	RimeSetup(&weasel_traits);
 	RimeSetNotificationHandler(&RimeWithWeaselHandler::OnNotify, this);
 }
