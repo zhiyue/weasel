@@ -1,10 +1,18 @@
-; weasel installation script
+﻿; weasel installation script
 !include FileFunc.nsh
 !include LogicLib.nsh
+!include MUI2.nsh
 !include x64.nsh
 
-!define WEASEL_VERSION 0.9.30
-!define WEASEL_BUILD ${WEASEL_VERSION}.0
+Unicode true
+
+!ifndef WEASEL_VERSION
+!define WEASEL_VERSION 1.0.0
+!endif
+
+!ifndef WEASEL_BUILD
+!define WEASEL_BUILD 0
+!endif
 
 !define WEASEL_ROOT $INSTDIR\weasel-${WEASEL_VERSION}
 
@@ -12,9 +20,9 @@
 Name "小狼毫 ${WEASEL_VERSION}"
 
 ; The file to write
-OutFile "archives\weasel-${WEASEL_BUILD}-installer.exe"
+OutFile "archives\weasel-${WEASEL_VERSION}.${WEASEL_BUILD}-installer.exe"
 
-VIProductVersion "${WEASEL_BUILD}"
+VIProductVersion "${WEASEL_VERSION}.${WEASEL_BUILD}"
 VIAddVersionKey /LANG=2052 "ProductName" "小狼毫"
 VIAddVersionKey /LANG=2052 "Comments" "Powered by RIME | 中州韻輸入法引擎"
 VIAddVersionKey /LANG=2052 "CompanyName" "式恕堂"
@@ -22,7 +30,7 @@ VIAddVersionKey /LANG=2052 "LegalCopyright" "Copyleft RIME Developers"
 VIAddVersionKey /LANG=2052 "FileDescription" "小狼毫輸入法"
 VIAddVersionKey /LANG=2052 "FileVersion" "${WEASEL_VERSION}"
 
-Icon ..\resource\weasel.ico
+!define MUI_ICON ..\resource\weasel.ico
 SetCompressor /SOLID lzma
 
 ; The default installation directory
@@ -35,18 +43,25 @@ InstallDirRegKey HKLM "Software\Rime\Weasel" "InstallDir"
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
 
-LoadLanguageFile "${NSISDIR}\Contrib\Language Files\SimpChinese.nlf"
-
 ;--------------------------------
 
 ; Pages
 
-;Page components
-Page directory
-Page instfiles
+!insertmacro MUI_PAGE_LICENSE "LICENSE.txt"
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_INSTFILES
+!insertmacro MUI_PAGE_FINISH
 
-UninstPage uninstConfirm
-UninstPage instfiles
+!insertmacro MUI_UNPAGE_CONFIRM
+!insertmacro MUI_UNPAGE_INSTFILES
+!insertmacro MUI_UNPAGE_FINISH
+
+;--------------------------------
+
+; Languages
+
+!insertmacro MUI_LANGUAGE "SimpChinese"
+!insertmacro MUI_LANGUAGE "TradChinese"
 
 ;--------------------------------
 
@@ -56,6 +71,7 @@ Function .onInit
   "UninstallString"
   StrCmp $R0 "" done
 
+  StrCpy $0 "Upgrade"
   IfSilent uninst 0
   MessageBox MB_OKCANCEL|MB_ICONINFORMATION \
   "安裝前，我打盤先卸載舊版本的小狼毫。$\n$\n按下「確定」移除舊版本，按下「取消」放棄本次安裝。" \
@@ -103,38 +119,47 @@ Section "Weasel"
 program_files:
   File "LICENSE.txt"
   File "README.txt"
+  File "7-zip-license.txt"
+  File "7z.dll"
+  File "7z.exe"
+  File "COPYING-curl.txt"
+  File "curl.exe"
+  File "curl-ca-bundle.crt"
+  File "rime-install.bat"
+  File "rime-install-config.bat"
   File "weasel.dll"
-  File "weaselx64.dll"
+  ${If} ${RunningX64}
+    File "weaselx64.dll"
+  ${EndIf}
   File "weaselt.dll"
-  File "weaseltx64.dll"
+  ${If} ${RunningX64}
+    File "weaseltx64.dll"
+  ${EndIf}
   File "weasel.ime"
-  File "weaselx64.ime"
+  ${If} ${RunningX64}
+    File "weaselx64.ime"
+  ${EndIf}
   File "weaselt.ime"
-  File "weaseltx64.ime"
+  ${If} ${RunningX64}
+    File "weaseltx64.ime"
+  ${EndIf}
   File "WeaselDeployer.exe"
   File "WeaselServer.exe"
   File "WeaselSetup.exe"
-  File "WeaselSetupx64.exe"
-  File "libglog.dll"
-  File "opencc.dll"
   File "rime.dll"
   File "WinSparkle.dll"
-  File "zlib1.dll"
   ; shared data files
-  SetOutPath  $INSTDIR\data
-  File "data\default.yaml"
-  File "data\symbols.yaml"
-  File "data\weasel.yaml"
-  File "data\essay.txt"
-  File "data\*.schema.yaml"
-  File "data\*.dict.yaml"
+  SetOutPath $INSTDIR\data
+  File "data\*.yaml"
+  File "data\*.txt"
+  IfFileExists "data\*.gram" 0 +2
+  File "data\*.gram"
   ; opencc data files
-  SetOutPath  $INSTDIR\data\opencc
-  File "data\opencc\*.ini"
+  SetOutPath $INSTDIR\data\opencc
+  File "data\opencc\*.json"
   File "data\opencc\*.ocd"
-  File "data\opencc\*.txt"
   ; images
-  SetOutPath  $INSTDIR\data\preview
+  SetOutPath $INSTDIR\data\preview
   File "data\preview\*.png"
 
   SetOutPath $INSTDIR
@@ -150,11 +175,7 @@ program_files:
   IfErrors +2 0
   StrCpy $R2 "/t"
 
-  ${If} ${RunningX64}
-    ExecWait '"$INSTDIR\WeaselSetupx64.exe" $R2'
-  ${Else}
-    ExecWait '"$INSTDIR\WeaselSetup.exe" $R2'
-  ${EndIf}
+  ExecWait '"$INSTDIR\WeaselSetup.exe" $R2'
 
   ; run as user...
   ExecWait "$INSTDIR\WeaselDeployer.exe /install"
@@ -165,6 +186,15 @@ program_files:
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Weasel" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Weasel" "NoRepair" 1
   WriteUninstaller "$INSTDIR\uninstall.exe"
+
+  ; Write autorun key
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Run" "WeaselServer" "$INSTDIR\WeaselServer.exe"
+  ; Start WeaselServer
+  Exec "$INSTDIR\WeaselServer.exe"
+
+  ; Prompt reboot
+  StrCmp $0 "Upgrade" 0 +2
+  SetRebootFlag true
 
 SectionEnd
 
@@ -181,11 +211,7 @@ Section "Start Menu Shortcuts"
   CreateShortCut "$SMPROGRAMS\小狼毫輸入法\【小狼毫】用戶文件夾.lnk" "$INSTDIR\WeaselServer.exe" "/userdir" "$SYSDIR\shell32.dll" 126
   CreateShortCut "$SMPROGRAMS\小狼毫輸入法\【小狼毫】程序文件夾.lnk" "$INSTDIR\WeaselServer.exe" "/weaseldir" "$SYSDIR\shell32.dll" 19
   CreateShortCut "$SMPROGRAMS\小狼毫輸入法\【小狼毫】檢查新版本.lnk" "$INSTDIR\WeaselServer.exe" "/update" "$SYSDIR\shell32.dll" 13
-  ${If} ${RunningX64}
-    CreateShortCut "$SMPROGRAMS\小狼毫輸入法\【小狼毫】安裝選項.lnk" "$INSTDIR\WeaselSetupx64.exe" "" "$SYSDIR\shell32.dll" 162
-  ${Else}
-    CreateShortCut "$SMPROGRAMS\小狼毫輸入法\【小狼毫】安裝選項.lnk" "$INSTDIR\WeaselSetup.exe" "" "$SYSDIR\shell32.dll" 162
-  ${EndIf}
+  CreateShortCut "$SMPROGRAMS\小狼毫輸入法\【小狼毫】安裝選項.lnk" "$INSTDIR\WeaselSetup.exe" "" "$SYSDIR\shell32.dll" 162
   CreateShortCut "$SMPROGRAMS\小狼毫輸入法\卸載小狼毫.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
 
 SectionEnd
@@ -198,14 +224,11 @@ Section "Uninstall"
 
   ExecWait '"$INSTDIR\WeaselServer.exe" /quit'
 
-  ${If} ${RunningX64}
-    ExecWait '"$INSTDIR\WeaselSetupx64.exe" /u'
-  ${Else}
-    ExecWait '"$INSTDIR\WeaselSetup.exe" /u'
-  ${EndIf}
+  ExecWait '"$INSTDIR\WeaselSetup.exe" /u'
 
   ; Remove registry keys
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Weasel"
+  DeleteRegValue HKLM "Software\Microsoft\Windows\CurrentVersion\Run" "WeaselServer"
   DeleteRegKey HKLM SOFTWARE\Rime
 
   ; Remove files and uninstaller
@@ -221,5 +244,8 @@ Section "Uninstall"
   SetShellVarContext all
   Delete /REBOOTOK "$SMPROGRAMS\小狼毫輸入法\*.*"
   RMDir /REBOOTOK "$SMPROGRAMS\小狼毫輸入法"
+
+  ; Prompt reboot
+  SetRebootFlag true
 
 SectionEnd

@@ -3,30 +3,27 @@
 
 using namespace weasel;
 
-static WCHAR LABEL_PATTERN[] = L"%1%.";
-
 StandardLayout::StandardLayout(const UIStyle &style, const Context &context, const Status &status)
 	: Layout(style, context, status)
 {
 }
 
-std::wstring StandardLayout::GetLabelText(const std::string &label, int id) const
+std::wstring StandardLayout::GetLabelText(const std::vector<Text> &labels, int id, const wchar_t *format) const
 {
-	if (id < label.length())
-		return (boost::wformat(LABEL_PATTERN) % label.at(id)).str();
-	else
-		return (boost::wformat(LABEL_PATTERN) % ((id + 1) % 10)).str();
+	wchar_t buffer[128];
+	swprintf_s<128>(buffer, format, labels.at(id).str.c_str());
+	return std::wstring(buffer);
 }
 
 CSize StandardLayout::GetPreeditSize(CDCHandle dc) const
 {
-	const wstring &preedit = _context.preedit.str;
-	const vector<weasel::TextAttribute> &attrs = _context.preedit.attributes;
+	const std::wstring &preedit = _context.preedit.str;
+	const std::vector<weasel::TextAttribute> &attrs = _context.preedit.attributes;
 	CSize size(0, 0);
 	if (!preedit.empty())
 	{
 		dc.GetTextExtent(preedit.c_str(), preedit.length(), &size);
-		for (int i = 0; i < attrs.size(); i++)
+		for (size_t i = 0; i < attrs.size(); i++)
 		{
 			if (attrs[i].type == weasel::HIGHLIGHTED)
 			{
@@ -90,7 +87,7 @@ void StandardLayout::UpdateStatusIconLayout(int* width, int* height)
 bool StandardLayout::IsInlinePreedit() const
 {
 	return _style.inline_preedit && (_style.client_caps & weasel::INLINE_PREEDIT_CAPABLE) != 0 &&
-		_style.layout_type != LAYOUT_VERTICAL_FULLSCREEN && _style.layout_type != LAYOUT_HORIZONTAL_FULLSCREEN;
+		_style.layout_type != UIStyle::LAYOUT_VERTICAL_FULLSCREEN && _style.layout_type != UIStyle::LAYOUT_HORIZONTAL_FULLSCREEN;
 }
 
 bool StandardLayout::ShouldDisplayStatusIcon() const

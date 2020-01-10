@@ -5,7 +5,7 @@
 namespace weasel
 {
 	const int MAX_CANDIDATES_COUNT = 10;
-	const int STATUS_ICON_SIZE = 16;
+	const int STATUS_ICON_SIZE = GetSystemMetrics(SM_CXICON);
 
 	class StandardLayout: public Layout
 	{
@@ -22,7 +22,7 @@ namespace weasel
 		virtual CRect GetCandidateCommentRect(int id) const { return _candidateCommentRects[id]; }
 		virtual CRect GetStatusIconRect() const { return _statusIconRect; }
 
-		virtual std::wstring GetLabelText(const std::string &label, int id) const;
+		virtual std::wstring GetLabelText(const std::vector<Text> &labels, int id, const wchar_t *format) const;
 		virtual bool IsInlinePreedit() const;
 		virtual bool ShouldDisplayStatusIcon() const;
 

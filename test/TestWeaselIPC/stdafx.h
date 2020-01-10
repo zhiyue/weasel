@@ -14,10 +14,7 @@
 
 #include <atlbase.h>
 
-#pragma warning(disable : 4996)
-
 #include <wtl/atlapp.h>
-
-#pragma warning(default : 4996)
+#include <string>
 
 extern CAppModule _Module;

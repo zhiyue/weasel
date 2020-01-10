@@ -33,7 +33,7 @@ STDAPI WeaselTSF::OnEndEdit(ITfContext *pContext, TfEditCookie ecReadOnly, ITfEd
 				if (_pComposition->GetRange(&pRangeComposition) == S_OK)
 				{
 					if (!IsRangeCovered(ecReadOnly, tfSelection.range, pRangeComposition))
-						_EndComposition(pContext);
+						_EndComposition(pContext, true);
 					pRangeComposition->Release();
 				}
 			}
@@ -65,22 +65,21 @@ STDAPI WeaselTSF::OnLayoutChange(ITfContext *pContext, TfLayoutCode lcode, ITfCo
 	return S_OK;
 }
 
-BOOL WeaselTSF::_InitTextEditSink(ITfDocumentMgr *pDocMgr)
+BOOL WeaselTSF::_InitTextEditSink(com_ptr<ITfDocumentMgr> pDocMgr)
 {
-	ITfSource *pSource;
+	com_ptr<ITfSource> pSource;
 	BOOL fRet;
 
 	/* clear out any previous sink first */
 	if (_dwTextEditSinkCookie != TF_INVALID_COOKIE)
 	{
-		if (_pTextEditSinkContext->QueryInterface(IID_ITfSource, (void **) &pSource) == S_OK)
+		_pTextEditSinkContext->QueryInterface(&pSource);
+		if (pSource != nullptr)
 		{
 			pSource->UnadviseSink(_dwTextEditSinkCookie);
 			pSource->UnadviseSink(_dwTextLayoutSinkCookie);
-			pSource->Release();
 		}
-		_pTextEditSinkContext->Release();
-		_pTextEditSinkContext = NULL;
+		_pTextEditSinkContext = nullptr;
 		_dwTextEditSinkCookie = TF_INVALID_COOKIE;
 	}
 	if (pDocMgr == NULL)
@@ -105,12 +104,10 @@ BOOL WeaselTSF::_InitTextEditSink(ITfDocumentMgr *pDocMgr)
 		}
 		else
 			_dwTextLayoutSinkCookie = TF_INVALID_COOKIE;
-		pSource->Release();
 	}
 	if (fRet == FALSE)
 	{
-		_pTextEditSinkContext->Release();
-		_pTextEditSinkContext = NULL;
+		_pTextEditSinkContext = nullptr;
 	}
 
 	return fRet;

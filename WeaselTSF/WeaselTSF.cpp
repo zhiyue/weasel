@@ -1,7 +1,11 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 
 #include "WeaselTSF.h"
 #include "WeaselCommon.h"
+#include "CandidateList.h"
+#include "LanguageBar.h"
+#include "Compartment.h"
+#include "ResponseParser.h"
 
 static void error_message(const WCHAR *msg)
 {
@@ -14,84 +18,20 @@ static void error_message(const WCHAR *msg)
 	}
 }
 
-static bool launch_server()
-{
-	// ÄÔ]ƒÔ±íÈ¡µÃserverÎ»ÖÃ
-	HKEY hKey;
-	LSTATUS ret = RegOpenKeyEx(HKEY_LOCAL_MACHINE, WEASEL_REG_KEY, 0, KEY_READ | KEY_WOW64_32KEY, &hKey);
-	if (ret != ERROR_SUCCESS)
-	{
-		error_message(L"Ô]ƒÔ±íÐÅÏ¢ŸoÓ°ÁË");
-		return false;
-	}
-
-	WCHAR value[MAX_PATH];
-	DWORD len = sizeof(value);
-	DWORD type = 0;
-	ret = RegQueryValueEx(hKey, L"WeaselRoot", NULL, &type, (LPBYTE)value, &len);
-	if (ret != ERROR_SUCCESS)
-	{
-		error_message(L"Î´ÔOÖÃ WeaselRoot");
-		RegCloseKey(hKey);
-		return false;
-	}
-	wpath weaselRoot(value);
-
-	len = sizeof(value);
-	type = 0;
-	ret = RegQueryValueEx(hKey, L"ServerExecutable", NULL, &type, (LPBYTE)value, &len);
-	if (ret != ERROR_SUCCESS)
-	{
-		error_message(L"Î´ÔOÖÃ ServerExecutable");
-		RegCloseKey(hKey);
-		return false;
-	}
-	wpath serverPath(weaselRoot / value);
-
-	RegCloseKey(hKey);
-
-	// †™„Ó·þ„ÕßM³Ì
-	wstring exe = serverPath.wstring();
-	wstring dir = weaselRoot.wstring();
-
-	STARTUPINFO startup_info = {0};
-	PROCESS_INFORMATION process_info = {0};
-	startup_info.cb = sizeof(startup_info);
-
-	if (!CreateProcess(exe.c_str(), NULL, NULL, NULL, FALSE, 0, NULL, dir.c_str(), &startup_info, &process_info))
-	{
-	//	EZDBGONLYLOGGERPRINT("ERROR: failed to launch weasel server.");
-		error_message(L"·þ„ÕßM³Ì†™„Ó²»Æðí :(");
-		return false;
-	}
-
-	if (!WaitForInputIdle(process_info.hProcess, 1500))
-	{
-//		EZDBGONLYLOGGERPRINT("WARNING: WaitForInputIdle() timed out; succeeding IPC messages might not be delivered.");
-	}
-	if (process_info.hProcess) CloseHandle(process_info.hProcess);
-	if (process_info.hThread) CloseHandle(process_info.hThread);
-
-	return true;
-}
-
 WeaselTSF::WeaselTSF()
 {
 	_cRef = 1;
 
-	_pThreadMgr = NULL;
-
 	_dwThreadMgrEventSinkCookie = TF_INVALID_COOKIE;
 
-	_pTextEditSinkContext = NULL;
 	_dwTextEditSinkCookie = TF_INVALID_COOKIE;
 	_dwTextLayoutSinkCookie = TF_INVALID_COOKIE;
 	_fTestKeyDownPending = FALSE;
 	_fTestKeyUpPending = FALSE;
 
-	_pComposition = NULL;
-
 	_fCUASWorkaroundTested = _fCUASWorkaroundEnabled = FALSE;
+
+	_cand = new CCandidateList(this);
 
 	DllAddRef();
 }
@@ -109,19 +49,23 @@ STDAPI WeaselTSF::QueryInterface(REFIID riid, void **ppvObject)
 	*ppvObject = NULL;
 
 	if (IsEqualIID(riid, IID_IUnknown) || IsEqualIID(riid, IID_ITfTextInputProcessor))
-		*ppvObject = (ITfTextInputProcessor *) this;
+		*ppvObject = (ITfTextInputProcessor *)this;
+	else if (IsEqualIID(riid, IID_ITfTextInputProcessorEx))
+		*ppvObject = (ITfTextInputProcessorEx *)this;
 	else if (IsEqualIID(riid, IID_ITfThreadMgrEventSink))
-		*ppvObject = (ITfThreadMgrEventSink *) this;
+		*ppvObject = (ITfThreadMgrEventSink *)this;
 	else if (IsEqualIID(riid, IID_ITfTextEditSink))
-		*ppvObject = (ITfTextEditSink *) this;
+		*ppvObject = (ITfTextEditSink *)this;
 	else if (IsEqualIID(riid, IID_ITfTextLayoutSink))
-		*ppvObject = (ITfTextLayoutSink *) this;
+		*ppvObject = (ITfTextLayoutSink *)this;
 	else if (IsEqualIID(riid, IID_ITfKeyEventSink))
-		*ppvObject = (ITfKeyEventSink *) this;
+		*ppvObject = (ITfKeyEventSink *)this;
 	else if (IsEqualIID(riid, IID_ITfCompositionSink))
-		*ppvObject = (ITfCompositionSink *) this;
+		*ppvObject = (ITfCompositionSink *)this;
 	else if (IsEqualIID(riid, IID_ITfEditSession))
-		*ppvObject = (ITfEditSession *) this;
+		*ppvObject = (ITfEditSession *)this;
+	else if (IsEqualIID(riid, IID_ITfThreadFocusSink))
+		*ppvObject = (ITfThreadFocusSink *)this;
 
 	if (*ppvObject)
 	{
@@ -150,48 +94,14 @@ STDAPI_(ULONG) WeaselTSF::Release()
 
 STDAPI WeaselTSF::Activate(ITfThreadMgr *pThreadMgr, TfClientId tfClientId)
 {
-	_EnsureServerConnected();
-
-	_pThreadMgr = pThreadMgr;
-	_pThreadMgr->AddRef();
-	_tfClientId = tfClientId;
-
-	if (!_InitThreadMgrEventSink())
-		goto ExitError;
-
-	ITfDocumentMgr *pDocMgrFocus;
-	if ((_pThreadMgr->GetFocus(&pDocMgrFocus) == S_OK) && (pDocMgrFocus != NULL))
-	{
-		_InitTextEditSink(pDocMgrFocus);
-		pDocMgrFocus->Release();
-	}
-
-	if (!_InitKeyEventSink())
-		goto ExitError;
-
-	if (!_InitPreservedKey())
-		goto ExitError;
-
-	// TODO not yet complete
-	_pLangBarButton = NULL;
-	//if (!_InitLanguageBar())
-	//	goto ExitError;
-
-	if (!_IsKeyboardOpen())
-		_SetKeyboardOpen(TRUE);
-
-	return S_OK;
-
-ExitError:
-	Deactivate();
-	return E_FAIL;
+	return ActivateEx(pThreadMgr, tfClientId, 0U);
 }
 
 STDAPI WeaselTSF::Deactivate()
 {
 	m_client.EndSession();
 
-	_InitTextEditSink(NULL);
+	_InitTextEditSink(com_ptr<ITfDocumentMgr>());
 
 	_UninitThreadMgrEventSink();
 
@@ -200,14 +110,81 @@ STDAPI WeaselTSF::Deactivate()
 
 	_UninitLanguageBar();
 
-	if (_pThreadMgr != NULL)
-	{
-		_pThreadMgr->Release();
-		_pThreadMgr = NULL;
-	}
-	
+	_UninitCompartment();
+
+	_pThreadMgr = NULL;
+
 	_tfClientId = TF_CLIENTID_NULL;
 
+	_cand->Destroy();
+
+	return S_OK;
+}
+
+STDAPI WeaselTSF::ActivateEx(ITfThreadMgr *pThreadMgr, TfClientId tfClientId, DWORD dwFlags)
+{
+	com_ptr<ITfDocumentMgr> pDocMgrFocus;
+	_activateFlags = dwFlags;
+
+	_pThreadMgr = pThreadMgr;
+	_tfClientId = tfClientId;
+
+	if (!_InitThreadMgrEventSink())
+		goto ExitError;
+
+	if ((_pThreadMgr->GetFocus(&pDocMgrFocus) == S_OK) && (pDocMgrFocus != NULL))
+	{
+		_InitTextEditSink(pDocMgrFocus);
+	}
+
+	if (!_InitKeyEventSink())
+		goto ExitError;
+
+	if (!_InitPreservedKey())
+		goto ExitError;
+
+	if (!_InitLanguageBar())
+		goto ExitError;
+
+	if (!_IsKeyboardOpen())
+		_SetKeyboardOpen(TRUE);
+
+	if (!_InitCompartment())
+		goto ExitError;
+
+	_EnsureServerConnected();
+
+	return S_OK;
+
+ExitError:
+	Deactivate();
+	return E_FAIL;
+}
+
+STDMETHODIMP WeaselTSF::OnSetThreadFocus()
+{
+	return S_OK;
+}
+STDMETHODIMP WeaselTSF::OnKillThreadFocus()
+{
+	_AbortComposition();
+	return S_OK;
+}
+
+STDMETHODIMP WeaselTSF::OnActivated(REFCLSID clsid, REFGUID guidProfile, BOOL isActivated)
+{
+	if (!IsEqualCLSID(clsid, c_clsidTextService))
+	{
+		return S_OK;
+	}
+
+	if (isActivated) {
+		_ShowLanguageBar(TRUE);
+	}
+	else {
+		_DeleteCandidateList();
+		_ShowLanguageBar(FALSE);
+	}
 	return S_OK;
 }
 
@@ -215,7 +192,13 @@ void WeaselTSF::_EnsureServerConnected()
 {
 	if (!m_client.Echo())
 	{
-		m_client.Connect(launch_server);
+		m_client.Disconnect();
+		m_client.Connect(NULL);
 		m_client.StartSession();
+		weasel::ResponseParser parser(NULL, NULL, &_status, NULL, &_cand->style());
+		bool ok = m_client.GetResponseData(std::ref(parser));
+		if (ok) {
+			_UpdateLanguageBar(_status);
+		}
 	}
 }

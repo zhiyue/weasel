@@ -12,7 +12,7 @@ void VerticalLayout::DoLayout(CDCHandle dc)
 {
 	const std::vector<Text> &candidates(_context.cinfo.candies);
 	const std::vector<Text> &comments(_context.cinfo.comments);
-	const std::string &labels(_context.cinfo.labels);
+	const std::vector<Text> &labels(_context.cinfo.labels);
 
 	CSize size;
 	//dc.GetTextExtent(L"\x4e2d", 1, &size);
@@ -42,7 +42,7 @@ void VerticalLayout::DoLayout(CDCHandle dc)
 	int comment_shift_width = 0;  /* distance to the left of the candidate text */
 	int max_candidate_width = 0;  /* label + text */
 	int max_comment_width = 0;    /* comment, or none */
-	for (int i = 0; i < candidates.size(); i++)
+	for (size_t i = 0; i < candidates.size() && i < MAX_CANDIDATES_COUNT; ++i)
 	{
 		if (i > 0 )
 			height += _style.candidate_spacing;
@@ -50,7 +50,7 @@ void VerticalLayout::DoLayout(CDCHandle dc)
 		int w = _style.margin_x, h = 0;
 		int candidate_width = 0, comment_width = 0;
 		/* Label */
-		std::wstring label = GetLabelText(labels, i);
+		std::wstring label = GetLabelText(labels, i, _style.label_text_format.c_str());
 		dc.GetTextExtent(label.c_str(), label.length(), &size);
 		_candidateLabelRects[i].SetRect(w, height, w + size.cx, height + size.cy);
 		w += size.cx + space, h = max(h, size.cy);
@@ -86,7 +86,7 @@ void VerticalLayout::DoLayout(CDCHandle dc)
 	width = max(width, max_content_width + 2 * _style.margin_x);
 
 	/* Align comments */
-	for (int i = 0; i < candidates.size(); i++)
+	for (size_t i = 0; i < candidates.size() && i < MAX_CANDIDATES_COUNT; ++i)
 		_candidateCommentRects[i].OffsetRect(_style.margin_x + comment_shift_width, 0);
 
 	if (candidates.size())

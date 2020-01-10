@@ -1,16 +1,15 @@
-// TestWeaselIPC.cpp : Defines the entry point for the console application.
+﻿// TestWeaselIPC.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
 #include <WeaselIPC.h>
+#include <RimeWithWeasel.h>
 
-#include <boost/bind.hpp>
 #include <boost/interprocess/streams/bufferstream.hpp>
-#include <boost/scoped_ptr.hpp>
 using namespace boost::interprocess;
 
 #include <iostream>
-using namespace std;
+#include <memory>
 
 CAppModule _Module;
 
@@ -35,7 +34,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		weasel::Client client;
 		if (!client.Connect())
 		{
-			cerr << "server not running." << endl;
+			std::cerr << "server not running." << std::endl;
 			return 0;
 		}
 		client.ShutdownServer();
@@ -52,10 +51,10 @@ int _tmain(int argc, _TCHAR* argv[])
 
 bool launch_server()
 {
-	int ret = (int)ShellExecute( NULL, L"open", L"TestWeaselIPC.exe", L"/start", NULL, SW_HIDE );
+	int ret = (int)ShellExecute( NULL, L"open", L"TestWeaselIPC.exe", L"/start", NULL, SW_NORMAL);
 	if (ret <= 32)
 	{
-		cerr << "failed to launch server." << endl;
+		std::cerr << "failed to launch server." << std::endl;
 		return false;
 	}
 	return true;
@@ -81,29 +80,29 @@ int console_main()
 	weasel::Client client;
 	if (!client.Connect())
 	{
-		cerr << "failed to connect to server." << endl;
+		std::cerr << "failed to connect to server." << std::endl;
 		return -2;
 	}
 	client.StartSession();
 	if (!client.Echo())
 	{
-		cerr << "failed to start session." << endl;
+		std::cerr << "failed to start session." << std::endl;
 		return -3;
 	}
 	
-	while (cin.good())
+	while (std::cin.good())
 	{
-		int ch = cin.get();
-		if (!cin.good())
+		int ch = std::cin.get();
+		if (!std::cin.good())
 			break;
 		bool eaten = client.ProcessKeyEvent(weasel::KeyEvent(ch, 0));
-		cout << "server replies: " << eaten << endl;
+		std::cout << "server replies: " << eaten << std::endl;
 		if (eaten)
 		{
 			WCHAR response[WEASEL_IPC_BUFFER_LENGTH];
-			bool ret = client.GetResponseData(boost::bind<bool>(read_buffer, _1, _2, boost::ref(response)));
-			cout << "get response data: " << ret << endl;
-			cout << "buffer reads: " << endl << wcstomb(response) << endl;
+			bool ret = client.GetResponseData(std::bind<bool>(read_buffer, std::placeholders::_1, std::placeholders::_2, std::ref(response)));
+			std::cout << "get response data: " << ret << std::endl;
+			std::cout << "buffer reads: " << std::endl << wcstomb(response) << std::endl;
 		}
 	}
 
@@ -114,26 +113,28 @@ int console_main()
 
 int client_main()
 {
+	//launch_server();
+	Sleep(1000);
 	weasel::Client client;
-	if (!client.Connect(launch_server))
+	if (!client.Connect())
 	{
-		cerr << "failed to connect to server." << endl;
+		std::cerr << "failed to connect to server." << std::endl;
 		return -2;
 	}
 	client.StartSession();
 	if (!client.Echo())
 	{
-		cerr << "failed to login." << endl;
+		std::cerr << "failed to login." << std::endl;
 		return -3;
 	}
 	bool eaten = client.ProcessKeyEvent(weasel::KeyEvent(L'A', 0));
-	cout << "server replies: " << eaten << endl;
+	std::cout << "server replies: " << eaten << std::endl;
 	if (eaten)
 	{
 		WCHAR response[WEASEL_IPC_BUFFER_LENGTH];
-		bool ret = client.GetResponseData(boost::bind<bool>(read_buffer, _1, _2, boost::ref(response)));
-		cout << "get response data: " << ret << endl;
-		cout << "buffer reads: " << endl << wcstomb(response) << endl;
+		bool ret = client.GetResponseData(std::bind<bool>(read_buffer, std::placeholders::_1, std::placeholders::_2, std::ref(response)));
+		std::cout << "get response data: " << ret << std::endl;
+		std::cout << "buffer reads: " << std::endl << wcstomb(response) << std::endl;
 	}
 	client.EndSession();
 
@@ -146,33 +147,33 @@ class TestRequestHandler : public weasel::RequestHandler
 public:
 	TestRequestHandler() : m_counter(0)
 	{
-		cerr << "handler ctor." << endl;
+		std::cerr << "handler ctor." << std::endl;
 	}
 	virtual ~TestRequestHandler()
 	{
-		cerr << "handler dtor: " << m_counter << endl;
+		std::cerr << "handler dtor: " << m_counter << std::endl;
 	}
 	virtual UINT FindSession(UINT session_id)
 	{
-		cerr << "FindSession: " << session_id << endl;
+		std::cerr << "FindSession: " << session_id << std::endl;
 		return (session_id <= m_counter ? session_id : 0);
 	}
 	virtual UINT AddSession(LPWSTR buffer)
 	{
-		cerr << "AddSession: " << m_counter + 1 << endl;
+		std::cerr << "AddSession: " << m_counter + 1 << std::endl;
 		return ++m_counter;
 	}
 	virtual UINT RemoveSession(UINT session_id)
 	{
-		cerr << "RemoveClient: " << session_id << endl;
+		std::cerr << "RemoveClient: " << session_id << std::endl;
 		return 0;
 	}
-	virtual BOOL ProcessKeyEvent(weasel::KeyEvent keyEvent, UINT session_id, LPWSTR buffer) {
-		cerr << "ProcessKeyEvent: " << session_id 
+	virtual BOOL ProcessKeyEvent(weasel::KeyEvent keyEvent, UINT session_id, EatLine eat) {
+		std::cerr << "ProcessKeyEvent: " << session_id 
 			  << " keycode: " << keyEvent.keycode 
 			  << " mask: " << keyEvent.mask 
-			  << endl;
-		wsprintf(buffer, L"Greeting=Hello, С�Ǻ�.\n");
+			  << std::endl;
+		eat(std::wstring(L"Greeting=Hello, 小狼毫.\n"));
 		return TRUE;
 	}
 private:
@@ -185,12 +186,15 @@ int server_main()
 	ATLASSERT(SUCCEEDED(hRes));
 
 	weasel::Server server;
-	boost::scoped_ptr<weasel::RequestHandler> handler(new TestRequestHandler);
+	//weasel::UI ui;
+	//const std::unique_ptr<weasel::RequestHandler> handler(new RimeWithWeaselHandler(&ui));
+	const std::unique_ptr<weasel::RequestHandler> handler(new TestRequestHandler);
+
 	server.SetRequestHandler(handler.get());
 	if (!server.Start())
 		return -4;
-	cerr << "server running." << endl;
+	std::cerr << "server running." << std::endl;
 	int ret = server.Run();
-	cerr << "server quitting." << endl;
+	std::cerr << "server quitting." << std::endl;
 	return ret;
 }

@@ -1,46 +1,49 @@
 #include "stdafx.h"
 #include "WeaselTSF.h"
+#include "CandidateList.h"
+#include "ResponseParser.h"
 
 STDAPI WeaselTSF::DoEditSession(TfEditCookie ec)
 {
-	ITfInsertAtSelection *pInsertAtSelection;
-	ITfRange *pRange;
-	TF_SELECTION tfSelection;
+	// get commit string from server
+	std::wstring commit;
+	weasel::Config config;
+	auto context = std::make_shared<weasel::Context>();
+	weasel::ResponseParser parser(&commit, context.get(), &_status, &config, &_cand->style());
 
-	if (_pEditSessionContext->QueryInterface(IID_ITfInsertAtSelection, (LPVOID *) &pInsertAtSelection) != S_OK)
-		return E_FAIL;
+	bool ok = m_client.GetResponseData(std::ref(parser));
 
-	/* insert the text */
-	if (pInsertAtSelection->InsertTextAtSelection(ec, 0, _editSessionText.c_str(), _editSessionText.length(), &pRange) != S_OK)
+	_UpdateLanguageBar(_status);
+
+	if (ok)
 	{
-		pInsertAtSelection->Release();
-		return E_FAIL;
+		if (!commit.empty())
+		{
+			// For auto-selecting, commit and preedit can both exist.
+			// Commit and close the original composition first.
+			if (!_IsComposing()) {
+				_StartComposition(_pEditSessionContext, _fCUASWorkaroundEnabled && !config.inline_preedit);
+			}
+			_InsertText(_pEditSessionContext, commit);
+			_EndComposition(_pEditSessionContext, false);
+		}
+		if (_status.composing && !_IsComposing())
+		{
+			_StartComposition(_pEditSessionContext, _fCUASWorkaroundEnabled && !config.inline_preedit);
+		}
+		else if (!_status.composing && _IsComposing())
+		{
+			_EndComposition(_pEditSessionContext, true);
+		}
+		_UpdateCompositionWindow(_pEditSessionContext);
+		if (_IsComposing() && config.inline_preedit)
+		{
+			_ShowInlinePreedit(_pEditSessionContext, context);
+		}
 	}
 
-	/* update the selection to an insertion point just past the inserted text. */
-	pRange->Collapse(ec, TF_ANCHOR_END);
-
-	tfSelection.range = pRange;
-	tfSelection.style.ase = TF_AE_NONE;
-	tfSelection.style.fInterimChar = FALSE;
-
-	_pEditSessionContext->SetSelection(ec, 1, &tfSelection);
-
-	pRange->Release();
-	pInsertAtSelection->Release();
-
-	return S_OK;
-}
-
-BOOL WeaselTSF::_InsertText(ITfContext *pContext, const std::wstring& text)
-{
-	HRESULT hr;
-
-	_pEditSessionContext = pContext;
-	_editSessionText = text;
-
-	if (_pEditSessionContext->RequestEditSession(_tfClientId, this, TF_ES_ASYNCDONTCARE | TF_ES_READWRITE, &hr) != S_OK || hr != S_OK)
-		return FALSE;
+	_UpdateUI(*context, _status);
 
 	return TRUE;
 }
+

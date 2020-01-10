@@ -1,15 +1,17 @@
-#pragma once
+ï»¿#pragma once
 #include <WeaselCommon.h>
+#include <WeaselUtility.h>
 #include <windows.h>
-#include <boost/function.hpp>
+#include <functional>
+#include <memory>
 
 #define WEASEL_IPC_WINDOW L"WeaselIPCWindow_1.0"
-#define WEASEL_IPC_SHARED_MEMORY "WeaselIPCSharedMemory_1.0"
+#define WEASEL_IPC_PIPE_NAME L"WeaselNamedPipe"
 
 #define WEASEL_IPC_METADATA_SIZE 1024
 #define WEASEL_IPC_BUFFER_SIZE (4 * 1024)
 #define WEASEL_IPC_BUFFER_LENGTH (WEASEL_IPC_BUFFER_SIZE / sizeof(WCHAR))
-#define WEASEL_IPC_SHARED_MEMORY_SIZE (WEASEL_IPC_METADATA_SIZE + WEASEL_IPC_BUFFER_SIZE)
+#define WEASEL_IPC_SHARED_MEMORY_SIZE (sizeof(PipeMessage) + WEASEL_IPC_BUFFER_SIZE)
 
 enum WEASEL_IPC_COMMAND
 {	
@@ -25,11 +27,17 @@ enum WEASEL_IPC_COMMAND
 	WEASEL_IPC_END_MAINTENANCE,
 	WEASEL_IPC_COMMIT_COMPOSITION,
 	WEASEL_IPC_CLEAR_COMPOSITION,
+	WEASEL_IPC_TRAY_COMMAND,
 	WEASEL_IPC_LAST_COMMAND
 };
 
 namespace weasel
 {
+	struct PipeMessage {
+		WEASEL_IPC_COMMAND Msg;
+		UINT wParam;
+		UINT lParam;
+	};
 
 	struct IPCMetadata
 	{
@@ -54,17 +62,18 @@ namespace weasel
 		}
 	};
 
-	// ÌÀíÕˆÇóÖ®Îï¼ş
+	// è™•ç†è«‹æ±‚ä¹‹ç‰©ä»¶
 	struct RequestHandler
 	{
+		using EatLine = std::function<bool(std::wstring&)>;
 		RequestHandler() {}
 		virtual ~RequestHandler() {}
 		virtual void Initialize() {}
 		virtual void Finalize() {}
 		virtual UINT FindSession(UINT session_id) { return 0; }
-		virtual UINT AddSession(LPWSTR buffer) { return 0; }
+		virtual UINT AddSession(LPWSTR buffer, EatLine eat = 0) { return 0; }
 		virtual UINT RemoveSession(UINT session_id) { return 0; }
-		virtual BOOL ProcessKeyEvent(KeyEvent keyEvent, UINT session_id, LPWSTR buffer) { return FALSE; }
+		virtual BOOL ProcessKeyEvent(KeyEvent keyEvent, UINT session_id, EatLine eat) { return FALSE; }
 		virtual void CommitComposition(UINT session_id) {}
 		virtual void ClearComposition(UINT session_id) {}
 		virtual void FocusIn(DWORD param, UINT session_id) {}
@@ -72,24 +81,25 @@ namespace weasel
 		virtual void UpdateInputPosition(RECT const& rc, UINT session_id) {}
 		virtual void StartMaintenance() {}
 		virtual void EndMaintenance() {}
+		virtual void SetOption(UINT session_id, const std::string &opt, bool val) {}
 	};
 	
-	// ÌÀíserver¶Ë»Ø‘ªÖ®Îï¼ş
-	typedef boost::function<bool (LPWSTR buffer, UINT length)> ResponseHandler;
+	// è™•ç†serverç«¯å›æ‡‰ä¹‹ç‰©ä»¶
+	typedef std::function<bool (LPWSTR buffer, UINT length)> ResponseHandler;
 	
-	// ÊÂ¼şÌÀíº¯”µ
-	typedef boost::function<bool ()> CommandHandler;
+	// äº‹ä»¶è™•ç†å‡½æ•¸
+	typedef std::function<bool ()> CommandHandler;
 
-	// †¢„Ó·ş„ÕßM³ÌÖ®Îï¼ş
+	// å•Ÿå‹•æœå‹™é€²ç¨‹ä¹‹ç‰©ä»¶
 	typedef CommandHandler ServerLauncher;
 
 
-	// IPCŒ¬FîÂ•Ã÷
+	// IPCå¯¦ç¾é¡è²æ˜
 
 	class ClientImpl;
 	class ServerImpl;
 
-	// IPC½Ó¿Úî
+	// IPCæ¥å£é¡
 
 	class Client
 	{
@@ -98,35 +108,37 @@ namespace weasel
 		Client();
 		virtual ~Client();
 		
-		// Á¬½Óµ½·şÎñ£¬±ØÒªÊ±Æô¶¯·şÎñ½ø³Ì
+		// è¿æ¥åˆ°æœåŠ¡ï¼Œå¿…è¦æ—¶å¯åŠ¨æœåŠ¡è¿›ç¨‹
 		bool Connect(ServerLauncher launcher = 0);
-		// ¶Ï¿ªÁ¬½Ó
+		// æ–­å¼€è¿æ¥
 		void Disconnect();
-		// ÖÕÖ¹·şÎñ
+		// ç»ˆæ­¢æœåŠ¡
 		void ShutdownServer();
-		// °lÆğ•şÔ’
+		// ç™¼èµ·æœƒè©±
 		void StartSession();
-		// ½YÊø•şÔ’
+		// çµæŸæœƒè©±
 		void EndSession();
-		// ßMÈë¾S×oÄ£Ê½
+		// é€²å…¥ç¶­è­·æ¨¡å¼
 		void StartMaintenance();
-		// ÍË³ö¾S×oÄ£Ê½
+		// é€€å‡ºç¶­è­·æ¨¡å¼
 		void EndMaintenance();
-		// ²âÊÔÁ¬½Ó
+		// æµ‹è¯•è¿æ¥
 		bool Echo();
-		// ÇëÇó·şÎñ´¦Àí°´¼üÏûÏ¢
+		// è¯·æ±‚æœåŠ¡å¤„ç†æŒ‰é”®æ¶ˆæ¯
 		bool ProcessKeyEvent(KeyEvent const& keyEvent);
-		// ÉÏÆÁÕıÔÚ¾İ‹µÄÎÄ×Ö
+		// ä¸Šå±æ­£åœ¨ç·¨è¼¯çš„æ–‡å­—
 		bool CommitComposition();
-		// Çå³ıÕıÔÚ¾İ‹µÄÎÄ×Ö
+		// æ¸…é™¤æ­£åœ¨ç·¨è¼¯çš„æ–‡å­—
 		bool ClearComposition();
-		// ¸üĞÂÊäÈëÎ»ÖÃ
+		// æ›´æ–°è¾“å…¥ä½ç½®
 		void UpdateInputPosition(RECT const& rc);
-		// ÊäÈë´°¿Ú»ñµÃ½¹µã
+		// è¾“å…¥çª—å£è·å¾—ç„¦ç‚¹
 		void FocusIn();
-		// ÊäÈë´°¿ÚÊ§È¥½¹µã
+		// è¾“å…¥çª—å£å¤±å»ç„¦ç‚¹
 		void FocusOut();
-		// ¶ÁÈ¡server·µ»ØµÄÊı¾İ
+		// æ‰˜ç›¤èœå–®
+		void TrayCommand(UINT menuId);
+		// è¯»å–serverè¿”å›çš„æ•°æ®
 		bool GetResponseData(ResponseHandler handler);
 
 	private:
@@ -139,11 +151,11 @@ namespace weasel
 		Server();
 		virtual ~Server();
 
-		// ³õÊ¼»¯·şÎñ
+		// åˆå§‹åŒ–æœåŠ¡
 		int Start();
-		// ½áÊø·şÎñ
+		// ç»“æŸæœåŠ¡
 		int Stop();
-		// ÏûÏ¢Ñ­»·
+		// æ¶ˆæ¯å¾ªç¯
 		int Run();
 
 		void SetRequestHandler(RequestHandler* pHandler);
@@ -154,4 +166,13 @@ namespace weasel
 		ServerImpl* m_pImpl;
 	};
 
+	inline std::wstring GetPipeName()
+	{
+		std::wstring pipe_name;
+		pipe_name += L"\\\\.\\pipe\\";
+		pipe_name += getUsername();
+		pipe_name += L"\\";
+		pipe_name += WEASEL_IPC_PIPE_NAME;
+		return pipe_name;
+	}
 }

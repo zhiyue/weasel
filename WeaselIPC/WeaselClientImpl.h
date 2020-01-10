@@ -1,5 +1,6 @@
 #pragma once
 #include <WeaselIPC.h>
+#include <PipeChannel.h>
 
 namespace weasel
 {
@@ -24,21 +25,24 @@ namespace weasel
 		void UpdateInputPosition(RECT const& rc);
 		void FocusIn();
 		void FocusOut();
+		void TrayCommand(UINT menuId);
 		bool GetResponseData(ResponseHandler const& handler);
 
 	protected:
-		HWND _GetServerWindow(LPCWSTR windowClass);
 		void _InitializeClientInfo();
 		bool _WriteClientInfo();
 
-		bool _Connected() const { return serverWnd != NULL; }
-		bool _Active() const { return _Connected() && session_id != 0; }
+		LRESULT _SendMessage(WEASEL_IPC_COMMAND Msg, DWORD wParam, DWORD lParam);
+
+		bool _Connected() const { return channel.Connected(); }
+		bool _Active() const { return channel.Connected() && session_id != 0; }
 
 	private:
 		UINT session_id;
-		HWND serverWnd;
 		std::wstring app_name;
 		bool is_ime;
+
+		PipeChannel<PipeMessage> channel;
 	};
 
 }

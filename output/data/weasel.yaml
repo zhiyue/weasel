@@ -1,10 +1,12 @@
 # Weasel settings
 # encoding: utf-8
 
-config_version: "0.19"
+config_version: "0.22"
 
 app_options:
   cmd.exe:
+    ascii_mode: true
+  conhost.exe:
     ascii_mode: true
 
 style:
@@ -14,7 +16,9 @@ style:
   horizontal: false
   fullscreen: false
   inline_preedit: false
+  preedit_type: composition
   display_tray_icon: false
+  label_format: "%s."
   layout:
     min_width: 160
     min_height: 0
@@ -484,3 +488,53 @@ preset_color_schemes:
     hilited_candidate_text_color: 0xffffff
     hilited_comment_text_color: 0xa7a7a9
     hilited_candidate_back_color: 0x594231
+
+  flypy:
+    # description: |
+    #   小鹤飞扬：白底蓝字，红色高亮。
+    #   根据小鹤双拼官网图片制作
+    #   http://www.flypy.com/images/mr.png
+    name: "小鹤飞扬／flypy"
+    author: "Pal.lxk <Pal.lxk@gmail.com>"
+    text_color: 0x000000
+    back_color: 0xffffff
+    border_color: 0xc6c6c6
+    label_color: 0xff8000
+    hilited_text_color: 0xff8000
+    hilited_back_color: 0xffffff
+    candidate_text_color: 0xff8000
+    comment_text_color: 0xff8000
+    hilited_candidate_text_color: 0x0000b0
+    hilited_comment_text_color: 0x0000b0
+    hilited_candidate_back_color: 0xffffff
+
+  metroblue:
+    name: "现代蓝／Metro Blue"
+    author: "Prcuvu <prcuvu@gmail.com>"
+    text_color: 0x000000
+    back_color: 0xffffff
+    border_color: 0xd77800
+    label_color: 0x838383
+    hilited_text_color: 0x000000
+    hilited_back_color: 0xffffff
+    candidate_text_color: 0x000000
+    comment_text_color: 0x000000
+    hilited_candidate_text_color: 0xffffff
+    hilited_comment_text_color: 0xffffff
+    hilited_candidate_back_color: 0xd77800
+    hilited_label_color: 0xffffff
+
+  psionics:
+    name: 幽能／Psionics
+    author: 雨過之後、佛振
+    text_color: 0xc2c2c2
+    back_color: 0x444444
+    border_color: 0x444444
+    candidate_text_color: 0xeeeeee
+    hilited_text_color: 0xeeeeee
+    hilited_back_color: 0x444444
+    hilited_candidate_label_color: 0xfafafa
+    hilited_candidate_text_color: 0xfafafa
+    hilited_candidate_back_color: 0xd8bf00
+    comment_text_color: 0x808080
+    hilited_comment_text_color: 0x444444

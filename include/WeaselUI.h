@@ -1,91 +1,19 @@
-#pragma once
+ï»¿#pragma once
 
 #include <WeaselCommon.h>
 
 namespace weasel
 {
-	enum LayoutType
-	{
-		LAYOUT_VERTICAL = 0,
-		LAYOUT_HORIZONTAL,
-		LAYOUT_VERTICAL_FULLSCREEN,
-		LAYOUT_HORIZONTAL_FULLSCREEN,
-		LAYOUT_TYPE_LAST
-	};
 
 	enum ClientCapabilities
 	{
 		INLINE_PREEDIT_CAPABLE = 1,
 	};
 
-	struct UIStyle
-	{
-		std::wstring font_face;
-		int font_point;
-		bool inline_preedit;
-		bool display_tray_icon;
-		// layout
-		LayoutType layout_type;
-		int min_width;
-		int min_height;
-		int border;
-		int margin_x;
-		int margin_y;
-		int spacing;
-		int candidate_spacing;
-		int hilite_spacing;
-		int hilite_padding;
-		int round_corner;
-		// color scheme
-		int text_color;
-		int candidate_text_color;
-		int label_text_color;
-		int comment_text_color;
-		int back_color;
-		int border_color;
-		int hilited_text_color;
-		int hilited_back_color;
-		int hilited_candidate_text_color;
-		int hilited_candidate_back_color;
-		int hilited_label_text_color;
-		int hilited_comment_text_color;
-		// per client
-		int client_caps;
-
-		UIStyle() : font_face(), 
-			        font_point(0),
-					inline_preedit(false),
-					display_tray_icon(false),
-					layout_type(LAYOUT_VERTICAL),
-					min_width(0),
-					min_height(0),
-					border(0),
-					margin_x(0),
-					margin_y(0),
-					spacing(0),
-					candidate_spacing(0),
-					hilite_spacing(0),
-					hilite_padding(0),
-					round_corner(0),
-					text_color(0),
-					candidate_text_color(0),
-					label_text_color(0),
-					comment_text_color(0),
-					back_color(0),
-					border_color(0),
-					hilited_text_color(0),
-					hilited_back_color(0),
-					hilited_candidate_text_color(0),
-					hilited_candidate_back_color(0),
-					hilited_label_text_color(0),
-					hilited_comment_text_color(0),
-					client_caps(0) {}
-	};
-
 	class UIImpl;
 
 	//
-	// ÊäÈë·¨½çÃæ½Ó¿ÚÀà
+	// è¾“å…¥æ³•ç•Œé¢æ¥å£ç±»
 	//
 	class UI
 	{
@@ -100,25 +28,26 @@ namespace weasel
 				Destroy();
 		}
 
-		// ´´½¨ÊäÈë·¨½çÃæ
+		// åˆ›å»ºè¾“å…¥æ³•ç•Œé¢
 		bool Create(HWND parent);
 
-		// Ïú»Ù½çÃæ
+		// é”€æ¯ç•Œé¢
 		void Destroy();
 		
-		// ½çÃæÏÔÒş
+		// ç•Œé¢æ˜¾éš
 		void Show();
 		void Hide();
 		void ShowWithTimeout(DWORD millisec);
 		bool IsCountingDown() const;
+		bool IsShown() const;
 		
-		// ÖØ»æ½çÃæ
+		// é‡ç»˜ç•Œé¢
 		void Refresh();
 
-		// ÖÃÊäÈë½¹µãÎ»ÖÃ£¨¹â±ê¸úËæÊ±ÒÆ¶¯ºòÑ¡´°£©µ«²»ÖØ»æ
+		// ç½®è¾“å…¥ç„¦ç‚¹ä½ç½®ï¼ˆå…‰æ ‡è·Ÿéšæ—¶ç§»åŠ¨å€™é€‰çª—ï¼‰ä½†ä¸é‡ç»˜
 		void UpdateInputPosition(RECT const& rc);
 
-		// ¸üĞÂ½çÃæÏÔÊ¾ÄÚÈİ
+		// æ›´æ–°ç•Œé¢æ˜¾ç¤ºå†…å®¹
 		void Update(Context const& ctx, Status const& status);
 
 		Context& ctx() { return ctx_; } 

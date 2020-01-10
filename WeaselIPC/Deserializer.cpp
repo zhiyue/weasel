@@ -4,11 +4,12 @@
 #include "Committer.h"
 #include "ContextUpdater.h"
 #include "Configurator.h"
+#include "Styler.h"
 
 using namespace weasel;
 
 
-map<wstring, Deserializer::Factory> Deserializer::s_factories;
+std::map<std::wstring, Deserializer::Factory> Deserializer::s_factories;
 
 
 void Deserializer::Initialize(ResponseParser* pTarget)
@@ -22,6 +23,7 @@ void Deserializer::Initialize(ResponseParser* pTarget)
 		Define(L"ctx", ContextUpdater::Create);
 		Define(L"status", StatusUpdater::Create);
 		Define(L"config", Configurator::Create);
+		Define(L"style", Styler::Create);
 	}
 
 	// loaded by default
@@ -39,7 +41,7 @@ bool Deserializer::Require(std::wstring const& action, ResponseParser* pTarget)
 	if (!pTarget)
 		return false;
 
-	map<wstring, Factory>::iterator i = s_factories.find(action);
+	std::map<std::wstring, Factory>::iterator i = s_factories.find(action);
 	if (i == s_factories.end())
 	{
 		// unknown action type

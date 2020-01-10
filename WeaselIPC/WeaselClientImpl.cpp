@@ -1,12 +1,12 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "WeaselClientImpl.h"
+#include <StringAlgorithm.hpp>
 
-using namespace boost::interprocess;
 using namespace weasel;
 
 ClientImpl::ClientImpl()
 	: session_id(0),
-	  serverWnd(NULL),
+	  channel(GetPipeName()),
 	  is_ime(false)
 {
 	_InitializeClientInfo();
@@ -14,7 +14,7 @@ ClientImpl::ClientImpl()
 
 ClientImpl::~ClientImpl()
 {
-	if (_Connected())
+	if (channel.Connected())
 		Disconnect();
 }
 
@@ -41,43 +41,29 @@ void ClientImpl::_InitializeClientInfo()
 		app_name = path.substr(separator_pos + 1);
 	else
 		app_name = path;
-	boost::to_lower(app_name);
+	to_lower(app_name);
 	// determine client type
 	GetModuleFileName(GetCurrentModule(), exe_path, MAX_PATH);
 	path = exe_path;
-	boost::to_lower(path);
-	is_ime = boost::ends_with(path, ".ime");
+	to_lower(path);
+	is_ime = ends_with(path, L".ime");
 }
 
 bool ClientImpl::Connect(ServerLauncher const& launcher)
 {
-	serverWnd = _GetServerWindow(WEASEL_IPC_WINDOW);
-	if ( !serverWnd && !launcher.empty() )
-	{
-		// Æô¶¯·şÎñ½ø³Ì
-		if (!launcher())
-		{
-			serverWnd = NULL;
-			return false;
-		}
-		serverWnd = _GetServerWindow(WEASEL_IPC_WINDOW);
-	}
-	return _Connected();
+	return channel.Connect();
 }
 
 void ClientImpl::Disconnect()
 {
 	if (_Active())
 		EndSession();
-	serverWnd = NULL;
+	channel.Disconnect();
 }
 
 void ClientImpl::ShutdownServer()
 {
-	if (_Connected())
-	{
-		SendMessage(serverWnd, WEASEL_IPC_SHUTDOWN_SERVER, 0, 0);
-	}
+	_SendMessage(WEASEL_IPC_SHUTDOWN_SERVER, 0, 0);
 }
 
 bool ClientImpl::ProcessKeyEvent(KeyEvent const& keyEvent)
@@ -85,7 +71,7 @@ bool ClientImpl::ProcessKeyEvent(KeyEvent const& keyEvent)
 	if (!_Active())
 		return false;
 
-	LRESULT ret = SendMessage(serverWnd, WEASEL_IPC_PROCESS_KEY_EVENT, keyEvent, session_id);
+	LRESULT ret = _SendMessage(WEASEL_IPC_PROCESS_KEY_EVENT, keyEvent, session_id);
 	return ret != 0;
 }
 
@@ -94,7 +80,7 @@ bool ClientImpl::CommitComposition()
 	if (!_Active())
 		return false;
 
-	LRESULT ret = SendMessage(serverWnd, WEASEL_IPC_COMMIT_COMPOSITION, 0, session_id);
+	LRESULT ret = _SendMessage(WEASEL_IPC_COMMIT_COMPOSITION, 0, session_id);
 	return ret != 0;
 }
 
@@ -103,7 +89,7 @@ bool ClientImpl::ClearComposition()
 	if (!_Active())
 		return false;
 
-	LRESULT ret = SendMessage(serverWnd, WEASEL_IPC_CLEAR_COMPOSITION, 0, session_id);
+	LRESULT ret = _SendMessage(WEASEL_IPC_CLEAR_COMPOSITION, 0, session_id);
 	return ret != 0;
 }
 
@@ -112,16 +98,16 @@ void ClientImpl::UpdateInputPosition(RECT const& rc)
 	if (!_Active())
 		return;
 	/*
-	ÒÆÎ»±êÖ¾ = 1bit == 0
+	ç§»ä½æ ‡å¿— = 1bit == 0
 	height:0~127 = 7bit
-	top:-2048~2047 = 12bit£¨ÓĞ·ûºÅ£©
-	left:-2048~2047 = 12bit£¨ÓĞ·ûºÅ£©
+	top:-2048~2047 = 12bitï¼ˆæœ‰ç¬¦å·ï¼‰
+	left:-2048~2047 = 12bitï¼ˆæœ‰ç¬¦å·ï¼‰
 
-	¸ß½âÎö¶ÈÏÂ£º
-	ÒÆÎ»±êÖ¾ = 1bit == 1
-	height:0~254 = 7bit£¨ÉáÆúµÍ1Î»£©
-	top:-4096~4094 = 12bit£¨ÓĞ·ûºÅ£¬ÉáÆúµÍ1Î»£©
-	left:-4096~4094 = 12bit£¨ÓĞ·ûºÅ£¬ÉáÆúµÍ1Î»£©
+	é«˜è§£æåº¦ä¸‹ï¼š
+	ç§»ä½æ ‡å¿— = 1bit == 1
+	height:0~254 = 7bitï¼ˆèˆå¼ƒä½1ä½ï¼‰
+	top:-4096~4094 = 12bitï¼ˆæœ‰ç¬¦å·ï¼Œèˆå¼ƒä½1ä½ï¼‰
+	left:-4096~4094 = 12bitï¼ˆæœ‰ç¬¦å·ï¼Œèˆå¼ƒä½1ä½ï¼‰
 	*/
 	int hi_res = static_cast<int>(rc.bottom - rc.top >= 128 || 
 		rc.left < -2048 || rc.left >= 2048 || rc.top < -2048 || rc.top >= 2048);
@@ -130,51 +116,50 @@ void ClientImpl::UpdateInputPosition(RECT const& rc)
 	int height = max(0, min(127, (rc.bottom - rc.top) >> hi_res));
 	DWORD compressed_rect = ((hi_res & 0x01) << 31) | ((height & 0x7f) << 24) | 
 		                    ((top & 0xfff) << 12) | (left & 0xfff);
-	PostMessage(serverWnd, WEASEL_IPC_UPDATE_INPUT_POS, compressed_rect, session_id);
+	_SendMessage(WEASEL_IPC_UPDATE_INPUT_POS, compressed_rect, session_id);
 }
 
 void ClientImpl::FocusIn()
 {
-    DWORD client_caps = 0;  /* TODO */
-	PostMessage(serverWnd, WEASEL_IPC_FOCUS_IN, client_caps, session_id);
+	DWORD client_caps = 0;  /* TODO */
+	_SendMessage(WEASEL_IPC_FOCUS_IN, client_caps, session_id);
 }
 
 void ClientImpl::FocusOut()
 {
-	PostMessage(serverWnd, WEASEL_IPC_FOCUS_OUT, 0, session_id);
+	_SendMessage(WEASEL_IPC_FOCUS_OUT, 0, session_id);
+}
+
+void ClientImpl::TrayCommand(UINT menuId)
+{
+	_SendMessage(WEASEL_IPC_TRAY_COMMAND, menuId, session_id);
 }
 
 void ClientImpl::StartSession()
 {
-	if (!_Connected())
-		return;
-
 	if (_Active() && Echo())
 		return;
 
 	_WriteClientInfo();
-	UINT ret = SendMessage(serverWnd, WEASEL_IPC_START_SESSION, 0, 0);
+	UINT ret = _SendMessage(WEASEL_IPC_START_SESSION, 0, 0);
 	session_id = ret;
 }
 
 void ClientImpl::EndSession()
 {
-	if (_Connected())
-		PostMessage(serverWnd, WEASEL_IPC_END_SESSION, 0, session_id);
+	_SendMessage(WEASEL_IPC_END_SESSION, 0, session_id);
 	session_id = 0;
 }
 
 void ClientImpl::StartMaintenance()
 {
-	if (_Connected())
-		SendMessage(serverWnd, WEASEL_IPC_START_MAINTENANCE, 0, 0);
+	_SendMessage(WEASEL_IPC_START_MAINTENANCE, 0, 0);
 	session_id = 0;
 }
 
 void ClientImpl::EndMaintenance()
 {
-	if (_Connected())
-		SendMessage(serverWnd, WEASEL_IPC_END_MAINTENANCE, 0, 0);
+	_SendMessage(WEASEL_IPC_END_MAINTENANCE, 0, 0);
 	session_id = 0;
 }
 
@@ -183,87 +168,41 @@ bool ClientImpl::Echo()
 	if (!_Active())
 		return false;
 
-	UINT serverEcho = SendMessage(serverWnd, WEASEL_IPC_ECHO, 0, session_id);
+	UINT serverEcho = _SendMessage(WEASEL_IPC_ECHO, 0, session_id);
 	return (serverEcho == session_id);
 }
 
 bool ClientImpl::GetResponseData(ResponseHandler const& handler)
 {
-	if (handler.empty())
-	{
-		return false;
-	}
-	try
-	{
-		windows_shared_memory shm(open_only, WEASEL_IPC_SHARED_MEMORY, read_only);
-		mapped_region region(shm, read_only, WEASEL_IPC_METADATA_SIZE);
-		return handler((LPWSTR)region.get_address(), WEASEL_IPC_BUFFER_LENGTH);
-	}
-	catch (interprocess_exception& /*ex*/)
-	{
+	if (!handler) {
 		return false;
 	}
 
-	return false;
+	return channel.HandleResponseData(handler);
 }
+
 
 bool ClientImpl::_WriteClientInfo()
 {
-	WCHAR* buffer = NULL;
-	try
-	{
-		windows_shared_memory shm(open_only, WEASEL_IPC_SHARED_MEMORY, read_write);
-		mapped_region region(shm, read_write, WEASEL_IPC_METADATA_SIZE);
-		buffer = (LPWSTR)region.get_address();
-		if (!buffer)
-		{
-			return false;
-		}
-		memset(buffer, 0, WEASEL_IPC_BUFFER_SIZE);
-		wbufferstream bs(buffer, WEASEL_IPC_BUFFER_LENGTH);
-		bs << L"action=session\n";
-		bs << L"session.client_app=" << app_name.c_str() << L"\n";
-		bs << L"session.client_type=" << (is_ime ? L"ime" : L"tsf") << L"\n";
-		bs << L".\n";
-		if (!bs.good())
-		{
-			// response text toooo long!
-			return false;
-		}
-	}
-	catch (interprocess_exception& /*ex*/)
-	{
-		return false;
-	}
-
+	channel << L"action=session\n";
+	channel << L"session.client_app=" << app_name.c_str() << L"\n";
+	channel << L"session.client_type=" << (is_ime ? L"ime" : L"tsf") << L"\n";
+	channel << L".\n";
 	return true;
 }
 
-HWND ClientImpl::_GetServerWindow(LPCWSTR windowClass)
+
+LRESULT ClientImpl::_SendMessage(WEASEL_IPC_COMMAND Msg, DWORD wParam, DWORD lParam)
 {
-	if (!windowClass)
-	{
-		return NULL;
+	try {
+		PipeMessage req{ Msg, wParam, lParam };
+		return channel.Transact(req);
 	}
-	try
-	{
-		windows_shared_memory shm(open_only, WEASEL_IPC_SHARED_MEMORY, read_only);
-		mapped_region region(shm, read_only, 0, WEASEL_IPC_METADATA_SIZE);
-		IPCMetadata *metadata = reinterpret_cast<IPCMetadata*>(region.get_address());
-		if (!metadata || wcsncmp(metadata->server_window_class, windowClass, IPCMetadata::WINDOW_CLASS_LENGTH))
-		{
-			return NULL;
-		}
-		return reinterpret_cast<HWND>(metadata->server_hwnd);
+	catch (DWORD /* ex */) {
+		return 0;
 	}
-	catch (interprocess_exception& /*ex*/)
-	{
-		return NULL;
-	}
-	return NULL;
 }
 
-// weasel::Client
 
 Client::Client() 
 	: m_pImpl(new ClientImpl())
@@ -338,6 +277,11 @@ void Client::StartMaintenance()
 void Client::EndMaintenance()
 {
 	m_pImpl->EndMaintenance();
+}
+
+void Client::TrayCommand(UINT menuId)
+{
+	m_pImpl->TrayCommand(menuId);
 }
 
 bool Client::Echo()

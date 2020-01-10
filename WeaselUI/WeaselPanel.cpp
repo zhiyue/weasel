@@ -1,4 +1,4 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 #include "WeaselPanel.h"
 #include <WeaselCommon.h>
 #include <Usp10.h>
@@ -8,34 +8,9 @@
 #include "FullScreenLayout.h"
 
 // for IDI_ZH, IDI_EN
-#include "../WeaselServer/resource.h"
+#include <resource.h>
 
 using namespace weasel;
-
-static LPCWSTR DEFAULT_FONT_FACE = L"";
-static const int DEFAULT_FONT_POINT = 16;
-
-static const LayoutType LAYOUT_TYPE = LAYOUT_VERTICAL;
-static const int MIN_WIDTH = 160;
-static const int MIN_HEIGHT = 0;
-static const int BORDER = 3;
-static const int MARGIN_X = 12;
-static const int MARGIN_Y = 12;
-static const int SPACING = 10;
-static const int CAND_SPACING = 5;
-static const int HIGHLIGHT_SPACING = 4;
-static const int HIGHLIGHT_PADDING = 2;
-static const int ROUND_CORNER = 4;
-
-static const COLORREF TEXT_COLOR                  = 0x000000;
-static const COLORREF CAND_TEXT_COLOR             = 0x000000;
-static const COLORREF BACK_COLOR                  = 0xffffff;
-static const COLORREF BORDER_COLOR                = 0x000000;
-static const COLORREF HIGHLIGHTED_TEXT_COLOR      = 0x000000;
-static const COLORREF HIGHLIGHTED_BACK_COLOR      = 0x7fffff;
-static const COLORREF HIGHLIGHTED_CAND_TEXT_COLOR = 0xffffff;
-static const COLORREF HIGHLIGHTED_CAND_BACK_COLOR = 0x000000;
-
 
 WeaselPanel::WeaselPanel(weasel::UI &ui)
 	: m_layout(NULL), 
@@ -43,33 +18,6 @@ WeaselPanel::WeaselPanel(weasel::UI &ui)
 	  m_status(ui.status()), 
 	  m_style(ui.style())
 {
-	m_style.font_face = DEFAULT_FONT_FACE;
-	m_style.font_point = DEFAULT_FONT_POINT;
-	m_style.layout_type = LAYOUT_TYPE;
-	m_style.min_width = MIN_WIDTH;
-	m_style.min_height = MIN_HEIGHT;
-	m_style.border = BORDER;
-	m_style.margin_x = MARGIN_X;
-	m_style.margin_y = MARGIN_Y;
-	m_style.spacing = SPACING;
-	m_style.candidate_spacing = CAND_SPACING;
-	m_style.hilite_spacing = HIGHLIGHT_SPACING;
-	m_style.hilite_padding = HIGHLIGHT_PADDING;
-	m_style.round_corner = ROUND_CORNER;
-
-	m_style.text_color = TEXT_COLOR;
-	m_style.candidate_text_color = CAND_TEXT_COLOR;
-	m_style.label_text_color = CAND_TEXT_COLOR;
-	m_style.comment_text_color = CAND_TEXT_COLOR;
-	m_style.back_color = BACK_COLOR;
-	m_style.border_color = BORDER_COLOR;
-	m_style.hilited_text_color = HIGHLIGHTED_TEXT_COLOR;
-	m_style.hilited_back_color = HIGHLIGHTED_BACK_COLOR;
-	m_style.hilited_candidate_text_color = HIGHLIGHTED_CAND_TEXT_COLOR;
-	m_style.hilited_candidate_back_color = HIGHLIGHTED_CAND_BACK_COLOR;
-	m_style.hilited_label_text_color = HIGHLIGHTED_CAND_TEXT_COLOR;
-	m_style.hilited_comment_text_color = HIGHLIGHTED_CAND_TEXT_COLOR;
-
 	m_iconDisabled.LoadIconW(IDI_RELOAD, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
 	m_iconEnabled.LoadIconW(IDI_ZH, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
 	m_iconAlpha.LoadIconW(IDI_EN, STATUS_ICON_SIZE, STATUS_ICON_SIZE, LR_DEFAULTCOLOR);
@@ -100,25 +48,25 @@ void WeaselPanel::_CreateLayout()
 		delete m_layout;
 
 	Layout* layout = NULL;
-	if (m_style.layout_type == LAYOUT_VERTICAL ||
-		m_style.layout_type == LAYOUT_VERTICAL_FULLSCREEN)
+	if (m_style.layout_type == UIStyle::LAYOUT_VERTICAL ||
+		m_style.layout_type == UIStyle::LAYOUT_VERTICAL_FULLSCREEN)
 	{
 		layout = new VerticalLayout(m_style, m_ctx, m_status);
 	}
-	else if (m_style.layout_type == LAYOUT_HORIZONTAL ||
-		m_style.layout_type == LAYOUT_HORIZONTAL_FULLSCREEN)
+	else if (m_style.layout_type == UIStyle::LAYOUT_HORIZONTAL ||
+		m_style.layout_type == UIStyle::LAYOUT_HORIZONTAL_FULLSCREEN)
 	{
 		layout = new HorizontalLayout(m_style, m_ctx, m_status);
 	}
-	if (m_style.layout_type == LAYOUT_VERTICAL_FULLSCREEN ||
-		m_style.layout_type == LAYOUT_HORIZONTAL_FULLSCREEN)
+	if (m_style.layout_type == UIStyle::LAYOUT_VERTICAL_FULLSCREEN ||
+		m_style.layout_type == UIStyle::LAYOUT_HORIZONTAL_FULLSCREEN)
 	{
 		layout = new FullScreenLayout(m_style, m_ctx, m_status, m_inputPos, layout);
 	}
 	m_layout = layout;
 }
 
-//∏¸–¬ΩÁ√Ê
+//Êõ¥Êñ∞ÁïåÈù¢
 void WeaselPanel::Refresh()
 {
 	_CreateLayout();
@@ -154,11 +102,11 @@ void WeaselPanel::_HighlightText(CDCHandle dc, CRect rc, COLORREF color)
 bool WeaselPanel::_DrawPreedit(Text const& text, CDCHandle dc, CRect const& rc)
 {
 	bool drawn = false;
-	wstring const& t = text.str;
+	std::wstring const& t = text.str;
 	if (!t.empty())
 	{
 		weasel::TextRange range;
-		vector<weasel::TextAttribute> const& attrs = text.attributes;
+		std::vector<weasel::TextAttribute> const& attrs = text.attributes;
 		for (size_t j = 0; j < attrs.size(); ++j)
 			if (attrs[j].type == weasel::HIGHLIGHTED)
 				range = attrs[j].range;
@@ -211,11 +159,11 @@ bool WeaselPanel::_DrawPreedit(Text const& text, CDCHandle dc, CRect const& rc)
 bool WeaselPanel::_DrawCandidates(CDCHandle dc)
 {
 	bool drawn = false;
-	const vector<Text> &candidates(m_ctx.cinfo.candies);
-	const vector<Text> &comments(m_ctx.cinfo.comments);
-	const std::string &labels(m_ctx.cinfo.labels);
+	const std::vector<Text> &candidates(m_ctx.cinfo.candies);
+	const std::vector<Text> &comments(m_ctx.cinfo.comments);
+	const std::vector<Text> &labels(m_ctx.cinfo.labels);
 
-	for (size_t i = 0; i < candidates.size(); i++)
+	for (size_t i = 0; i < candidates.size() && i < MAX_CANDIDATES_COUNT; ++i)
 	{
 		CRect rect;
 		if (i == m_ctx.cinfo.highlighted)
@@ -227,7 +175,7 @@ bool WeaselPanel::_DrawCandidates(CDCHandle dc)
 			dc.SetTextColor(m_style.label_text_color);
 
 		// Draw label
-		std::wstring label = m_layout->GetLabelText(labels, i);
+		std::wstring label = m_layout->GetLabelText(labels, i, m_style.label_text_format.c_str());
 		rect = m_layout->GetCandidateLabelRect(i);
 		_TextOut(dc, rect.left, rect.top, rect, label.c_str(), label.length());
 

@@ -12,12 +12,16 @@
 
 #pragma warning(disable : 4819)
 
-#include <boost/algorithm/string.hpp>
-#include <boost/foreach.hpp>
-#include <boost/format.hpp>
 #include <boost/interprocess/streams/bufferstream.hpp>
+#include <boost/archive/text_woarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/thread.hpp>
 
 #pragma warning(default : 4819)
+#include <algorithm>
+#include <list>
+#include <set>
+#include <string>
+#include <sstream>
 
-using namespace std;
 using boost::interprocess::wbufferstream;

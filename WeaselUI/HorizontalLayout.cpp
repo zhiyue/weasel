@@ -12,7 +12,7 @@ void HorizontalLayout::DoLayout(CDCHandle dc)
 {
 	const std::vector<Text> &candidates(_context.cinfo.candies);
 	const std::vector<Text> &comments(_context.cinfo.comments);
-	const std::string &labels(_context.cinfo.labels);
+	const std::vector<Text> &labels(_context.cinfo.labels);
 
 	CSize size;
 	//dc.GetTextExtent(L"\x4e2d", 1, &size);
@@ -40,13 +40,13 @@ void HorizontalLayout::DoLayout(CDCHandle dc)
 
 	/* Candidates */
 	int w = _style.margin_x, h = 0;
-	for (int i = 0; i < candidates.size(); i++)
+	for (size_t i = 0; i < candidates.size() && i < MAX_CANDIDATES_COUNT; ++i)
 	{
 		if (i > 0)
 			w += _style.candidate_spacing;
 
 		/* Label */
-		std::wstring label = GetLabelText(labels, i);
+		std::wstring label = GetLabelText(labels, i, _style.label_text_format.c_str());
 		dc.GetTextExtent(label.c_str(), label.length(), &size);
 		_candidateLabelRects[i].SetRect(w, height, w + size.cx, height + size.cy);
 		w += size.cx, h = max(h, size.cy);

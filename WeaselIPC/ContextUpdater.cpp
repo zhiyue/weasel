@@ -1,4 +1,7 @@
 #include "stdafx.h"
+#include <StringAlgorithm.hpp>
+#include <WeaselUtility.h>
+
 #include "Deserializer.h"
 #include "ContextUpdater.h"
 
@@ -12,7 +15,7 @@ Deserializer::Ptr ContextUpdater::Create(ResponseParser* pTarget)
 }
 
 ContextUpdater::ContextUpdater(ResponseParser* pTarget)
-: Deserializer(pTarget)
+	: Deserializer(pTarget)
 {
 }
 
@@ -20,7 +23,7 @@ ContextUpdater::~ContextUpdater()
 {
 }
 
-void ContextUpdater::Store(Deserializer::KeyType const& k, wstring const& value)
+void ContextUpdater::Store(Deserializer::KeyType const& k, std::wstring const& value)
 {
 	if(!m_pTarget->p_context || k.size() < 2)
 		return;
@@ -44,7 +47,7 @@ void ContextUpdater::Store(Deserializer::KeyType const& k, wstring const& value)
 	}
 }
 
-void ContextUpdater::_StoreText(Text& target, Deserializer::KeyType k, wstring const& value)
+void ContextUpdater::_StoreText(Text& target, Deserializer::KeyType k, std::wstring const& value)
 {
 	if(k.size() == 2)
 	{
@@ -56,8 +59,8 @@ void ContextUpdater::_StoreText(Text& target, Deserializer::KeyType k, wstring c
 	{
 		if (k[2] == L"cursor")
 		{
-			vector<wstring> vec;
-			split(vec, value, is_any_of(L","));
+			std::vector<std::wstring> vec;
+			split(vec, value, L",");
 			if (vec.size() < 2)
 				return;
 
@@ -72,41 +75,13 @@ void ContextUpdater::_StoreText(Text& target, Deserializer::KeyType k, wstring c
 	}
 }
 
-void ContextUpdater::_StoreCand(Deserializer::KeyType k, wstring const& value)
+void ContextUpdater::_StoreCand(Deserializer::KeyType k, std::wstring const& value)
 {
 	CandidateInfo& cinfo = m_pTarget->p_context->cinfo;
-	if(k.size() < 3)
-		return;
-	if (k[2] == L"length")
-	{
-		cinfo.clear();
-		int size = _wtoi(value.c_str());
-		cinfo.candies.resize(size);
-		return;
-	}
-	if (k[2] == L"cursor")
-	{
-		int cur = _wtoi(value.c_str());
-		cinfo.highlighted = cur;
-		return;
-	}
-	if (k[2] == L"page")
-	{
-		vector<wstring> vec;
-		split(vec, value, is_any_of(L"/"));
-		if (vec.size() == 0)
-			return;
-		int i = _wtoi(vec[0].c_str());
-		cinfo.currentPage = i;
-		int n = (vec.size() >= 2) ? _wtoi(vec[1].c_str()) : 0;
-		cinfo.totalPages = n;
-		return;
-	}
+	std::wstringstream ss(value);
+	boost::archive::text_wiarchive ia(ss);
 
-	size_t idx = _wtoi(k[2].c_str());
-	if (idx >= cinfo.candies.size())
-		return;
-	cinfo.candies[idx].str = value;
+	ia >> cinfo;
 }
 
 // StatusUpdater
@@ -125,7 +100,7 @@ StatusUpdater::~StatusUpdater()
 {
 }
 
-void StatusUpdater::Store(Deserializer::KeyType const& k, wstring const& value)
+void StatusUpdater::Store(Deserializer::KeyType const& k, std::wstring const& value)
 {
 	if(!m_pTarget->p_status || k.size() < 2)
 		return;
